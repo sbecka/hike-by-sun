@@ -12,7 +12,7 @@
     <header>
         <nav>
             <h1>Hike by Sun</h1>
-            <ul>
+            <ul class="nav-list">
                 <li>
                     <a href="#search" class="search nav-links">Search</a>
                 </li>
@@ -32,9 +32,9 @@
             
             <form>
                 <label for="city">Enter a City</label>
-                <input type="text" name="city" id="city" required>
+                <input type="text" name="city" id="city" >
                 <label for="date">Date</label>
-                <input type="date" required>
+                <input type="date" id="date" required>
                 <input type="submit" name="submit" id="submit">
             </form>
 
@@ -57,15 +57,15 @@
     <section id="timeline">
         <div>
             <h3 class="city-name js-city-timeline"></h3>
-            <h4>Date</h4>
-            <h5>Daytime Total</h5>
+            <h4 class="date js-date">11/12/2019</h4>
+            <h5 class="daytime js-daytime">Daytime Total</h5>
 
             <div>
-                <h5>Sunrise:</h5>
+                <h5 class="sunrise js-sunrise">Sunrise:</h5>
                 <ul>
                    
                 </ul>
-                <h5>Sunset:</h5>
+                <h5 class="sunset js-sunset">Sunset:</h5>
             </div>
         </div>
     </section>

@@ -3,6 +3,32 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+header {
+    height: 60px;
+}
+
+nav {
+    background: white;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100vw;
+    top: 0;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: space-around;
+    width: 50vw;
+    align-items: center;
+}
+
 li {
     list-style: none;
+}
+
+.trail {
+    border: 1px solid black;
 }
