@@ -14,33 +14,37 @@
             <h1>Hike by Sun</h1>
             <ul>
                 <li>
-                    Search
+                    <a href="#search" class="search nav-links">Search</a>
                 </li>
                 <li>
-                    Trails
+                    <a href="#trails" class="trails nav-links">Trails</a>
                 </li>
                 <li>
-                    Timeline
+                    <a href="#timeline" class="timeline nav-links">Timeline</a>
                 </li>
             </ul>
         </nav>
     </header>
-    <section>
+    <section id = "search">
         <div class="home-search">
+
             <h2>Search trails and plan to make the most of your day!</h2>
+            
             <form>
                 <label for="city">Enter a City</label>
-                <input type="text" name="city" id="city">
+                <input type="text" name="city" id="city" required>
                 <label for="date">Date</label>
-                <input type="date">
+                <input type="date" required>
                 <input type="submit" name="submit" id="submit">
             </form>
+
+            <p class="error-message js-error-message"></p>
         </div>
     </section>
 
-    <section>
+    <section id="trails">
         <div>
-            <h3>Trails in City, City</h3>
+            <h3 class="city-name">Trails in </h3>
             <ul>
                 <!--js here-->
                 <li>
@@ -50,9 +54,9 @@
         </div>
     </section>
 
-    <section>
+    <section id="timeline">
         <div>
-            <h3>City, City</h3>
+            <h3 class="city-name"></h3>
             <h4>Date</h4>
             <h5>Daytime Total</h5>
 
