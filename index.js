@@ -1,8 +1,5 @@
-import fetchJsonp from 'fetch-jsonp';
-
 'use strict';
 
- //require('es6-promise').polyfill(); promise polyfill for Internet Explorer
 // Sunrise Sunset API https://api.sunrise-sunset.org/json
 
 const sunRiseSunSetUrl = "https://api.sunrise-sunset.org/json";
@@ -109,9 +106,9 @@ function formatQuery(params) {
     return queryItems.join("&");
 };
 
-//const x = function callbackGeoCode(data) {
-//    console.log(data[0].display_name);
-//};
+let call = function callbackGeoCode(data) {
+    console.log(data);
+};
 let latitude = null;
 let longitude = null;
 let cityName = null;
@@ -121,8 +118,8 @@ function getCityGeoCode(userCity) {
     const params = {
         key: apiToken,
         q: userCity,
-        format: jsonFormat
-        //json_callback: x
+        format: jsonFormat,
+        json_callback: call
     };
 
     const locationQueryString = formatQuery(params);
@@ -130,7 +127,9 @@ function getCityGeoCode(userCity) {
     const url = locationIqUrl + "?" + locationQueryString;
     console.log(url);
     
-    fetch(url)
+    fetchJsonp(url, {
+        jsonpCallback: 'json_callback', jsonpCallbackFunction: 'callBackGeoCode' 
+    })
         .then(response => {
             if (response.ok) {
                 return response.json();
