@@ -1,23 +1,24 @@
-import fetchJsonp from 'fetch-jsonp';
+//import fetchJsonp from 'fetch-jsonp';
 
 'use strict';
 
  //require('es6-promise').polyfill(); promise polyfill for Internet Explorer
-// Sunrise Sunset API https://api.sunrise-sunset.org/json
+const geoAstronomyAPIKey = "170fa59d1a2c41ecbd0058cee382b898";
 
-const sunRiseSunSetUrl = "https://api.sunrise-sunset.org/json";
+const geoLocationAstronomyUrl = "https://api.ipgeolocation.io/astronomy";
 
 function findSunTimes(latitude, longitude, dateYearMonthDay) {
 
     const params = {
+        apiKey: geoAstronomyAPIKey,
         lat: latitude,
-        lng: longitude,
+        long: longitude,
         date: dateYearMonthDay
     };
 
     const sunQueryString = formatQuery(params);
 
-    const url = sunRiseSunSetUrl + "?" + sunQueryString;
+    const url = geoLocationAstronomyUrl + "?" + sunQueryString;
 
     console.log(url);
 
@@ -29,11 +30,69 @@ function findSunTimes(latitude, longitude, dateYearMonthDay) {
             throw new Error(response.statusText);
         })
         .then(responseJson => {
+            let sunRiseTime = responseJson.sunrise;
+            let newSunTime = removeLeadingZero(sunRiseTime);
+            let militaryTime = responseJson.sunset;
+            let newHour = militaryTimeConverter(militaryTime);
             console.log(responseJson);
+            $(".js-daytime").text(`Day Length: ${responseJson.day_length} hours`);
+            $(".js-sunrise").text(`${newSunTime} AM`);
+            $(".js-sunset").text(`${newHour} PM`);
         })
         .catch(error => {
             return $(".js-error-message").text(`${error.message}`);
         });
+};
+
+function removeLeadingZero(sunRiseTime) {
+
+    let indexZero = sunRiseTime.indexOf("0");
+
+    if (indexZero === 0) {
+        let newTime = sunRiseTime.slice(1);
+        sunRiseTime = newTime;
+        //console.log(sunRiseTime);
+    }
+
+    return sunRiseTime;
+};
+
+function militaryTimeConverter(militaryTime) {
+    let hourTime = militaryTime.split(":");
+    let hourTarget = hourTime.shift();
+    let hourNumber = parseInt(hourTarget);
+    
+    if (hourNumber === 13) {
+        hourNumber = 1;
+    } else if (hourNumber === 14) {
+        hourNumber = 2;
+    } else if (hourNumber === 15) {
+        hourNumber = 3;
+    } else if (hourNumber === 16) {
+        hourNumber = 4;
+    } else if (hourNumber === 17) {
+        hourNumber = 5;
+    } else if (hourNumber === 18) {
+        hourNumber = 6;
+    } else if (hourNumber === 19) {
+        hourNumber = 7;
+    } else if (hourNumber === 20) {
+        hourNumber = 8;
+    } else if (hourNumber === 21) {
+        hourNumber = 9;
+    } else if (hourNumber === 22) {
+        hourNumber = 10;
+    } else if (hourNumber === 23) {
+        hourNumber = 11;
+    } else if (hourNumber === 24) {
+        hourNumber = 12;
+    };
+    
+    let turnBackToString = hourNumber.toString();
+    hourTime.unshift(turnBackToString);
+    let normalHour = hourTime.join(":");
+    //console.log(normalHour);
+    return normalHour;
 };
 
 //The Hiking Project https://www.hikingproject.com/data/get-trails
@@ -78,8 +137,7 @@ function findTrails() {
                     <li class="trail js-trail">
                         <h4>${responseJson.trails[i].name}</h4>
                         <p>${responseJson.trails[i].location}</p>
-                        <p>Rating: ${responseJson.trails[i].stars} / 5</p>
-                        <p>Trail Length: ${responseJson.trails[i].length} mi</p>
+                        <p>Rating: ${responseJson.trails[i].stars} / 5  Trail Length: ${responseJson.trails[i].length} mi</p>
                         <p>${responseJson.trails[i].summary}</p>
                         <a href="${responseJson.trails[i].url}" target="_blank">${responseJson.trails[i].url}</a>
                     </li>
@@ -147,8 +205,12 @@ function getCityGeoCode(userCity) {
             console.log(longitude);
             console.log(cityName);
             
-            
-            const dateYearMonthDay = $("#date").val();
+            //IP Geolocation Astronomy API for the Canada, North and South America lose a day compared to input date
+            //example 2019-11-14 becomes 2019-11-13 in the response data
+            //decided to add one day to date input value in order to get the correct date back in the response
+            let dateYearMonthDay = $("#date").val();
+    
+            console.log(dateYearMonthDay);
             findTrails(latitude, longitude);
             findSunTimes(latitude, longitude, dateYearMonthDay);
         })
