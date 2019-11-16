@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Search trails to hike and plan your activities during the daytime.">
-    <title>Document</title>
+    <title>Hike by Sun</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -30,7 +30,7 @@
 
             <h2>Search trails and plan to make the most of your day!</h2>
             
-            <form>
+            <form class="search-city-date">
                 <label for="city">Enter a City</label>
                 <input type="text" name="city" id="city" >
                 <label for="date">Date</label>
@@ -43,29 +43,113 @@
     </section>
 
     <section id="trails">
-        <div>
-            <h3 class="city-name js-city-name">Trails in </h3>
+        <div class="trails-area">
+            <h3 class="city-name js-city-name">Trails in Sedona, Arizona</h3>
             <ul class="trail-results js-trail-results">
-                <!--js here
                 <li class="trail js-trail">
-
-                </li>-->
+                    <h4 class="trail-name">Bear Mountain Trail</h4>
+                    <div class="add-trail-buttons">
+                        <button class="add-trail js-add-trail">
+                            <span class="add-label">
+                                Add Trail
+                            </span>
+                        </button>
+                    </div>
+                    <p>West Sedona, Arizona</p>
+                    <p>Rating: 4.7 / 5 Trail Length: 4.6 mi</p>
+                    <p>A strenuous hike that will reward you with great views.</p>
+                    <a href="https://www.hikingproject.com/trail/7002976/bear-mountain-trail" target="_blank">https://www.hikingproject.com/trail/7002976/bear-mountain-trail</a>
+                </li>
+                <li class="trail js-trail">
+                    <h4 class="trail-name">West Fork Oak Creek Trail</h4>
+                    <div class="add-trail-buttons">
+                        <button class="add-trail js-add-trail">
+                            <span class="add-label">
+                                Add Trail
+                            </span>
+                        </button>
+                    </div> 
+                    <p>Sedona, Arizona</p>   
+                    <p>Rating: 4.4 / 5</p>
+                    <p>Trail Length: 5.4 mi</p>   
+                    <p>The most popular trail in the Coconino National Forest.</p>
+                    <a href="https://www.hikingproject.com/trail/7002990/west-fork-oak-creek-trail" target="_blank">https://www.hikingproject.com/trail/7002990/west-fork-oak-creek-trail</a>
+                </li>
             </ul>
         </div>
     </section>
 
     <section id="timeline">
-        <div>
-            <h3 class="city-name js-city-timeline"></h3>
-            <h4 class="date js-date">11/12/2019</h4>
-            <h5 class="daytime js-daytime">Daytime Total</h5>
+        <div class="timeline-area">
+            <h3 class="city-name js-city-timeline">Sedona, Arizona</h3>
+            <h4 class="date js-date">July 13, 2019</h4>
+            <h5 class="daytime js-daytime">Daytime Total: 14:19 hours</h5>
 
-            <div>
-                <h5 class="sunrise js-sunrise">Sunrise:</h5>
-                <ul>
-                   
+            <form class="adding-activity">
+                <label for="activity">Add an Activity</label>
+                <input type="text" name="activity" id="activity" placeholder="Eat lunch with friends" required>
+                <button type="submit" class="add-activity-button">Add Activity</button>
+            </form>
+
+            <div class="planning-timeline">
+
+                <h5 class="sunrise js-sunrise">Sunrise: 5:23 AM</h5>
+
+                <ul class="activities">
+                    <li>
+                       <span class="activity-item">Breakfast</span> 
+
+                        <div class="times-for-item">
+                           <span class="times"></span>
+                        </div>
+
+                        <button class="edit-button">Edit</button>
+
+                        <div class="edit-activity hide-edit">
+
+                            <label for="activity-title">Activity Title</label>
+                            <input type="text" name="activity-title" id="activity-title">
+                            
+                            <label for="start-time">Start Time</label>
+                            <input type="time" name="start-time" id="start-time">
+
+                            <label for="end-time">End Time</label>
+                            <input type="time" name="end-time" id="end-time">
+
+                            <button class="done-button">Done</button>
+                            <button class="delete-button">Delete</button>
+                        
+                        </div>
+
+                    </li>
+                    <li>
+                       <span class="activity-item">West Fork Oak Creek Trail</span>
+                       <div class="times-for-item">
+                            <span class="times"></span>
+                        </div>
+ 
+                        <button class="edit-button">Edit</button>
+ 
+                        <div class="edit-activity hide-edit">
+
+                            <label for="activity-title">Activity Title</label>
+                            <input type="text" name="activity-title" id="activity-title">
+                            
+                            <label for="start-time">Start Time</label>
+                            <input type="time" name="start-time" id="start-time">
+
+                            <label for="end-time">End Time</label>
+                            <input type="time" name="end-time" id="end-time">
+
+                            <button class="done-button">Done</button>
+                            <button class="delete-button">Delete</button>
+                        
+                         </div>
+                    </li>
                 </ul>
-                <h5 class="sunset js-sunset">Sunset:</h5>
+
+                <h5 class="sunset js-sunset">Sunset: 7:42 PM</h5>
+
             </div>
         </div>
     </section>
