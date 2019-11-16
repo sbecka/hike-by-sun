@@ -25,14 +25,100 @@ nav {
     align-items: center;
 }
 
+.home-search {
+    height: 70vh;
+    width: 100%;
+}
+
+.search-city-date {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 30vh;
+    width: 50vw;
+    margin: 0 auto;
+}
+
 li {
     list-style: none;
+}
+
+.trails-area {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.trail-results {
+    padding: 0;
+}
+
+.trail-results > li {
+    width: 100vw;
 }
 
 .trail {
     border: 1px solid black;
 }
 
-.planning {
+.planning-timeline {
     border: 1px solid black;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-activity {
+    border: 1px solid black;
+}
+
+.activities {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 79vw;
+    padding: 0;
+    margin: 0 auto;
+    min-height: 230px;
+}
+
+.activities > li {
+    border: 1px solid black;
+    width: 60vw;
+}
+
+.edit-activity {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 200px;
+}
+
+.hide-edit {
+    display: none;
+}
+
+.timeline-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+    margin: 0 auto;
+}
+
+.adding-activity {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 60vw;
+    height: 90px;
+
+}
+
+h5 {
+    font-size: 1.1em;
 }

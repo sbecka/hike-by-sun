@@ -1,8 +1,7 @@
-//import fetchJsonp from 'fetch-jsonp';
-
 'use strict';
 
- //require('es6-promise').polyfill(); promise polyfill for Internet Explorer
+//ipgeolocation Astronomy API https://api.ipgeolocation.io/astronomy offers times based on time zones with latitude and longitude
+
 const geoAstronomyAPIKey = "170fa59d1a2c41ecbd0058cee382b898";
 
 const geoLocationAstronomyUrl = "https://api.ipgeolocation.io/astronomy";
@@ -36,8 +35,8 @@ function findSunTimes(latitude, longitude, dateYearMonthDay) {
             let newHour = militaryTimeConverter(militaryTime);
             console.log(responseJson);
             $(".js-daytime").text(`Day Length: ${responseJson.day_length} hours`);
-            $(".js-sunrise").text(`${newSunTime} AM`);
-            $(".js-sunset").text(`${newHour} PM`);
+            $(".js-sunrise").text(`Sunrise: ${newSunTime} AM`);
+            $(".js-sunset").text(`Sunset: ${newHour} PM`);
         })
         .catch(error => {
             return $(".js-error-message").text(`${error.message}`);
@@ -135,9 +134,17 @@ function findTrails() {
 
                     $(".js-trail-results").append(`
                     <li class="trail js-trail">
-                        <h4>${responseJson.trails[i].name}</h4>
+                        <h4 class="trail-name">${responseJson.trails[i].name}</h4>
+                        <div class="add-trail-buttons">
+                            <button class="add-trail js-add-trail">
+                                <span class="add-label">
+                                    Add Trail
+                                </span>
+                            </button>
+                        </div>
                         <p>${responseJson.trails[i].location}</p>
-                        <p>Rating: ${responseJson.trails[i].stars} / 5  Trail Length: ${responseJson.trails[i].length} mi</p>
+                        <p>Rating: ${responseJson.trails[i].stars} / 5</p>
+                        <p>Trail Length: ${responseJson.trails[i].length} mi</p>
                         <p>${responseJson.trails[i].summary}</p>
                         <a href="${responseJson.trails[i].url}" target="_blank">${responseJson.trails[i].url}</a>
                     </li>
@@ -204,10 +211,7 @@ function getCityGeoCode(userCity) {
             console.log(latitude);
             console.log(longitude);
             console.log(cityName);
-            
-            //IP Geolocation Astronomy API for the Canada, North and South America lose a day compared to input date
-            //example 2019-11-14 becomes 2019-11-13 in the response data
-            //decided to add one day to date input value in order to get the correct date back in the response
+       
             let dateYearMonthDay = $("#date").val();
     
             console.log(dateYearMonthDay);
@@ -259,11 +263,137 @@ function formatDate(userDate) {
 
 };
 
+function clickAddTrail() {
+
+    $(".js-trail-results").on("click", ".js-add-trail", function(event) {
+
+        $(this).closest("li").find(".add-label").text(`Added!`);
+        let trailName = $(this).closest("li").find(".trail-name").html();
+        
+        console.log(trailName);
+        $(".activities").append(
+            `<li>
+                <span class="activity-item">${trailName}</span>
+
+                <div class="times-for-item">
+                    <span class="times"></span>
+                </div>
+
+                <button class="edit-button">Edit</button>
+
+                <div class="edit-activity hide-edit">
+
+                    <label for="activity-title">Activity Title</label>
+                    <input type="text" name="activity-title" id="activity-title">
+                    
+                    <label for="start-time">Start Time</label>
+                    <input type="time" name="start-time" id="start-time">
+
+                    <label for="end-time">End Time</label>
+                    <input type="time" name="end-time" id="end-time">
+
+                    <button class="done-button">Done</button>
+                    <button class="delete-button">Delete</button>
+                
+                </div>
+            </li>`);
+    });
+                    
+};
+
+let userActivity = null;
+
+function addActivity() {
+
+    $(".adding-activity").submit(event => {
+        event.preventDefault();
+        userActivity = $("#activity").val();
+        $(".activities").append(
+            `<li>
+                <span class="activity-item">${userActivity}</span>
+
+                <div class="times-for-item">
+                    <span class="times"></span>
+                </div>
+
+                <button class="edit-button">Edit</button>
+
+                <div class="edit-activity hide-edit">
+
+                    <label for="activity-title">Activity Title</label>
+                    <input type="text" name="activity-title" id="activity-title">
+                    
+                    <label for="start-time">Start Time</label>
+                    <input type="time" name="start-time" id="start-time">
+
+                    <label for="end-time">End Time</label>
+                    <input type="time" name="end-time" id="end-time">
+
+                    <button class="done-button">Done</button>
+                    <button class="delete-button">Delete</button>
+        
+                </div>
+            </li>`);
+        $("#activity").val("");
+    });
+};
+
+function clickEditDeleteActivity() {
+
+    $(".activities").on("click", ".edit-button", function(event) {
+
+        $(this).closest("li").find(".edit-activity").toggleClass("hide-edit");
+        title = null;
+        $("#activity-title").val("");
+        
+        startTime = null;
+        endTime = null;
+    
+    });
+
+    $(".activities").on("click", ".delete-button", function(event) {
+
+        $(this).closest("li").remove();
+
+    });
+};
+
+let title = null;
+let startTime = null;
+let endTime = null;
+
+function updateEditActivity() {
+
+    $(".activities").on("click", ".done-button",function(event) {
+        event.preventDefault();
+
+        title = $(this).closest("li").find("#activity-title").val();
+        console.log(title);
+
+        if (title !== "" || title !== title){
+
+            $(this).closest("li").find(".activity-item").text(`${title}`);
+        
+        };
+
+        startTime = $(this).closest("li").find("#start-time").val();
+        endTime = $(this).closest("li").find("#end-time").val();
+
+        console.log(startTime);
+        console.log(endTime);
+
+        $(this).closest("li").find(".times").text(`${startTime} to ${endTime}`);
+        
+        $(this).closest("li").find(".edit-activity").toggleClass("hide-edit");
+    });
+    
+};
+
 
 
 function listenToSubmit() {
 
-    $("form").submit(event => {
+    $(".search-city-date").submit(event => {
         event.preventDefault();
         const userCity = $("#city").val();
         getCityGeoCode(userCity);
@@ -272,5 +402,13 @@ function listenToSubmit() {
     });
 };
 
+function listenForEvents() {
+    listenToSubmit();
+    clickAddTrail();
+    addActivity();
+    clickEditDeleteActivity();
+    updateEditActivity();
+};
 
-$(listenToSubmit);
+
+$(listenForEvents);
