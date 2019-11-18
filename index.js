@@ -275,13 +275,13 @@ function clickAddTrail() {
         console.log(trailName);
         $(".activities").append(
             `<li>
-                <span class="activity-item">${trailName}</span>
+                <div class="act-and-times">
+                    <span class="activity-item">${trailName}</span>
 
-                <div class="times-for-item">
-                    <span class="times"></span>
+                    <div class="times-for-item">
+                        <span class="times"></span>
+                    </div>
                 </div>
-
-                <button class="edit-button">Edit</button>
 
                 <div class="edit-activity hide-edit">
 
@@ -298,6 +298,8 @@ function clickAddTrail() {
                     <button class="delete-button">Delete</button>
                 
                 </div>
+
+                <button class="edit-button">Edit <i class="far fa-edit"aria-hidden="true"></i></button>
             </li>`);
     });
                     
@@ -312,13 +314,13 @@ function addActivity() {
         userActivity = $("#activity").val();
         $(".activities").append(
             `<li>
-                <span class="activity-item">${userActivity}</span>
+                <div class="act-and-times">
+                    <span class="activity-item">${userActivity}</span>
 
-                <div class="times-for-item">
-                    <span class="times"></span>
+                    <div class="times-for-item">
+                        <span class="times"></span>
+                    </div>
                 </div>
-
-                <button class="edit-button">Edit</button>
 
                 <div class="edit-activity hide-edit">
 
@@ -335,6 +337,8 @@ function addActivity() {
                     <button class="delete-button">Delete</button>
         
                 </div>
+
+                <button class="edit-button">Edit <i class="far fa-edit"aria-hidden="true"></i></button>
             </li>`);
         $("#activity").val("");
     });
@@ -404,12 +408,21 @@ function listenToSubmit() {
     });
 };
 
+function toggleHamburgerIcon() {
+ 
+    $(".hamburger-icon").click(event => {
+        $(".nav-links").toggleClass("responsive")
+        $(".nav-list").toggleClass("respond-to-hamburger")
+    });
+};
+
 function listenForEvents() {
     listenToSubmit();
     clickAddTrail();
     addActivity();
     clickEditDeleteActivity();
     updateEditActivity();
+    toggleHamburgerIcon();
 };
 
 

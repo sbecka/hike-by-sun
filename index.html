@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Search trails to hike and plan your activities during the daytime.">
     <title>Hike by Sun</title>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -14,15 +16,18 @@
             <h1>Hike by Sun</h1>
             <ul class="nav-list">
                 <li>
-                    <a href="#search" class="search nav-links">Search</a>
+                    <a href="#search" class="search nav-links responsive">Search</a>
                 </li>
                 <li>
-                    <a href="#trails" class="trails nav-links">Trails</a>
+                    <a href="#trails" class="trails nav-links responsive">Trails</a>
                 </li>
                 <li>
-                    <a href="#timeline" class="timeline nav-links">Timeline</a>
-                </li>
+                    <a href="#timeline" class="timeline nav-links responsive">Timeline</a>
+                </li>   
             </ul>
+            <a tabindex="0" class="hamburger-icon" aria-label="Menu of links to click to different sections of page">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </a>
         </nav>
     </header>
     <section id = "search">
@@ -56,7 +61,8 @@
                         </button>
                     </div>
                     <p>West Sedona, Arizona</p>
-                    <p>Rating: 4.7 / 5 Trail Length: 4.6 mi</p>
+                    <p>Rating: 4.7 / 5</p>
+                    <p>Trail Length: 4.6 mi</p>
                     <p>A strenuous hike that will reward you with great views.</p>
                     <a href="https://www.hikingproject.com/trail/7002976/bear-mountain-trail" target="_blank">https://www.hikingproject.com/trail/7002976/bear-mountain-trail</a>
                 </li>
@@ -97,13 +103,13 @@
 
                 <ul class="activities">
                     <li>
-                       <span class="activity-item">Breakfast</span> 
+                        <div class="act-and-times">
+                            <span class="activity-item">Breakfast</span> 
 
-                        <div class="times-for-item">
-                           <span class="times"></span>
+                            <div class="times-for-item">
+                            <span class="times"></span>
+                            </div>
                         </div>
-
-                        <button class="edit-button">Edit</button>
 
                         <div class="edit-activity hide-edit">
 
@@ -121,14 +127,16 @@
                         
                         </div>
 
+                        <button class="edit-button">Edit <i class="far fa-edit"aria-hidden="true"></i></button>
+
                     </li>
                     <li>
-                       <span class="activity-item">West Fork Oak Creek Trail</span>
-                       <div class="times-for-item">
-                            <span class="times"></span>
+                        <div class="act-and-times">
+                            <span class="activity-item">West Fork Oak Creek Trail</span>
+                            <div class="times-for-item">
+                                <span class="times"></span>
+                            </div>
                         </div>
- 
-                        <button class="edit-button">Edit</button>
  
                         <div class="edit-activity hide-edit">
 
@@ -145,6 +153,8 @@
                             <button class="delete-button">Delete</button>
                         
                          </div>
+
+                         <button class="edit-button">Edit <i class="far fa-edit"aria-hidden="true"></i></button>
                     </li>
                 </ul>
 

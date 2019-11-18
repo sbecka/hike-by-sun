@@ -9,6 +9,7 @@ header {
 
 nav {
     background: white;
+    border-bottom: 1px solid black;
     position: fixed;
     display: flex;
     justify-content: space-between;
@@ -18,11 +19,8 @@ nav {
     top: 0;
 }
 
-.nav-list {
-    display: flex;
-    justify-content: space-around;
-    width: 50vw;
-    align-items: center;
+.nav-links {
+    text-decoration: none;
 }
 
 .home-search {
@@ -84,9 +82,17 @@ li {
     min-height: 230px;
 }
 
+.act-and-times {
+    width: 80%;
+    height: 100%;
+}
+
 .activities > li {
     border: 1px solid black;
-    width: 60vw;
+    display: flex;
+    
+    width: 70vw;
+    min-height: 30px;
 }
 
 .edit-activity {
@@ -95,6 +101,11 @@ li {
     justify-content: space-around;
     align-items: center;
     height: 200px;
+}
+
+.edit-button {
+    width: 50px;
+    height: 38px;
 }
 
 .hide-edit {
@@ -121,4 +132,52 @@ li {
 
 h5 {
     font-size: 1.1em;
+}
+
+@media screen and (max-width: 769px) {
+
+    .responsive {
+        display: none;
+    }
+
+    .respond-to-hamburger {
+        background-color: cornflowerblue;
+        position: absolute;
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+        min-height: 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        top: 60px;
+        margin-top: 0;
+    }
+
+    .hamburger-icon {
+        display: block;
+        float: right;
+    }
+}
+
+@media screen and (min-width: 770px) {
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-list {
+        display: flex;
+        justify-content: space-around;
+        width: 50vw;
+        align-items: center;
+        overflow: hidden;
+    }
+    
+    .hamburger-icon {
+        display: none;
+    }
+
 }
