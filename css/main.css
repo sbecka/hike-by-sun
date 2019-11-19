@@ -16,6 +16,10 @@ h1 {
     margin-left: 10px;
 }
 
+section {
+    border:1px solid black;
+}
+
 nav {
     background: white;
     border-bottom: 1px solid black;

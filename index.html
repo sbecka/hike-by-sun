@@ -32,7 +32,7 @@
         </nav>
     </header>
 
-    <section id="to-do-list">
+    <section class="intro">
 
         <div class="intro">
             <h2>Search trails and plan to make the most of your day!</h2>
@@ -40,13 +40,18 @@
             <p>Click to get today's sun times and trails in your area.</p>
 
             <button onclick="getLocation()">Try It!</button>
+            
+            <a href="#trails" class="view-trails hide-results">View trails below <i class="fas fa-arrow-down"></i></a>
+
+            <p>OR</p>
 
             <a href="#search"><button class="search-button"><i class="fas fa-search" aria-hidden="true"></i> Search Trails</button></a>
 
-            <a href="#trails" class="view-trails hide-results">View trails below <i class="fas fa-arrow-down"></i></a>
-            
             <p id="demo"></p>
         </div>
+    </section>
+
+    <section id="to-do-list">
 
         <div class="to-do-list-area">
             <h3 class="city-name js-city-to-do">Sedona, Arizona</h3>
@@ -170,7 +175,7 @@
 
                 
                 <fieldset>
-                    <legend class="refine-title">Refine Your Search</legend>
+                    <legend class="refine-title">Refine Your Search <i class="fas fa-angle-down"></i></legend>
                     <div class="refine-search">
                         <label for="max-results">Max Results</label>
                         <input type="number" name="max-results" id="max-results" value="10">
