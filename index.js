@@ -532,7 +532,11 @@ function updateEditActivity() {
 
         console.log(timeOrNote);
 
-        $(this).closest("li").find(".times-notes").text(`Notes: ${timeOrNote}`);
+        if (timeOrNote !== "") {
+
+            $(this).closest("li").find(".times-notes").text(`Notes: ${timeOrNote}`);
+
+        };
         
         $(this).closest("li").find(".edit-activity").toggleClass("hide-edit");
     });
