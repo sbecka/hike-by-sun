@@ -566,6 +566,28 @@ function refineSearch() {
     });
 };
 
+function openAddAnActivity() {
+
+    $(".add-an-activity-button").click(event => {
+        $(".adding-activity").toggleClass("hide-add-activity");
+    });
+};
+
+function openSearchTrails() {
+
+    $(".search-button").click(event => {
+        $("#search").toggleClass("hide-search");
+    });
+
+    $(".close-button").click(event => {
+        $("#search").toggleClass("hide-search");
+    });
+
+    $(".search").click(event => {
+        $("#search").toggleClass("hide-search");
+    });
+};
+
 function listenForEvents() {
     listenToSubmit();
     clickAddTrail();
@@ -574,6 +596,8 @@ function listenForEvents() {
     updateEditActivity();
     toggleHamburgerIcon();
     refineSearch();
+    openAddAnActivity();
+    openSearchTrails();
 };
 
 

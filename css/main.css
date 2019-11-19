@@ -169,7 +169,7 @@ li {
     min-height: 20px;
 }
 
-.hide-refine-search, .hide-edit, .hide-results {
+.hide-refine-search, .hide-edit, .hide-add-activity, .hide-search, .hide-results {
     display: none;
 }
 
@@ -231,9 +231,7 @@ li {
 }
 
 .adding-activity {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    
     width: 80vw;
     height: 90px;
 }
@@ -271,6 +269,10 @@ li {
 
 .add-activity-button > .fa-plus-circle {
     font-size: 1.75em;
+}
+
+.close-button:hover {
+    cursor: pointer;
 }
 
 @media screen and (max-width: 769px) {

@@ -133,18 +133,21 @@
             </div>
         </div>
         
-        <form class="adding-activity">
-            <label class="add-activity" for="activity">Add an Activity</label>
+        <button class="add-an-activity-button"><label class="add-activity" for="activity"><i class="fas fa-plus-circle" aria-hidden="true"></i> Add an Activity</label></button>
+        <form class="adding-activity hide-add-activity">
             <div class="activity-input-and-button">
                 <input type="text" class="activity-input" name="activity" id="activity" placeholder="Eat lunch with friends" required>
-                <button type="submit" class="add-activity-button"><i class="fas fa-plus-circle" aria-hidden="true"></i> Add</button>
+                <button type="submit" class="add-activity-button">Add</button>
             </div>
         </form>
+
+        <button class="search-button"><i class="fas fa-search" aria-hidden="true"></i> Search Trails</button>
+
     </section>
 
-    <section id = "search">
+    <section id = "search" class="hide-search">
         <div class="home-search">
-
+            <p class="close-button">Close <i class="far fa-times-circle" aria-hidden="true"></i></p>
             <h2>Search and Add Trails to Your Day</h2>
 
             <form class="search-city-date">
