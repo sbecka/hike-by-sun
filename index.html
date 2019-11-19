@@ -35,18 +35,19 @@
     <section class="intro">
 
         <div class="intro">
-            <h2>Search trails and plan to make the most of your day!</h2>
+            <h2>Search trails to add and plan out your day while the sun is out</h2>
             
-            <p>Click to get today's sun times and trails in your area.</p>
+            <p>Try clicking the button to get today's sunrise and sunset times and trails in your area.</p>
 
-            <button onclick="getLocation()">Try It!</button>
-            
+            <div class="intro-buttons">
+                <button class ="try-button" onclick="getLocation()">Try It!</button>
+
+                <p>OR</p>
+
+                <a href="#search"><button class="intro-search-button search-button"><i class="fas fa-search" aria-hidden="true"></i> Search Trails</button></a>
+            </div>
+
             <a href="#trails" class="view-trails hide-results">View trails below <i class="fas fa-arrow-down"></i></a>
-
-            <p>OR</p>
-
-            <a href="#search"><button class="search-button"><i class="fas fa-search" aria-hidden="true"></i> Search Trails</button></a>
-
             <p id="demo"></p>
         </div>
     </section>
@@ -159,7 +160,7 @@
 
     <section id = "search" class="hide-search">
         <div class="home-search">
-            <p class="close-button">Close <i class="far fa-times-circle" aria-hidden="true"></i></p>
+            <p class="close-search-button">Close <i class="far fa-times-circle" aria-hidden="true"></i></p>
             <h2>Search and Add Trails to Your Day</h2>
 
             <form class="search-city-date">

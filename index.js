@@ -587,7 +587,7 @@ function openSearchTrails() {
         $("#search").toggleClass("hide-search");
     });
 
-    $(".close-button").click(event => {
+    $(".close-search-button").click(event => {
         $("#search").toggleClass("hide-search");
     });
 
