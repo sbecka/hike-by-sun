@@ -41,6 +41,8 @@
 
             <button onclick="getLocation()">Try It!</button>
 
+            <a href="#search"><button class="search-button"><i class="fas fa-search" aria-hidden="true"></i> Search Trails</button></a>
+
             <a href="#trails" class="view-trails hide-results">View trails below <i class="fas fa-arrow-down"></i></a>
             
             <p id="demo"></p>
@@ -53,7 +55,7 @@
             
         </div>
 
-        <h3 class="to-do-list-title">To do list</h3>
+        <h3 class="to-do-list-title">To Do List</h3>
 
         <div class="times-and-list">
             <div class="suntimes">
@@ -132,18 +134,23 @@
 
             </div>
         </div>
-        
-        <button class="add-an-activity-button"><label class="add-activity" for="activity"><i class="fas fa-plus-circle" aria-hidden="true"></i> Add an Activity</label></button>
-        <form class="adding-activity hide-add-activity">
-            <div class="activity-input-and-button">
-                <input type="text" class="activity-input" name="activity" id="activity" placeholder="Eat lunch with friends" required>
-                <button type="submit" class="add-activity-button">Add</button>
-            </div>
-        </form>
 
-        <button class="search-button"><i class="fas fa-search" aria-hidden="true"></i> Search Trails</button>
+        <div class="add-search-buttons">
+            
+            <button class="add-an-activity-button"><label class="add-activity" for="activity"><i class="fas fa-plus-circle" aria-hidden="true"></i> Add an Activity</label></button>
+            
 
+            <button class="search-button"><i class="fas fa-search" aria-hidden="true"></i> Search Trails</button>
+        </div>
     </section>
+
+    <form class="adding-activity hide-add-activity">
+        <p class="close-activity-button">Close <i class="far fa-times-circle" aria-hidden="true"></i></p>
+        <div class="activity-input-and-button">
+            <input type="text" class="activity-input" name="activity" id="activity" placeholder="Eat lunch with friends" required>
+            <button type="submit" class="add-activity-button">Add</button>
+        </div>
+    </form>
 
     <section id = "search" class="hide-search">
         <div class="home-search">

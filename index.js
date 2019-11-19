@@ -171,7 +171,7 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
                 $(".js-city-name").text(`No trails in ${cityName}`);
                 $(".view-trails").addClass("hide-results");
                 $(".js-trail-results").empty();
-                return $(".js-error-message").text(`No trails found there. Try another place or plan your day below.`);
+                return $(".js-error-message").text(`No trails found there. Try another place or plan your day.`);
             
             } else if (responseJson.trails.length > 0) {
                 
@@ -569,6 +569,10 @@ function refineSearch() {
 function openAddAnActivity() {
 
     $(".add-an-activity-button").click(event => {
+        $(".adding-activity").toggleClass("hide-add-activity");
+    });
+
+    $(".close-activity-button").click(event => {
         $(".adding-activity").toggleClass("hide-add-activity");
     });
 };

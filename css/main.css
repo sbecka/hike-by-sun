@@ -271,6 +271,13 @@ li {
     font-size: 1.75em;
 }
 
+.add-search-buttons {
+    min-height: 20vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .close-button:hover {
     cursor: pointer;
 }
