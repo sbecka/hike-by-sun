@@ -34,7 +34,7 @@ function findSunTimes(latitude, longitude, dateYearMonthDay) {
             let militaryTime = responseJson.sunset;
             let newHour = militaryTimeConverter(militaryTime);
             console.log(responseJson);
-            $(".js-daytime").text(`Day Length: ${responseJson.day_length} hours`);
+            $(".js-daytime").text(`${responseJson.day_length} hours`);
             $(".js-sunrise").text(`Sunrise: ${newSunTime} AM`);
             $(".js-sunset").text(`Sunset: ${newHour} PM`);
         })
@@ -100,12 +100,15 @@ const apiHikingKey = "200636207-5a82966238be9f41a852d676740cfcdf";
 
 const hikingProjectUrl = "https://www.hikingproject.com/data/get-trails";
 
-function findTrails() {
+function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance=30) {
 
     const params = {
         key: apiHikingKey,
         lat: latitude,
-        lon: longitude
+        lon: longitude,
+        maxResults,
+        minLength,
+        maxDistance 
     };
 
     const trailsQueryString = formatQuery(params);
@@ -124,7 +127,12 @@ function findTrails() {
         .then(responseJson => {
            
             if (responseJson.trails.length == 0) {
-                return $(".js-error-message").text(`No trails found there. Try another place?`);
+
+                $(".js-city-name").text(`No trails in ${cityName}`);
+                $(".view-trails").addClass("hide-results");
+                $(".js-trail-results").empty();
+                return $(".js-error-message").text(`No trails found there. Try another place or plan your day below.`);
+            
             } else if (responseJson.trails.length > 0) {
                 
                 $(".js-error-message").empty();
@@ -132,29 +140,69 @@ function findTrails() {
 
                 for (let i = 0; i < responseJson.trails.length; i++) {
 
-                    $(".js-trail-results").append(`
-                    <li class="trail js-trail">
-                        <h4 class="trail-name">${responseJson.trails[i].name}</h4>
-                        <div class="add-trail-buttons">
-                            <button class="add-trail js-add-trail">
-                                <span class="add-label">
-                                    Add Trail
-                                </span>
-                            </button>
+                    let trailPhoto = responseJson.trails[i].imgSmallMed;
+                    if (trailPhoto === "") {
+                        $(".view-trails").removeClass("hide-results");
+                        $(".js-trail-results").append(`
+                        <li class="trail js-trail">
+                        <div class="trail-heading">
+
+                            <a href="${responseJson.trails[i].url}" target="_blank" class="trail-website">
+                                <h4 class="trail-name">${responseJson.trails[i].name}</h4>
+                            </a>
+                       
+                            <div class="add-trail-buttons">
+                                <button class="add-trail js-add-trail">
+                                    <span class="add-label">
+                                        Add Trail <i class="fas fa-plus-circle"></i>
+                                    </span>
+                                </button>
+                            </div>
                         </div>
+                        
                         <p>${responseJson.trails[i].location}</p>
-                        <p>Rating: ${responseJson.trails[i].stars} / 5</p>
-                        <p>Trail Length: ${responseJson.trails[i].length} mi</p>
+                        <div class="trail-details">
+                            <p class="rating">Rating: ${responseJson.trails[i].stars} / 5</p>
+                            <p class="trail-length">Trail Length: ${responseJson.trails[i].length} mi</p>
+                        </div>
                         <p>${responseJson.trails[i].summary}</p>
-                        <a href="${responseJson.trails[i].url}" target="_blank">${responseJson.trails[i].url}</a>
                     </li>
                     `);
+
+                    } else if (trailPhoto !== "") {
+                        $(".view-trails").removeClass("hide-results");
+                        $(".js-trail-results").append(`
+                        <li class="trail js-trail">
+                            <div class="trail-heading">
+
+                                <a href="${responseJson.trails[i].url}" target="_blank" class="trail-website">
+                                    <h4 class="trail-name">${responseJson.trails[i].name}</h4>
+                                </a>
+                        
+                                <div class="add-trail-buttons">
+                                    <button class="add-trail js-add-trail">
+                                        <span class="add-label">
+                                            Add Trail <i class="fas fa-plus-circle"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                            <img class="trail-photo" src="${responseJson.trails[i].imgSmallMed}" alt="Photo from ${responseJson.trails[i].name}"></img>
+                            <p>${responseJson.trails[i].location}</p>
+                            <div class="trail-details">
+                                <p class="rating">Rating: ${responseJson.trails[i].stars} / 5</p>
+                                <p class="trail-length">Trail Length: ${responseJson.trails[i].length} mi</p>
+                            </div>
+                            <p>${responseJson.trails[i].summary}</p>
+                        </li>
+                    `);
+                    }
                 }
             };
             
         })
         .catch(error => {
-            return $(".js-error-message").text(`${error.message}`);
+            return $(".js-error-message").text(`${error.message} trail data. Server is down.`);
         });
 };
 
@@ -208,16 +256,26 @@ function getCityGeoCode(userCity) {
             latitude = responseJson[0].lat;
             longitude = responseJson[0].lon;
             cityName = responseJson[0].display_name;
-            $(".js-city-name").text(`Trails in ${cityName}`);
-            $(".js-city-timeline").text(`${cityName}`);
-            console.log(latitude);
-            console.log(longitude);
-            console.log(cityName);
+
+            cityName = formatCityName(cityName);
+
+
+
+            //console.log(latitude);
+            //console.log(longitude);
+            //console.log(cityName);
+
+            $(".js-city-name").text(`Trails around ${cityName}`);
+            $(".js-city-to-do").text(`${cityName}`);
+            
        
             let dateYearMonthDay = $("#date").val();
+            let maxResults= $("#max-results").val();
+            let minLength = $("#min-length").val();
+            let maxDistance = $("#max-length").val();
     
-            console.log(dateYearMonthDay);
-            findTrails(latitude, longitude);
+            //console.log(dateYearMonthDay); 2019-11-18
+            findTrails(latitude, longitude, maxResults, minLength, maxDistance);
             findSunTimes(latitude, longitude, dateYearMonthDay);
         })
         .catch(error => {
@@ -226,9 +284,33 @@ function getCityGeoCode(userCity) {
 
 };
 
+function formatCityName(cityName) {
+
+    let getCounty = cityName.split(",");
+
+    
+    for (let i = 0; i < getCounty.length; i++) {
+        
+        if (getCounty[i].includes("County")) {
+            let county = getCounty.splice(i, 1);
+            
+            console.log(county); //Marion County    
+        };
+    };
+
+    let removedCounty = getCounty.join(",");
+
+    cityName = removedCounty;
+
+    return cityName;
+    
+};
+
 function formatDate(userDate) {
+
     let newDate = userDate.split("-");
-    console.log(newDate);
+    //console.log(newDate); ["2019", "11", "18"]
+
     if (newDate[1] === "01") {
         newDate[1] = "January";
     } else if (newDate[1] === "02") {
@@ -258,7 +340,7 @@ function formatDate(userDate) {
     let year = newDate.shift();
     let day = newDate.join(" ");
     newDate = day + ", " + year;
-    console.log(newDate);
+    //console.log(newDate); November 18, 2019
 
     $(".js-date").text(`${newDate}`);
 
@@ -278,9 +360,12 @@ function clickAddTrail() {
                 <div class="act-and-times">
                     <span class="activity-item">${trailName}</span>
 
-                    <div class="times-for-item">
-                        <span class="times"></span>
-                    </div>
+                    <button class="edit-button">Edit <i class="far fa-edit"aria-hidden="true"></i></button>
+
+                </div>
+
+                <div class="times-or-notes">
+                    <span class="times-notes"></span>
                 </div>
 
                 <div class="edit-activity hide-edit">
@@ -288,18 +373,16 @@ function clickAddTrail() {
                     <label for="activity-title">Activity Title</label>
                     <input type="text" name="activity-title" id="activity-title">
                     
-                    <label for="start-time">Start Time</label>
-                    <input type="time" name="start-time" id="start-time">
+                    <label for="time-note">How much time or notes for activity?</label>
+                    <input type="text" name="time-note" id="time-note" placeholder="30 min">
 
-                    <label for="end-time">End Time</label>
-                    <input type="time" name="end-time" id="end-time">
-
-                    <button class="done-button">Done</button>
-                    <button class="delete-button">Delete</button>
+                    <div>
+                        <button class="save-button">Save</button>
+                        <button class="delete-button">Delete</button>
+                    </div>
                 
                 </div>
-
-                <button class="edit-button">Edit <i class="far fa-edit"aria-hidden="true"></i></button>
+                
             </li>`);
     });
                     
@@ -317,9 +400,12 @@ function addActivity() {
                 <div class="act-and-times">
                     <span class="activity-item">${userActivity}</span>
 
-                    <div class="times-for-item">
-                        <span class="times"></span>
-                    </div>
+                    <button class="edit-button">Edit <i class="far fa-edit"aria-hidden="true"></i></button>
+                    
+                </div>
+    
+                <div class="times-or-notes">
+                    <span class="times-notes"></span>
                 </div>
 
                 <div class="edit-activity hide-edit">
@@ -327,18 +413,15 @@ function addActivity() {
                     <label for="activity-title">Activity Title</label>
                     <input type="text" name="activity-title" id="activity-title">
                     
-                    <label for="start-time">Start Time</label>
-                    <input type="time" name="start-time" id="start-time">
+                    <label for="time-note">How much time or notes for activity?</label>
+                    <input type="text" name="time-note" id="time-note" placeholder="30 min">
 
-                    <label for="end-time">End Time</label>
-                    <input type="time" name="end-time" id="end-time">
-
-                    <button class="done-button">Done</button>
-                    <button class="delete-button">Delete</button>
-        
+                    <div>
+                        <button class="save-button">Save</button>
+                        <button class="delete-button">Delete</button>
+                    </div>
+                
                 </div>
-
-                <button class="edit-button">Edit <i class="far fa-edit"aria-hidden="true"></i></button>
             </li>`);
         $("#activity").val("");
     });
@@ -352,8 +435,7 @@ function clickEditDeleteActivity() {
         title = null;
         $("#activity-title").val("");
         
-        startTime = null;
-        endTime = null;
+        $("#time-note").val("");
     
     });
 
@@ -365,12 +447,11 @@ function clickEditDeleteActivity() {
 };
 
 let title = null;
-let startTime = null;
-let endTime = null;
+let timeOrNote = null;
 
 function updateEditActivity() {
 
-    $(".activities").on("click", ".done-button",function(event) {
+    $(".activities").on("click", ".save-button",function(event) {
         event.preventDefault();
 
         title = $(this).closest("li").find("#activity-title").val();
@@ -382,13 +463,11 @@ function updateEditActivity() {
         
         };
 
-        startTime = $(this).closest("li").find("#start-time").val();
-        endTime = $(this).closest("li").find("#end-time").val();
+        timeOrNote = $(this).closest("li").find("#time-note").val();
 
-        console.log(startTime);
-        console.log(endTime);
+        console.log(timeOrNote);
 
-        $(this).closest("li").find(".times").text(`${startTime} to ${endTime}`);
+        $(this).closest("li").find(".times-notes").text(`${timeOrNote}`);
         
         $(this).closest("li").find(".edit-activity").toggleClass("hide-edit");
     });
@@ -416,6 +495,12 @@ function toggleHamburgerIcon() {
     });
 };
 
+function refineSearch() {
+    $("legend").click(event => {
+        $(".refine-search").toggleClass("hide-refine-search")
+    });
+};
+
 function listenForEvents() {
     listenToSubmit();
     clickAddTrail();
@@ -423,6 +508,7 @@ function listenForEvents() {
     clickEditDeleteActivity();
     updateEditActivity();
     toggleHamburgerIcon();
+    refineSearch();
 };
 
 

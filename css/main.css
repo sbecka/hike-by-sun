@@ -3,8 +3,17 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+    margin: 0;
+}
+
 header {
     height: 60px;
+    width: 100vw;
+}
+
+h1 {
+    margin-left: 10px;
 }
 
 nav {
@@ -17,24 +26,48 @@ nav {
     height: 60px;
     width: 100vw;
     top: 0;
+   
 }
 
-.nav-links {
+.nav-links, .view-trails {
     text-decoration: none;
 }
 
+.fa-bars {
+    font-size: 1.2em;
+    margin-right: 20px;
+}
+
 .home-search {
-    height: 70vh;
+    height: calc(100vh - 60px);
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .search-city-date {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 30vh;
-    width: 50vw;
+    height: 65vh;
+    width: 60vw;
     margin: 0 auto;
+}
+
+.main-search {
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.refine-search {
+    height: 33vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 li {
@@ -55,11 +88,35 @@ li {
     width: 100vw;
 }
 
-.trail {
-    border: 1px solid black;
+.trail-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.planning-timeline {
+.trail-details {
+    display: flex;
+}
+
+.trail-photo {
+    
+    min-width: 208px;
+    margin: 0 auto;
+    max-width: 318px;
+}
+
+.rating, .trail-length {
+    width: 50%;
+    margin-right: 0;
+}
+
+.trail {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.planning-to-do-list {
     border: 1px solid black;
     width: 80vw;
     display: flex;
@@ -83,14 +140,17 @@ li {
 }
 
 .act-and-times {
-    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     height: 100%;
 }
 
 .activities > li {
     border: 1px solid black;
     display: flex;
-    
+    flex-direction: column;
     width: 70vw;
     min-height: 30px;
 }
@@ -108,11 +168,19 @@ li {
     height: 38px;
 }
 
-.hide-edit {
+.times-or-notes {
+    min-height: 20px;
+}
+
+.hide-refine-search, .hide-edit, .hide-results {
     display: none;
 }
 
-.timeline-area {
+.refine-title:hover {
+    cursor: pointer;
+}
+
+.to-do-list-area {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -121,17 +189,62 @@ li {
     margin: 0 auto;
 }
 
+.date {
+    font-size: 1.2em;
+}
+
+.daytime {
+    text-align: center;
+}
+.time-values {
+    font-size: 0.85em;
+}
+
 .adding-activity {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 60vw;
+    width: 80vw;
     height: 90px;
-
 }
 
 h5 {
     font-size: 1.1em;
+}
+
+.activity-input-and-button {
+    display: flex;
+    width: 80vw;
+    justify-content: space-between;
+    align-items: center;
+    height: 24px;
+}
+
+.adding-activity > label {
+    width: 45%;
+   
+}
+
+.activity-input {
+    width: 75%;
+    height: 30px;
+}
+
+.add-activity-button {
+   border-radius: 5%;
+   width: 80px;
+   height: 30px;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+
+.add-activity-button:hover {
+    cursor: pointer;
+}
+
+.add-activity-button > .fa-plus-circle {
+    font-size: 1.75em;
 }
 
 @media screen and (max-width: 769px) {
@@ -154,10 +267,7 @@ h5 {
         margin-top: 0;
     }
 
-    .hamburger-icon {
-        display: block;
-        float: right;
-    }
+    
 }
 
 @media screen and (min-width: 770px) {
