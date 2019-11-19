@@ -116,12 +116,9 @@ li {
     flex-direction: column;
 }
 
-.planning-to-do-list {
-    border: 1px solid black;
-    width: 80vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.to-do-list-title {
+    width: 70vw;
+    text-align: right;
 }
 
 .edit-activity {
@@ -133,7 +130,7 @@ li {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 79vw;
+    width: 70vw;
     padding: 0;
     margin: 0 auto;
     min-height: 230px;
@@ -189,6 +186,39 @@ li {
     margin: 0 auto;
 }
 
+.times-and-list {
+    display: flex;
+    justify-content: space-around;
+}
+
+.suntimes, .planning-to-do-list {
+    min-height: 40vh;
+}
+
+.suntimes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 30vw;
+}
+
+.suntimes > h5 {
+    font-size: 0.85em;
+}
+
+.planning-to-do-list {
+    border: 1px solid black;
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.city-name {
+    margin-bottom: 0;
+}
+
 .date {
     font-size: 1.2em;
 }
@@ -206,10 +236,6 @@ li {
     justify-content: space-around;
     width: 80vw;
     height: 90px;
-}
-
-h5 {
-    font-size: 1.1em;
 }
 
 .activity-input-and-button {

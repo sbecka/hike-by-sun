@@ -6,6 +6,46 @@ const geoAstronomyAPIKey = "170fa59d1a2c41ecbd0058cee382b898";
 
 const geoLocationAstronomyUrl = "https://api.ipgeolocation.io/astronomy";
 
+function findTodaySun(latitude, longitude) {
+
+    const params = {
+        apiKey: geoAstronomyAPIKey,
+        lat: latitude,
+        long: longitude
+    };
+
+    const sunQueryString = formatQuery(params);
+
+    const url = geoLocationAstronomyUrl + "?" + sunQueryString;
+
+    console.log(url);
+
+    fetch(url)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
+        .then(responseJson => {
+            let sunRiseTime = responseJson.sunrise;
+            let newSunTime = removeLeadingZero(sunRiseTime);
+            let militaryTime = responseJson.sunset;
+            let newHour = militaryTimeConverter(militaryTime);
+            console.log(responseJson);
+            let today = responseJson.date;
+            console.log(today);
+            formatDate(today);
+            $(".js-city-to-do").text(`Today is`)
+            $(".js-daytime").text(`${responseJson.day_length} hours`);
+            $(".js-sunrise").text(`${newSunTime} AM`);
+            $(".js-sunset").text(`${newHour} PM`);
+        })
+        .catch(error => {
+            return $(".js-error-message").text(`${error.message}`);
+        });
+};
+
 function findSunTimes(latitude, longitude, dateYearMonthDay) {
 
     const params = {
@@ -35,8 +75,8 @@ function findSunTimes(latitude, longitude, dateYearMonthDay) {
             let newHour = militaryTimeConverter(militaryTime);
             console.log(responseJson);
             $(".js-daytime").text(`${responseJson.day_length} hours`);
-            $(".js-sunrise").text(`Sunrise: ${newSunTime} AM`);
-            $(".js-sunset").text(`Sunset: ${newHour} PM`);
+            $(".js-sunrise").text(`${newSunTime} AM`);
+            $(".js-sunset").text(`${newHour} PM`);
         })
         .catch(error => {
             return $(".js-error-message").text(`${error.message}`);
@@ -154,7 +194,7 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
                             <div class="add-trail-buttons">
                                 <button class="add-trail js-add-trail">
                                     <span class="add-label">
-                                        Add Trail <i class="fas fa-plus-circle"></i>
+                                    <i class="fas fa-plus-circle"></i> Add Trail
                                     </span>
                                 </button>
                             </div>
@@ -182,7 +222,7 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
                                 <div class="add-trail-buttons">
                                     <button class="add-trail js-add-trail">
                                         <span class="add-label">
-                                            Add Trail <i class="fas fa-plus-circle"></i>
+                                            <i class="fas fa-plus-circle"></i> Add Trail 
                                         </span>
                                     </button>
                                 </div>
@@ -229,6 +269,31 @@ let latitude = null;
 let longitude = null;
 let cityName = null;
 
+//////////////
+let x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+};
+
+function showPosition(position) {
+    //x.innerHTML = "Latitude: " + position.coords.latitude + 
+    //"<br>Longitude: " + position.coords.longitude;
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+    //console.log(latitude);
+    //console.log(longitude);
+    $(".js-city-name").text(`Trails around your area`);
+    $(".js-city-to-do").empty();
+    findTrails(latitude, longitude);
+    findTodaySun(latitude, longitude);
+};
+//////////////////
 function getCityGeoCode(userCity) {
 
     const params = {
@@ -306,9 +371,9 @@ function formatCityName(cityName) {
     
 };
 
-function formatDate(userDate) {
+function formatDate(date) {
 
-    let newDate = userDate.split("-");
+    let newDate = date.split("-");
     //console.log(newDate); ["2019", "11", "18"]
 
     if (newDate[1] === "01") {
