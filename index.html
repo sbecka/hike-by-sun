@@ -8,6 +8,7 @@
     <title>Hike by Sun</title>
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,500,600,700|Quando&display=swap" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -15,6 +16,9 @@
         <nav>
             <h1>Hike by Sun</h1>
             <ul class="nav-list">
+                <li>
+                    <a href="#intro-home" class="nav-links responsive">Home</a>
+                </li>
                 <li>
                     <a href="#to-do-list" class="to-do-list nav-links responsive">To Do List</a>
                 </li>   
@@ -32,27 +36,37 @@
         </nav>
     </header>
 
-    <section class="intro">
+    <section id="intro-home">
 
         <div class="intro">
-            <h2>Search trails to add and plan out your day while the sun is out</h2>
-            
-            <p>Try clicking the button to get today's sunrise and sunset times and trails in your area.</p>
-
-            <div class="intro-buttons">
-                <button class ="try-button" onclick="getLocation()">Try It!</button>
-
-                <p>OR</p>
-
-                <a href="#search"><button class="intro-search-button search-button"><i class="fas fa-search" aria-hidden="true"></i> Search Trails</button></a>
+            <div class="intro-description">
+                <h2>Search trails to add to your day and plan while the sun is out <i class="fas fa-sun"></i></h2>
+                
+                <p>New? See the example below to get started. <a href="#to-do-list" class="view-example">View example <i class="fas fa-arrow-down"></i></a></p>
             </div>
 
-            <a href="#trails" class="view-trails hide-results">View trails below <i class="fas fa-arrow-down"></i></a>
+            <div class= "intro-search-local">
+                <p class="local">Click the 'My Area' button to get today's sunrise and sunset times and trails in your area.</p>
+                
+                <div class="intro-buttons">
+                    <button class ="try-button" onclick="getLocation()">My Area</button>
+
+                    <p>OR</p>
+
+                    <a href="#search"><button class="intro-search-button">Search Trails</button></a>
+                </div>
+
+            </div>
+
+            <a href="#trails" class="view-trails-submit hide-results">View trails below <i class="fas fa-arrow-down"></i></a>
             <p id="demo"></p>
+        
         </div>
     </section>
 
     <section id="to-do-list">
+
+        <h2 class="to-do-list-title">To Do List</h2>
 
         <div class="to-do-list-area">
             <h3 class="city-name js-city-to-do">Sedona, Arizona</h3>
@@ -61,7 +75,7 @@
             
         </div>
 
-        <h3 class="to-do-list-title">To Do List</h3>
+        
 
         <div class="times-and-list">
             <div class="suntimes">
@@ -81,9 +95,10 @@
                     <li class="list-item">
                         <div class="act-and-times">
                             <span class="activity-item">Breakfast</span> 
-
-                            <button class="edit-button">Edit <i class="far fa-edit"aria-hidden="true"></i></button>
-                            
+                            <div class="edit-delete-buttons">
+                                <button class="edit-button"><i class="far fa-edit"aria-hidden="true"></i> Edit</button>
+                                <button class="delete-button"><i class="far fa-trash-alt" aria-hidden="true"></i> Delete</button>
+                            </div>                       
                         </div>
 
                         <div class="times-or-notes">
@@ -100,7 +115,7 @@
 
                             <div>
                                 <button class="save-button">Save</button>
-                                <button class="delete-button">Delete</button>
+                                
                             </div>
                         
                         </div>
@@ -112,8 +127,10 @@
                         <div class="act-and-times">
                             <span class="activity-item">West Fork Oak Creek Trail</span>
                             
-                            <button class="edit-button">Edit <i class="far fa-edit" aria-hidden="true"></i></button>
-                            
+                            <div class="edit-delete-buttons">
+                                <button class="edit-button"><i class="far fa-edit"aria-hidden="true"></i> Edit</button>
+                                <button class="delete-button"><i class="far fa-trash-alt" aria-hidden="true"></i> Delete</button>
+                            </div>   
                         </div>
     
                         <div class="times-or-notes">
@@ -130,7 +147,7 @@
 
                             <div>
                                 <button class="save-button">Save</button>
-                                <button class="delete-button">Delete</button>
+                                
                             </div>
                         
                         </div>
@@ -143,56 +160,66 @@
 
         <div class="add-search-buttons">
             
-            <button class="add-an-activity-button"><label class="add-activity" for="activity"><i class="fas fa-plus-circle" aria-hidden="true"></i> Add an Activity</label></button>
+            <button class="add-an-activity-button"><label class="add-activity" for="activity"><i class="fas fa-plus-circle" aria-hidden="true"></i> Add to List</label></button>
             
 
             <button class="search-button"><i class="fas fa-search" aria-hidden="true"></i> Search Trails</button>
         </div>
     </section>
 
-    <form class="adding-activity hide-add-activity">
+    <div class="adding-activity hide-add-activity">
         <p class="close-activity-button">Close <i class="far fa-times-circle" aria-hidden="true"></i></p>
-        <div class="activity-input-and-button">
-            <input type="text" class="activity-input" name="activity" id="activity" placeholder="Eat lunch with friends" required>
-            <button type="submit" class="add-activity-button">Add</button>
-        </div>
-    </form>
+        
+        <form>   
+            <div class="activity-input-and-button">
+                <input type="text" class="activity-input" name="activity" id="activity" placeholder="Eat lunch with friends" required>
+                <button type="submit" class="add-activity-button">Add</button>
+            </div>
+        </form>
+    </div>
+    
 
     <section id = "search" class="hide-search">
         <div class="home-search">
             <p class="close-search-button">Close <i class="far fa-times-circle" aria-hidden="true"></i></p>
-            <h2>Search and Add Trails to Your Day</h2>
+            <h2>Search & Add Trails</h2>
 
             <form class="search-city-date">
                 <fieldset>
 
                     <div class="main-search">
-                        <label for="city">Enter a City or National Park</label>
+                        <label for="city">Enter a Place</label>
                         <input type="text" name="city" id="city" placeholder="Sedona, AZ" required>
-                        <label for="date">Date</label>
+                        <label for="date">Date for Sun Times</label>
                         <input type="date" id="date" required>
                     </div>
                 </fieldset>
 
                 
                 <fieldset>
-                    <legend class="refine-title">Refine Your Search <i class="fas fa-angle-down"></i></legend>
+                    <legend class="refine-title">Search Filters <i class="fas fa-angle-down"></i></legend>
                     <div class="refine-search">
-                        <label for="max-results">Max Results</label>
-                        <input type="number" name="max-results" id="max-results" value="10">
+                        <div>
+                            <label for="max-results">Max Results</label>
+                            <input type="number" name="max-results" id="max-results" min="2" max="500" value="10">
+                        </div>
+                        <label class="label-miles">Trail Distance in Miles</label>
+                        <div>
+                            <label for="min">Min Length</label>
+                            <input type="number" name="min-length" id="min-length" min="0" max="200" value="0">
+                        </div>
+                        <div>
+                            <label for="max-length">Max Length</label>
+                            <input type="number" name="max-length" id="max-length" min="0" max="200" value="30">
+                        </div>
                         
-                        <label>Trail Distance in Miles:</label>
-                        <label for="min">Min Length</label>
-                        <input type="number" name="min-length" id="min-length" value="0">
-                        <label for="max-length">Max Length</label>
-                        <input type="number" name="max-length" id="max-length" value="30">
                     </div>
                 </fieldset>
-                <input type="submit" name="submit" id="submit">
+                <input class="submit-button" type="submit" name="submit" id="submit">
             </form>
 
             <p class="error-message js-error-message"></p>
-            <a href="#trails" class="view-trails hide-results">View trails below <i class="fas fa-arrow-down"></i></a>
+            <a href="#trails" class="view-trails-submit hide-results">View trails below <i class="fas fa-arrow-down"></i></a>
         </div>
     </section>
 
@@ -232,7 +259,7 @@
                         <div class="add-trail-buttons">
                             <button class="add-trail js-add-trail">
                                 <span class="add-label">
-                                    <i class="fas fa-plus-circle"></i> Add Trail
+                                    Added!
                                 </span>
                             </button>
                         </div>
@@ -248,8 +275,6 @@
             </ul>
         </div>
     </section>
-
-    
 
     
     <script src="https://cdn.bootcss.com/fetch-jsonp/1.1.3/fetch-jsonp.js"></script>

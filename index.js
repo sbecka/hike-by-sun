@@ -169,7 +169,7 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
             if (responseJson.trails.length == 0) {
 
                 $(".js-city-name").text(`No trails in ${cityName}`);
-                $(".view-trails").addClass("hide-results");
+                $(".view-trails-submit").addClass("hide-results");
                 $(".js-trail-results").empty();
                 return $(".js-error-message").text(`No trails found there. Try another place or plan your day.`);
             
@@ -182,7 +182,7 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
 
                     let trailPhoto = responseJson.trails[i].imgSmallMed;
                     if (trailPhoto === "") {
-                        $(".view-trails").removeClass("hide-results");
+                        $(".view-trails-submit").removeClass("hide-results");
                         $(".js-trail-results").append(`
                         <li class="trail js-trail">
                         <div class="trail-heading">
@@ -210,7 +210,7 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
                     `);
 
                     } else if (trailPhoto !== "") {
-                        $(".view-trails").removeClass("hide-results");
+                        $(".view-trails-submit").removeClass("hide-results");
                         $(".js-trail-results").append(`
                         <li class="trail js-trail">
                             <div class="trail-heading">
@@ -421,12 +421,13 @@ function clickAddTrail() {
         
         console.log(trailName);
         $(".activities").append(
-            `<li>
+            `<li class="list-item">
                 <div class="act-and-times">
                     <span class="activity-item">${trailName}</span>
-
-                    <button class="edit-button">Edit <i class="far fa-edit"aria-hidden="true"></i></button>
-
+                    <div class="edit-delete-buttons">
+                        <button class="edit-button"><i class="far fa-edit"aria-hidden="true"></i> Edit</button>
+                        <button class="delete-button"><i class="far fa-trash-alt" aria-hidden="true"></i> Delete</button>
+                    </div>  
                 </div>
 
                 <div class="times-or-notes">
@@ -443,7 +444,6 @@ function clickAddTrail() {
 
                     <div>
                         <button class="save-button">Save</button>
-                        <button class="delete-button">Delete</button>
                     </div>
                 
                 </div>
@@ -461,12 +461,14 @@ function addActivity() {
         event.preventDefault();
         userActivity = $("#activity").val();
         $(".activities").append(
-            `<li>
+            `<li class="list-item">
                 <div class="act-and-times">
                     <span class="activity-item">${userActivity}</span>
 
-                    <button class="edit-button">Edit <i class="far fa-edit"aria-hidden="true"></i></button>
-                    
+                    <div class="edit-delete-buttons">
+                        <button class="edit-button"><i class="far fa-edit"aria-hidden="true"></i> Edit</button>
+                        <button class="delete-button"><i class="far fa-trash-alt" aria-hidden="true"></i> Delete</button>
+                    </div>  
                 </div>
     
                 <div class="times-or-notes">
@@ -483,7 +485,6 @@ function addActivity() {
 
                     <div>
                         <button class="save-button">Save</button>
-                        <button class="delete-button">Delete</button>
                     </div>
                 
                 </div>
