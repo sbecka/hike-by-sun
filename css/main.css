@@ -4,7 +4,9 @@
 }
 
 body {
+    font-size: 1em;
     margin: 0;
+    overflow-x: hidden;
 }
 
 header {
@@ -43,6 +45,12 @@ nav {
     font-family: 'Quando', 'Times New Roman', Times, serif;
 }
 
+.nav-links:hover {
+    color: #BB82FF;
+    border-bottom: 1px solid #BB82FF;
+    font-size: 1.1em;
+}
+
 .nav-links, .view-trails {
     text-decoration: none;
 }
@@ -54,6 +62,11 @@ nav {
 .fa-bars {
     font-size: 2.1em;
     margin-right: 20px;
+}
+
+.fa-bars:hover {
+    color: #379937;
+    cursor: pointer;
 }
 
 /*Intro Section*/
@@ -92,6 +105,11 @@ nav {
 .view-example {
     text-decoration: none;
     color: #379937;
+    font-weight: 700;
+}
+
+.view-example:hover {
+    color: #BB82FF;
 }
 
 .intro-description > h2 {
@@ -182,18 +200,36 @@ nav {
 button {
     border: 1px solid #374024;
     border-radius: 3px;
-    color: #D6FF75 ;
-    background-color: #374024;
+    color: #EDFFC2;
+    background-color: #379937;
+}
+
+button:hover {
+    cursor: pointer;
+    color: black;
+    background-color: #EDFFC2;
+    border: 1.1px solid #379937;
+    transition-duration: 0.5s;
+    font-weight: 400;
 }
 
 .submit-button {
     border: 1px solid #374024;
     border-radius: 3px;
-    color: #D6FF75 ;
-    background-color: #374024;
+    cursor: pointer;
+    color: #EDFFC2;
+    background-color: #379937;
     font-size: 1.45em;
     width: 150px;
     height: 40px;
+}
+
+.submit-button:hover {
+    color: black;
+    background-color: #EDFFC2;
+    border: 1.1px solid #379937;
+    transition-duration: 0.5s;
+    font-weight: 600;
 }
 
 .intro-buttons {
@@ -213,14 +249,23 @@ button {
     width: 100px;
     height: 35px;
     font-size: 1em;
-    padding: 6px 1px;
+    padding: 7px 1px 3px;
     text-decoration: none;
     color: #EDFFC2;
     border: 1px solid #374024;
     border-radius: 3px;
-    color: #D6FF75 ;
-    background-color: #374024;
+    color: #EDFFC2;
+    background-color: #379937;
     
+}
+
+.intro-buttons > .search-button:hover {
+    cursor: pointer;
+    color: black;
+    background-color: #EDFFC2;
+    border: 1.1px solid #379937;
+    transition-duration: 0.5s;
+    font-weight: 400;
 }
 
 .try-button {
@@ -256,6 +301,10 @@ button {
     font-size: 1.1em;
 }
 
+.save-button:hover {
+    font-weight: 700;
+}
+
 .close-search-button {
     align-self: flex-end;
     font-size: 1.35em;
@@ -268,6 +317,21 @@ button {
     font-size: 1.35em;
     margin-right: 30px;
     font-weight: 700;
+}
+
+.close-activity-button:hover{
+    border: 1px solid #379937;
+    border-radius: 3px;
+    color: #379937;
+    cursor: pointer;
+    padding: 2px;
+}
+.close-search-button:hover {
+    border: 1px solid #EDFFC2;
+    border-radius: 3px;
+    color: #EDFFC2;
+    cursor: pointer;
+    padding: 2px;
 }
 
 .activity-input-and-button {
@@ -350,6 +414,14 @@ fieldset {
     padding: 2px;
 }
 
+.view-trails-submit:hover {
+    background-color: #379937;
+    border: 1px solid #379937;
+    border-radius: 5px;
+    color: #EDFFC2;
+    transition-duration: 0.5s;
+}
+
 /*Search Section*/
 
 .search-city-date {
@@ -386,6 +458,12 @@ legend {
     height: 25px;
     font-size: 1em;
     text-align: center;
+}
+
+legend:hover {
+    color: #EDFFC2;
+    background-color: #379937;
+    transition-duration: 0.5s;
 }
 
 .refine-search {
@@ -431,8 +509,32 @@ li {
 }
 
 .trail-website {
-    color: black;
+    color: #379937;
     line-height: 1.2em;
+}
+
+.trail-website:hover {
+    color: #BB82FF;
+}
+
+.trail-name:hover {
+    color: #BB82FF;
+    font-size: 1.08em;
+    margin-right: 3px;
+}
+
+.trail-website:focus {
+    color: #BB82FF;
+}
+
+.trail-name:focus {
+    color: #BB82FF;
+    font-size: 1.08em;
+    margin-right: 3px;
+}
+
+.trail-website:visited, .trail-name:visited {
+    color: #374024;
 }
 
 .trails-area {
@@ -458,11 +560,6 @@ li {
    
 }
 
-.trail-name {
-    color: #379937;
-    font-size: 1.08em;
-    margin-right: 3px;
-}
 
 .trail-details {
     display: flex;
@@ -526,6 +623,7 @@ li {
 }
 
 .activities {
+    
     display: flex;
     flex-direction: column;
     justify-content: space-around;

@@ -191,13 +191,13 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
                                 <h4 class="trail-name">${responseJson.trails[i].name}</h4>
                             </a>
                        
-                            <div class="add-trail-buttons">
-                                <button class="add-trail js-add-trail">
-                                    <span class="add-label">
-                                    <i class="fas fa-plus-circle"></i> Add Trail
-                                    </span>
-                                </button>
-                            </div>
+                       
+                            <button class="add-trail js-add-trail">
+                                <span class="add-label">
+                                <i class="fas fa-plus-circle"></i> Add Trail
+                                </span>
+                            </button>
+                           
                         </div>
                         
                         <p>${responseJson.trails[i].location}</p>
@@ -219,13 +219,13 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
                                     <h4 class="trail-name">${responseJson.trails[i].name}</h4>
                                 </a>
                         
-                                <div class="add-trail-buttons">
-                                    <button class="add-trail js-add-trail">
-                                        <span class="add-label">
-                                            <i class="fas fa-plus-circle"></i> Add Trail 
-                                        </span>
-                                    </button>
-                                </div>
+                            
+                                <button class="add-trail js-add-trail">
+                                    <span class="add-label">
+                                        <i class="fas fa-plus-circle"></i> Add Trail 
+                                    </span>
+                                </button>
+                                
                             </div>
                             <img class="trail-photo" src="${responseJson.trails[i].imgSmallMed}" alt="Photo from ${responseJson.trails[i].name}"></img>
                             <p>${responseJson.trails[i].location}</p>
