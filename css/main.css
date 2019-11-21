@@ -104,6 +104,12 @@ nav {
     color: yellow;
 }
 
+.sunrise-icon {
+    font-size: 1.75em;
+    background-color: cornflowerblue;
+    border-radius: 50%;
+}
+
 .intro-description {
     height: 160px;
     width: 97%;
