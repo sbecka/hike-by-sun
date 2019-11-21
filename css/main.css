@@ -46,8 +46,14 @@ nav {
 }
 
 .nav-links:hover {
-    color: #BB82FF;
-    border-bottom: 1px solid #BB82FF;
+    
+    border-bottom: 1px solid #EDFFC2;
+    font-size: 1.1em;
+}
+
+.nav-links:focus {
+    
+    border-bottom: 2px solid #EDFFC2;
     font-size: 1.1em;
 }
 
@@ -67,6 +73,10 @@ nav {
 .fa-bars:hover {
     color: #379937;
     cursor: pointer;
+}
+
+.fa-bars:focus {
+    color: #379937;
 }
 
 /*Intro Section*/
@@ -110,6 +120,11 @@ nav {
 
 .view-example:hover {
     color: #BB82FF;
+}
+
+.view-example:focus {
+    color: #BB82FF;
+    background-color: rgb(46, 46, 46);
 }
 
 .intro-description > h2 {
@@ -213,6 +228,14 @@ button:hover {
     font-weight: 400;
 }
 
+button:focus {
+    color: black;
+    background-color: #EDFFC2;
+    border: 1.1px solid #379937;
+    transition-duration: 0.5s;
+    font-weight: 400;
+}
+
 .submit-button {
     border: 1px solid #374024;
     border-radius: 3px;
@@ -225,6 +248,14 @@ button:hover {
 }
 
 .submit-button:hover {
+    color: black;
+    background-color: #EDFFC2;
+    border: 1.1px solid #379937;
+    transition-duration: 0.5s;
+    font-weight: 600;
+}
+
+.submit-button:focus {
     color: black;
     background-color: #EDFFC2;
     border: 1.1px solid #379937;
@@ -261,6 +292,14 @@ button:hover {
 
 .intro-buttons > .search-button:hover {
     cursor: pointer;
+    color: black;
+    background-color: #EDFFC2;
+    border: 1.1px solid #379937;
+    transition-duration: 0.5s;
+    font-weight: 400;
+}
+
+.intro-buttons > .search-button:focus {
     color: black;
     background-color: #EDFFC2;
     border: 1.1px solid #379937;
@@ -331,6 +370,19 @@ button:hover {
     border-radius: 3px;
     color: #EDFFC2;
     cursor: pointer;
+    padding: 2px;
+}
+
+.close-activity-button:focus {
+    border: 1px solid #379937;
+    border-radius: 3px;
+    color: #379937;
+    padding: 2px;
+}
+.close-search-button:focus {
+    border: 1px solid #EDFFC2;
+    border-radius: 3px;
+    color: #EDFFC2;
     padding: 2px;
 }
 
@@ -422,6 +474,14 @@ fieldset {
     transition-duration: 0.5s;
 }
 
+.view-trails-submit:focus {
+    background-color: #379937;
+    border: 1px solid #379937;
+    border-radius: 5px;
+    color: #EDFFC2;
+    transition-duration: 0.5s;
+}
+
 /*Search Section*/
 
 .search-city-date {
@@ -461,6 +521,12 @@ legend {
 }
 
 legend:hover {
+    color: #EDFFC2;
+    background-color: #379937;
+    transition-duration: 0.5s;
+}
+
+legend:focus {
     color: #EDFFC2;
     background-color: #379937;
     transition-duration: 0.5s;
@@ -524,12 +590,14 @@ li {
 }
 
 .trail-website:focus {
+    border: 1px solid #BB82FF;
+    border-radius: 5px;
     color: #BB82FF;
 }
 
 .trail-name:focus {
     color: #BB82FF;
-    font-size: 1.08em;
+    font-size: 1.1em;
     margin-right: 3px;
 }
 

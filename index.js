@@ -563,6 +563,11 @@ function toggleHamburgerIcon() {
         $(".nav-links").toggleClass("responsive")
         $(".nav-list").toggleClass("respond-to-hamburger")
     });
+
+    $(".hamburger-icon").keypress(event => {
+        $(".nav-links").toggleClass("responsive")
+        $(".nav-list").toggleClass("respond-to-hamburger")
+    });
 };
 
 function refineSearch() {
@@ -580,6 +585,10 @@ function openAddAnActivity() {
     $(".close-activity-button").click(event => {
         $(".adding-activity").toggleClass("hide-add-activity");
     });
+
+    $(".close-activity-button").keypress(event => {
+        $(".adding-activity").toggleClass("hide-add-activity");
+    });
 };
 
 function openSearchTrails() {
@@ -589,6 +598,10 @@ function openSearchTrails() {
     });
 
     $(".close-search-button").click(event => {
+        $("#search").toggleClass("hide-search");
+    });
+
+    $(".close-search-button").keypress(event => {
         $("#search").toggleClass("hide-search");
     });
 
