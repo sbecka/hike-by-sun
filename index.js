@@ -425,7 +425,7 @@ function clickAddTrail() {
                 <div class="act-and-times">
                     <span class="activity-item">${trailName}</span>
                     <div class="edit-delete-buttons">
-                        <button class="edit-button"><i class="far fa-edit"aria-hidden="true"></i> Edit</button>
+                        <button class="edit-button"><i class="far fa-edit" aria-hidden="true"></i> Edit</button>
                         <button class="delete-button"><i class="far fa-trash-alt" aria-hidden="true"></i> Delete</button>
                     </div>  
                 </div>
@@ -466,7 +466,7 @@ function addActivity() {
                     <span class="activity-item">${userActivity}</span>
 
                     <div class="edit-delete-buttons">
-                        <button class="edit-button"><i class="far fa-edit"aria-hidden="true"></i> Edit</button>
+                        <button class="edit-button"><i class="far fa-edit" aria-hidden="true"></i> Edit</button>
                         <button class="delete-button"><i class="far fa-trash-alt" aria-hidden="true"></i> Delete</button>
                     </div>  
                 </div>

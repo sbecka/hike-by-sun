@@ -209,14 +209,25 @@ button {
     font-weight: 700;
 }
 
-.try-button, .intro-search-button {
+.intro-buttons > .search-button {
     width: 100px;
     height: 35px;
     font-size: 1em;
+    padding: 0;
+    text-decoration: none;
+    color: #EDFFC2;
 }
 
-.intro-search-button {
-    padding: 0;
+.search-link-intro {
+    font-size: 1em;
+    text-decoration: none;
+    color: #EDFFC2;
+}
+
+.try-button {
+    width: 100px;
+    height: 35px;
+    font-size: 1em;
 }
 
 .edit-delete-buttons {
