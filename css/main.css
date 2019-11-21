@@ -213,15 +213,14 @@ button {
     width: 100px;
     height: 35px;
     font-size: 1em;
-    padding: 0;
+    padding: 6px 1px;
     text-decoration: none;
     color: #EDFFC2;
-}
-
-.search-link-intro {
-    font-size: 1em;
-    text-decoration: none;
-    color: #EDFFC2;
+    border: 1px solid #374024;
+    border-radius: 3px;
+    color: #D6FF75 ;
+    background-color: #374024;
+    
 }
 
 .try-button {
