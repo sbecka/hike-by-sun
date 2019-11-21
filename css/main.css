@@ -440,7 +440,7 @@ button:focus {
      cursor: pointer;
  }
 
-.home-search {
+.search-trail {
     background-color: #87CC87;
     height: calc(100% - 60px);
     width: 100%;
@@ -450,7 +450,7 @@ button:focus {
     align-items: center;
 }
 
-.home-search > h2 {
+.search-trail > h2 {
     font-family: 'Quando', 'Times New Roman', Times, serif;
 }
 
