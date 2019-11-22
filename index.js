@@ -574,6 +574,10 @@ function refineSearch() {
     $("legend").click(event => {
         $(".refine-search").toggleClass("hide-refine-search")
     });
+
+    $("legend").keypress(event => {
+        $(".refine-search").toggleClass("hide-refine-search")
+    });
 };
 
 function openAddAnActivity() {
