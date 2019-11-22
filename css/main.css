@@ -24,6 +24,10 @@ section {
     border-bottom: 2px;
 }
 
+li {
+    list-style: none;
+}
+
 /*Navigation Bar*/
 
 nav {
@@ -37,32 +41,6 @@ nav {
     width: 100vw;
     top: 0;
     z-index: 1;
-   
-}
-
-.nav-links {
-    color: #EDFFC2;
-    font-family: 'Quando', 'Times New Roman', Times, serif;
-}
-
-.nav-links:hover {
-    
-    border-bottom: 1px solid #EDFFC2;
-    font-size: 1.1em;
-}
-
-.nav-links:focus {
-    
-    border-bottom: 2px solid #EDFFC2;
-    font-size: 1.1em;
-}
-
-.nav-links, .view-trails {
-    text-decoration: none;
-}
-
-.nav-list {
-    display: none;
 }
 
 .fa-bars {
@@ -79,7 +57,30 @@ nav {
     color: #379937;
 }
 
-/*Intro Section*/
+.nav-list {
+    display: none;
+}
+
+.nav-links {
+    color: #EDFFC2;
+    font-family: 'Quando', 'Times New Roman', Times, serif;
+}
+
+.nav-links:hover {
+    border-bottom: 1px solid #EDFFC2;
+    font-size: 1.1em;
+}
+
+.nav-links:focus {
+    border-bottom: 2px solid #EDFFC2;
+    font-size: 1.1em;
+}
+
+.nav-links, .view-trails {
+    text-decoration: none;
+}
+
+/*Intro-Home Section*/
 
 .intro {
     background-image: url('../images/erika-sedona-1.jpg');
@@ -97,17 +98,6 @@ nav {
     width: 100%;
     height: calc(100vh - 60px);
     padding: 10px;
-
-}
-
-.fa-sun {
-    color: yellow;
-}
-
-.sunrise-icon {
-    font-size: 1.75em;
-    background-color: cornflowerblue;
-    border-radius: 50%;
 }
 
 .intro-description {
@@ -116,6 +106,10 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.fa-sun {
+    color: yellow;
 }
 
 .view-example {
@@ -140,15 +134,14 @@ nav {
     margin: 20px auto;
 }
 
-
-.intro-description > div{
+.intro-description > div {
     background: rgba(255, 255, 255, 0.75);
     border-radius: 5px;
     color: black;
     padding: 3px;
 }
 
-.intro-description > p{
+.intro-description > p {
     background: rgba(255, 255, 255, 0.88);
     color: black;
     border-radius: 5px;
@@ -173,7 +166,7 @@ nav {
 
 }
 
-.intro-search-local > div{
+.intro-search-local > div {
     padding: 3px;
 }
 
@@ -206,6 +199,12 @@ nav {
 
 #to-do-list{
     background-color: #EDFFC2;
+}
+
+.sunrise-icon {
+    font-size: 1.75em;
+    background-color: cornflowerblue;
+    border-radius: 50%;
 }
 
 .to-do-list-title {
@@ -293,7 +292,6 @@ button:focus {
     border-radius: 3px;
     color: #EDFFC2;
     background-color: #379937;
-    
 }
 
 .intro-buttons > .search-button:hover {
@@ -350,14 +348,7 @@ button:focus {
     font-weight: 700;
 }
 
-.close-search-button {
-    align-self: flex-end;
-    font-size: 1.35em;
-    margin-right: 30px;
-    font-weight: 700;
-}
-
-.close-activity-button {
+.close-search-button, .close-activity-button {
     align-self: flex-end;
     font-size: 1.35em;
     margin-right: 30px;
@@ -435,10 +426,8 @@ button:focus {
     justify-content: space-evenly;
     align-items: center;
  }
- 
- .close-button:hover {
-     cursor: pointer;
- }
+
+/*Search Section*/
 
 .search-trail {
     background-color: #87CC87;
@@ -459,7 +448,6 @@ fieldset {
     border: 1px solid #379937;
     border-radius: 5px;
 }
-
 
 .view-trails-submit {
     background-color: #EDFFC2;
@@ -488,8 +476,6 @@ fieldset {
     transition-duration: 0.5s;
 }
 
-/*Search Section*/
-
 .search-city-date {
     display: flex;
     flex-direction: column;
@@ -501,7 +487,6 @@ fieldset {
 }
 
 .main-search {
-    
     height: 125px;
     display: flex;
     flex-direction: column;
@@ -560,10 +545,6 @@ legend:focus {
 .refine-search > div {
     display: flex;
     justify-content: space-between;
-}
-
-li {
-    list-style: none;
 }
 
 /*Trail Result Section*/
@@ -631,7 +612,6 @@ li {
     justify-content: space-between;
     align-items: center;
     padding: 5px;
-   
 }
 
 
@@ -641,7 +621,6 @@ li {
 }
 
 .trail-photo {
-  
     min-width: 208px;
     margin: 0 auto;
     max-width: 318px;
@@ -676,7 +655,7 @@ li {
     font-size: 1.05em;
 }
 
-
+/**Edit To Do List**/
 
 .edit-activity {
     background-color: white;
@@ -828,7 +807,6 @@ li {
     align-items: center;
     height: 200px;
     margin-bottom: 20px;
-
 }
 
 .activity-item {
@@ -850,6 +828,8 @@ li {
     display: none;
 }
 
+/**Media Queries**/
+
 @media screen and (max-width: 769px) {
 
     .responsive {
@@ -869,8 +849,7 @@ li {
         top: 60px;
         margin-top: 0;
     }
-
-    
+ 
 }
 
 @media screen and (min-width: 770px) {
