@@ -1314,6 +1314,10 @@ legend:focus {
         width: 84%;
     }
 
+    .close-search-button, .close-activity-button {
+        margin-right: 100px;
+    }
+
     .trail-results > li {
         width: 615px;
     }
