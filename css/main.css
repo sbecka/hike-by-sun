@@ -144,18 +144,9 @@ nav {
 .intro-description > h2 {
     font-family: 'Quando', 'Times New Roman', Times, serif;
     line-height: 1.35em;
-    background: rgba(255, 255, 255, 0.70);
-    border-radius: 5px;
-    padding: 3px;
+    
     width: 289px;
     margin: 20px auto;
-}
-
-.intro-description > div {
-    background: rgba(255, 255, 255, 0.75);
-    border-radius: 5px;
-    color: black;
-    padding: 3px;
 }
 
 .intro-description > p {
@@ -939,6 +930,12 @@ legend:focus {
 @media screen and (min-width: 412px) {
 
     .intro-description > h2 {
+        background: rgba(255, 255, 255, 0.75);
+        border-radius: 5px;
+        padding: 3px;
+    }    
+
+    .intro-description > h2 {
         width: 300px;
     }
     
@@ -1222,15 +1219,15 @@ legend:focus {
 
     .intro-description > h2 {
         margin-top: 40px;
-        width: 70%;
+        width: 60%;
     }
 
     .intro-description > p {
-        width: 50%;
+        width: 40%;
     }
 
     .intro-search-local {
-        width: 65%;
+        width: 50%;
     }
 
 }
