@@ -108,8 +108,17 @@ nav {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
     padding: 10px;
+    position: relative;
+}
+
+.intro-words {
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .intro-description {
@@ -169,8 +178,6 @@ nav {
     border-radius: 5px;
     color: black;
     padding: 5px;
-    position: absolute;
-    bottom: 90px;
 
 }
 
@@ -187,7 +194,7 @@ nav {
 
 .intro > a {
     position: absolute;
-    bottom: 50px;
+    bottom: 8px;
     background: rgba(255, 255, 255, 0.85);
     border-radius: 5px;
     color: #379937;
@@ -702,7 +709,7 @@ legend:focus {
     width: 70vw;
     padding: 0;
     margin: 0 auto;
-    min-height: 230px;
+    min-height: 70vh;
     
 }
 
@@ -848,6 +855,8 @@ legend:focus {
 
 /**Media Queries**/
 
+
+
 @media screen and (min-width: 360px) {
 
     .intro-description > p, .local {
@@ -867,9 +876,6 @@ legend:focus {
         font-size: 1.1em;
     }
 
-    .activities {
-        min-height: 40vh;
-    }
 
     .suntimes > h5 {
         font-size: 1em;
@@ -1052,7 +1058,17 @@ legend:focus {
 
 }
 
+@media screen and (min-width: 560px) {
+    .activities {
+        min-height: ;
+    }
+}
+
 @media screen and (min-width: 765px) {
+
+    .intro-words {
+        min-height: 300px;
+    }
 
     .respond-to-hamburger {
         height: 220px;
@@ -1208,6 +1224,10 @@ legend:focus {
         background-color: #87CC87;
         background-size: cover;
     }
+
+    .intro > a {
+        bottom: 30px;
+    }
 }
 
 /*iPad Pro*/
@@ -1230,6 +1250,10 @@ legend:focus {
         width: 50%;
     }
 
+    .intro > a {
+        bottom: 30px;
+    }
+
 }
 
 @media screen and (min-width: 665px) and (min-height: 650px) {
@@ -1247,6 +1271,15 @@ legend:focus {
 }
 
 @media screen and (min-width: 1023px) {
+
+    .intro-words {
+        min-height: 300px;
+    }
+
+    .intro > a {
+        bottom: 30px;
+    }
+
     .times-and-list {
         width: 60vw;
         margin: 0 auto;
