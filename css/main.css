@@ -122,6 +122,8 @@ nav {
 
 .fa-sun {
     color: yellow;
+    background-color: cornflowerblue;
+    border-radius: 50%;
 }
 
 .view-example {
@@ -142,6 +144,9 @@ nav {
 .intro-description > h2 {
     font-family: 'Quando', 'Times New Roman', Times, serif;
     line-height: 1.35em;
+    background: rgba(255, 255, 255, 0.70);
+    border-radius: 5px;
+    padding: 3px;
     width: 289px;
     margin: 20px auto;
 }
@@ -1019,7 +1024,7 @@ legend:focus {
  
 }
 
-@media screen and (min-width: 770px) {
+@media screen and (min-width: 769px) {
 
     nav {
         display: flex;
@@ -1030,9 +1035,18 @@ legend:focus {
     .nav-list {
         display: flex;
         justify-content: space-around;
-        width: 50vw;
+        width: 65vw;
+        font-size: 0.9em;
         align-items: center;
         overflow: hidden;
+    }
+
+    .nav-links:hover, .nav-links:focus {
+        font-size: 1.6em;
+    }
+
+    .nav-links {
+        color: black;
     }
     
     .hamburger-icon {
@@ -1041,7 +1055,7 @@ legend:focus {
 
 }
 
-@media (min-width: 765px) {
+@media screen and (min-width: 765px) {
 
     .respond-to-hamburger {
         height: 220px;
@@ -1051,59 +1065,19 @@ legend:focus {
         font-size: 1.5em;
     }
 
-    .nav-links:hover, .nav-links:hover {
+    .nav-links:hover, .nav-links:focus {
         font-size: 1.6em;
-    }
-
-    .intro-description {
-        height: 200px;
-        width: 80%;
+        color: #BB82FF;
     }
 
     .intro-description > h2 {
-        font-size: 1.7em;
-        width: 80%;
-    }
-
-    .intro-description > p {
-        min-height: 64px;
-        width: 80%;
-        font-size: 1.51em;
-    }
-
-    .local {
-        font-size: 1.51em;
+        width: 500px;
+        font-size: 1.5em;
     }
 
     .intro-search-local {
-        width: 70%;
-        height: 140px;
-        margin: 0 auto;
-    }
-
-    .intro-buttons {
-        width: 100%;
-    }
-
-    .intro-buttons > p {
-        font-size: 1.3em;
-    }
-
-    .intro > a {
-        width: 280px;
-        height: 40px;
-        font-size: 1.8em;
-        font-weight: 600;
-    }
-
-    .try-button, .intro-buttons > .search-button {
-        width: 140px;
-        height: 50px;
-        font-size: 1.4em;
-    }
-
-    .intro-buttons > .search-button {
-        padding-top: 11px;
+        width: 450px;
+        height: 100px;
     }
 
     .view-trails-submit {
@@ -1126,7 +1100,7 @@ legend:focus {
     }
 
     .suntimes {
-        font-size: 1.3em;
+        font-size: 1.1em;
         width: 20vw;
     }
 
@@ -1230,3 +1204,101 @@ legend:focus {
     }
 }
 
+/*iPad Screen*/
+
+@media screen and (min-width: 760px) and (min-height: 1024px) {
+    .intro {
+        background-color: #87CC87;
+        background-size: cover;
+    }
+}
+
+/*iPad Pro*/
+@media screen and (min-width: 1024px) and (min-height: 1366px) {
+    .intro {
+        background-color: #87CC87;
+        background-size: cover;
+    }
+
+    .intro-description > h2 {
+        margin-top: 40px;
+        width: 70%;
+    }
+
+    .intro-description > p {
+        width: 50%;
+    }
+
+    .intro-search-local {
+        width: 65%;
+    }
+
+}
+
+@media screen and (min-width: 665px) and (min-height: 650px) {
+    .intro {
+        background-color: #87CC87;
+        background-image: url('../images/thunder-mtn-sedona.jpg');
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+    }
+}
+
+@media screen and (min-width: 1023px) {
+    .times-and-list {
+        width: 60vw;
+        margin: 0 auto;
+    }
+
+    .planning-to-do-list {
+        width: 40vw;
+    }
+
+    .activities {
+        width: 40vw;
+        min-height: 524px;
+    }
+
+    .activities > li {
+        width: 40vw;
+    }
+
+    .add-search-buttons {
+        width: 60vw;
+        margin: 0 auto;
+    }
+
+    .activity-input-and-button {
+        width: 35vw;
+    }
+
+    .activity-input {
+        width: 84%;
+    }
+
+    .trail-results > li {
+        width: 615px;
+    }
+
+    .trail-heading {
+        width: 600px;
+    }
+
+    .trail-name:hover {
+        color: #BB82FF;
+        font-size: 1.25em;
+        margin-right: 3px;
+    }
+    
+    .trail-name:focus {
+        color: #BB82FF;
+        font-size: 1.25em;
+        margin-right: 3px;
+    }
+
+}
