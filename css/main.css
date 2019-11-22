@@ -438,6 +438,7 @@ button:focus {
  .add-search-buttons {
     width: 100%;
     min-height: 20vh;
+    margin-top: 20px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -1058,12 +1059,6 @@ legend:focus {
 
 }
 
-@media screen and (min-width: 560px) {
-    .activities {
-        min-height: ;
-    }
-}
-
 @media screen and (min-width: 765px) {
 
     .intro-words {
@@ -1155,9 +1150,9 @@ legend:focus {
     }
 
     .add-an-activity-button, .search-button {
-        height: 70px;
-        width: 190px;
-        font-size: 1.5em;
+        height: 50px;
+        width: 150px;
+        font-size: 1.1em;
     }
 
     .close-search-button, .close-activity-button {
