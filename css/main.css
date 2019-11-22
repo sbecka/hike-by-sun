@@ -1081,11 +1081,16 @@ legend:focus {
     .intro-description > h2 {
         width: 500px;
         font-size: 1.5em;
+        text-align: center;
     }
 
     .intro-search-local {
         width: 450px;
         height: 100px;
+    }
+
+    .intro-search-local > .local {
+        padding-top: 7px;
     }
 
     .view-trails-submit {
@@ -1146,7 +1151,7 @@ legend:focus {
     .activities > li {
         min-height: 90px;
         width: 68vw;
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
 
     .add-an-activity-button, .search-button {
@@ -1251,7 +1256,9 @@ legend:focus {
 
 }
 
+/**Switch to Landscape Image for larger screens**/
 @media screen and (min-width: 665px) and (min-height: 650px) {
+
     .intro {
         background-color: #87CC87;
         background-image: url('../images/thunder-mtn-sedona.jpg');
@@ -1295,6 +1302,7 @@ legend:focus {
 
     .add-search-buttons {
         width: 60vw;
+        min-height: 130px;
         margin: 0 auto;
     }
 
