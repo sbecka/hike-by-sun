@@ -1,12 +1,12 @@
 * {
     box-sizing: border-box;
-    font-family: 'Muli', Arial, Helvetica, sans-serif;
 }
 
 body {
     font-size: 1em;
     margin: 0;
     overflow-x: hidden;
+    font-family: 'Muli', Arial, Helvetica, sans-serif;
 }
 
 header {
@@ -169,7 +169,6 @@ nav {
     border-radius: 5px;
     color: black;
     padding: 5px;
-
 }
 
 .intro-search-local > div {
@@ -290,7 +289,6 @@ button:focus {
 .intro-buttons > .search-button {
     width: 100px;
     height: 35px;
-    font-size: 1em;
     padding: 7px 1px 3px 2px;
     text-decoration: none;
     color: #EDFFC2;
@@ -565,7 +563,7 @@ legend:focus {
     font-weight: 600;
 }
 
-/*Trail Result Section*/
+/*Trails Result Section*/
 
 #trails {
     background-color: #87CC87;
@@ -631,7 +629,6 @@ legend:focus {
     align-items: center;
     padding: 5px;
 }
-
 
 .trail-details {
     display: flex;
@@ -801,6 +798,7 @@ legend:focus {
 .daytime {
     text-align: center;
 }
+
 .time-values {
     font-size: 0.85em;
 }
@@ -830,7 +828,6 @@ legend:focus {
 }
 
 .activity-item {
-   
     width: 60%;
     padding-left: 3px;
 }
@@ -851,8 +848,6 @@ legend:focus {
 
 /**Media Queries**/
 
-
-
 @media screen and (min-width: 360px) {
 
     .intro-description > p, .local {
@@ -872,12 +867,11 @@ legend:focus {
         font-size: 1.1em;
     }
 
-
     .suntimes > h5 {
         font-size: 1em;
     }
 
-    .list-item {
+    .list-item, .filters > input {
         font-size: 1.1em;
     }
 
@@ -885,20 +879,8 @@ legend:focus {
         font-size: 1.2em;
     }
 
-    .refine-search > label {
+    .refine-search > label, legend, .filters > label {
         font-size: 1.2em;
-    }
-
-    legend {
-        font-size: 1.2em;
-    }
-
-    .filters > label {
-        font-size: 1.2em;
-    }
-
-    .filters > input {
-        font-size: 1.1em;
     }
 
     .trail-photo {
@@ -907,15 +889,7 @@ legend:focus {
         max-height: 67%;
     }
 
-    .trail-name {
-        font-size: 1.2em;
-    }
-
-    .trail > p {
-        font-size: 1.2em;
-    }
-    
-    .trail-details {
+    .trail-name, .trail > p, .trail-details {
         font-size: 1.2em;
     }
 
@@ -951,14 +925,9 @@ legend:focus {
         font-size: 1.5em;
     }
 
-    .suntimes > h5 {
+    .suntimes > h5, .list-item {
         font-size: 1.2em;
     }
-
-    .list-item {
-        font-size: 1.2em;
-    }
-
     .trail-heading {
         padding-left: 15px;
         padding-right: 15px;
@@ -978,9 +947,6 @@ legend:focus {
     }
     
 }
-
-
-
 
 @media screen and (min-height: 730px) {
 
@@ -1093,11 +1059,7 @@ legend:focus {
         width: 30vw;
     }
 
-    .to-do-list-area > .city-name {
-        font-size: 1.9em;
-    }
-
-    .date {
+    .to-do-list-area > .city-name, .date {
         font-size: 1.9em;
     }
 
@@ -1163,11 +1125,7 @@ legend:focus {
         width: 48vw;
     }
 
-    .activity-input {
-        font-size: 1.4em;
-    }
-
-    .add-activity-button {
+    .activity-input, .add-activity-button {
         font-size: 1.4em;
     }
 
@@ -1287,17 +1245,13 @@ legend:focus {
         margin: 0 auto;
     }
 
-    .planning-to-do-list {
+    .planning-to-do-list, .activities > li {
         width: 40vw;
     }
 
     .activities {
         width: 40vw;
         min-height: 524px;
-    }
-
-    .activities > li {
-        width: 40vw;
     }
 
     .add-search-buttons {
@@ -1327,13 +1281,7 @@ legend:focus {
         width: 600px;
     }
 
-    .trail-name:hover {
-        color: #BB82FF;
-        font-size: 1.25em;
-        margin-right: 3px;
-    }
-    
-    .trail-name:focus {
+    .trail-name:hover, .trail-name:focus {
         color: #BB82FF;
         font-size: 1.25em;
         margin-right: 3px;
