@@ -639,6 +639,7 @@ legend:focus {
 }
 
 .trail-photo {
+    box-shadow: 3px 5px 5px grey;
     min-width: 50%;
     margin: 0 auto;
     max-width: 100vw;
@@ -772,7 +773,7 @@ legend:focus {
 
 .planning-to-do-list {
     background-color: white;
-    border: 1px solid #379937;
+    box-shadow: 3px 5px 5px grey;
     border-radius: 3px;
     width: 70vw;
     display: flex;
@@ -824,7 +825,12 @@ legend:focus {
     margin-bottom: 20px;
 }
 
+.activity-item, .times-notes {
+    word-wrap: break-word;
+}
+
 .activity-item {
+   
     width: 60%;
     padding-left: 3px;
 }
