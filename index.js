@@ -685,7 +685,7 @@ function listenToSubmit() {
     });
 };
 
-//liseten for events on page
+//liseten for events on page 
 function listenForEvents() {
 
     listenToSubmit();

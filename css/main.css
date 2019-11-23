@@ -427,7 +427,7 @@ button:focus {
     min-height: 20vh;
     margin-top: 20px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
  }
 
@@ -569,7 +569,7 @@ legend:focus {
 #trails > h2 {
     font-family: 'Quando', 'Times New Roman', Times, serif;
     margin: 20px auto;
-    width: 298px;
+    width: 310px;
     border-bottom: 3px solid #374024;
     line-height: 1.8em;
 }
@@ -924,9 +924,6 @@ legend:focus {
         background: rgba(255, 255, 255, 0.75);
         border-radius: 5px;
         padding: 3px;
-    }    
-
-    .intro-description > h2 {
         width: 300px;
     }
     
@@ -938,11 +935,7 @@ legend:focus {
         font-size: 1.3em;
     }
 
-    .city-name {
-        font-size: 1.5em;
-    }
-
-    .date {
+    .city-name, .date {
         font-size: 1.5em;
     }
 
@@ -985,7 +978,7 @@ legend:focus {
 
     .intro-description > h2 {
         font-size: 1.5em;
-        width: 300px;
+        width: 310px;
     }
 }
 
@@ -1138,6 +1131,12 @@ legend:focus {
         font-size: 1.3em;
     }
 
+    .add-search-buttons {
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+     }
+
     .add-an-activity-button, .search-button {
         height: 50px;
         width: 150px;
@@ -1285,10 +1284,11 @@ legend:focus {
     }
 
     .add-search-buttons {
-        width: 60vw;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
         min-height: 130px;
-        margin: 0 auto;
-    }
+     }
 
     .activity-input-and-button {
         width: 35vw;
