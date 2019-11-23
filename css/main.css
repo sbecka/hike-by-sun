@@ -66,7 +66,7 @@ nav {
 }
 
 .nav-links {
-    color: #EDFFC2;
+    color: white;
     font-family: 'Quando', 'Times New Roman', Times, serif;
 }
 
@@ -135,6 +135,7 @@ nav {
 
 .view-example:hover {
     color: #BB82FF;
+    background-color: rgb(46, 46, 46);
 }
 
 .view-example:focus {
@@ -225,7 +226,7 @@ nav {
 button {
     border: 1px solid #374024;
     border-radius: 3px;
-    color: #EDFFC2;
+    color: white;
     background-color: #379937;
 }
 
@@ -250,7 +251,7 @@ button:focus {
     border: 1px solid #374024;
     border-radius: 3px;
     cursor: pointer;
-    color: #EDFFC2;
+    color: white;
     background-color: #379937;
     font-size: 1.45em;
     width: 150px;
@@ -294,10 +295,9 @@ button:focus {
     justify-content: center;
     flex-direction: column;
     text-decoration: none;
-    color: #EDFFC2;
+    color: white;
     border: 1px solid #374024;
     border-radius: 3px;
-    color: #EDFFC2;
     background-color: #379937;
 }
 
@@ -373,7 +373,7 @@ button:focus {
 .close-search-button:hover {
     border: 1px solid #EDFFC2;
     border-radius: 3px;
-    color: #EDFFC2;
+    color: white;
     cursor: pointer;
     padding: 2px;
 }
@@ -387,7 +387,7 @@ button:focus {
 .close-search-button:focus {
     border: 1px solid #EDFFC2;
     border-radius: 3px;
-    color: #EDFFC2;
+    color: white;
     padding: 2px;
 }
 

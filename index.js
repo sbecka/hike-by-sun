@@ -416,8 +416,7 @@ function formatCityName(cityName) {
 //changing date input format to appear on the page as a normal date with month day, year format
 function formatDate(date) {
 
-    let newDate = date.split("-");
-    //console.log(newDate); ["2019", "11", "18"]
+    let newDate = date.split("-"); //["2019", "11", "18"]
 
     if (newDate[1] === "01") {
         newDate[1] = "January";
