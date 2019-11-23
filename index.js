@@ -1,6 +1,6 @@
 'use strict';
 
-///////HTML Geolocation API for getting coordinates of a user's location and return trails and sun times 
+//HTML Geolocation API for getting coordinates of a user's location and return trails and sun times 
 let x = document.getElementById("demo");
 
 function getLocation() {
@@ -17,21 +17,15 @@ function getLocation() {
 };
 
 function showPosition(position) {
-    //x.innerHTML = "Latitude: " + position.coords.latitude + 
-    //"<br>Longitude: " + position.coords.longitude;
 
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
-
-    //console.log(latitude);
-    //console.log(longitude);
 
     $(".js-city-name").text(`Trails around your area`);
     $(".js-city-to-do").empty();
     findTrails(latitude, longitude);
     findTodaySun(latitude, longitude);
 };
-//////////////////
 
 //ipgeolocation Astronomy API https://api.ipgeolocation.io/astronomy offers times based on time zones with latitude and longitude
 
@@ -39,6 +33,7 @@ const geoAstronomyAPIKey = "170fa59d1a2c41ecbd0058cee382b898";
 
 const geoLocationAstronomyUrl = "https://api.ipgeolocation.io/astronomy";
 
+//Used with HTML Geolocation API when a user wants to use their location to find trails and today's date
 function findTodaySun(latitude, longitude) {
 
     const params = {
@@ -50,8 +45,6 @@ function findTodaySun(latitude, longitude) {
     const sunQueryString = formatQuery(params);
 
     const url = geoLocationAstronomyUrl + "?" + sunQueryString;
-
-    console.log(url);
 
     fetch(url)
         .then(response => {
@@ -65,9 +58,8 @@ function findTodaySun(latitude, longitude) {
             let newSunTime = removeLeadingZero(sunRiseTime);
             let militaryTime = responseJson.sunset;
             let newHour = militaryTimeConverter(militaryTime);
-            console.log(responseJson);
             let today = responseJson.date;
-            console.log(today);
+
             formatDate(today);
             $(".js-city-to-do").text(`Today is`)
             $(".js-daytime").text(`${responseJson.day_length} hours`);
@@ -79,6 +71,7 @@ function findTodaySun(latitude, longitude) {
         });
 };
 
+//using ipgeolocation Astronomy API to get sunrise, sunset, and day length times based on user date input
 function findSunTimes(latitude, longitude, dateYearMonthDay) {
 
     const params = {
@@ -92,8 +85,6 @@ function findSunTimes(latitude, longitude, dateYearMonthDay) {
 
     const url = geoLocationAstronomyUrl + "?" + sunQueryString;
 
-    console.log(url);
-
     fetch(url)
         .then(response => {
             if (response.ok) {
@@ -102,34 +93,42 @@ function findSunTimes(latitude, longitude, dateYearMonthDay) {
             throw new Error(response.statusText);
         })
         .then(responseJson => {
+
             let sunRiseTime = responseJson.sunrise;
             let newSunTime = removeLeadingZero(sunRiseTime);
             let militaryTime = responseJson.sunset;
             let newHour = militaryTimeConverter(militaryTime);
-            console.log(responseJson);
+            
             $(".js-daytime").text(`${responseJson.day_length} hours`);
             $(".js-sunrise").text(`${newSunTime} AM`);
             $(".js-sunset").text(`${newHour} PM`);
         })
         .catch(error => {
+
             return $(".js-error-message").text(`${error.message}`);
+
         });
+
 };
 
+//clean up any leading zeros on the sunrise times, for example, 07:35 --> 7:35
 function removeLeadingZero(sunRiseTime) {
 
     let indexZero = sunRiseTime.indexOf("0");
 
     if (indexZero === 0) {
+
         let newTime = sunRiseTime.slice(1);
         sunRiseTime = newTime;
-        //console.log(sunRiseTime);
+
     }
 
     return sunRiseTime;
 };
 
+//convert any military times to a normal time format, 15:00 -> 3:00
 function militaryTimeConverter(militaryTime) {
+
     let hourTime = militaryTime.split(":");
     let hourTarget = hourTime.shift();
     let hourNumber = parseInt(hourTarget);
@@ -163,7 +162,7 @@ function militaryTimeConverter(militaryTime) {
     let turnBackToString = hourNumber.toString();
     hourTime.unshift(turnBackToString);
     let normalHour = hourTime.join(":");
-    //console.log(normalHour);
+
     return normalHour;
 };
 
@@ -187,8 +186,6 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
     const trailsQueryString = formatQuery(params);
 
     const url = hikingProjectUrl + "?" + trailsQueryString;
-
-    console.log(url);
 
     fetch(url)
         .then(response => {
@@ -219,46 +216,50 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
 
                     let trailPhoto = responseJson.trails[i].imgSmallMed;
 
-                    if (trailPhoto === "") { //check if a trail has a photo with it or no photo
+                    if (trailPhoto === "") { //check if a trail has a photo, if the value is empty don't include the photo
 
                         $(".view-trails-submit").removeClass("hide-results");
                         
                         $(".js-trail-results").append(`
                         
                         <li class="trail js-trail">
-                        <div class="trail-heading">
+                            
+                            <div class="trail-heading">
 
-                            <a href="${responseJson.trails[i].url}" target="_blank" class="trail-website">
+                                <a href="${responseJson.trails[i].url}" target="_blank" class="trail-website">
+                                    
+                                    <h4 class="trail-name">${responseJson.trails[i].name}</h4>
                                 
-                                <h4 class="trail-name">${responseJson.trails[i].name}</h4>
-                            
-                            </a>
-                       
-                       
-                            <button class="add-trail js-add-trail">
-                                
-                                <span class="add-label">
-                                    <i class="fas fa-plus-circle"></i> Add Trail
-                                </span>
-                            
-                            </button>
-                           
-                        </div>
+                                </a>
                         
-                        <p>${responseJson.trails[i].location}</p>
                         
-                        <div class="trail-details">
-                            
-                            <p class="rating">Rating: ${responseJson.trails[i].stars} / 5</p>
-                            <p class="trail-length">Trail Length: ${responseJson.trails[i].length} mi</p>
-                        
-                        </div>
-                        
-                        <p>${responseJson.trails[i].summary}</p>
-                    
-                    </li>`);
+                                <button class="add-trail js-add-trail">
+                                    
+                                    <span class="add-label">
 
-                    } else if (trailPhoto !== "") {
+                                        <i class="fas fa-plus-circle"></i> Add Trail
+                                    
+                                    </span>
+                                
+                                </button>
+                            
+                            </div>
+                            
+                            <p>${responseJson.trails[i].location}</p>
+                            
+                            <div class="trail-details">
+                                
+                                <p class="rating">Rating: ${responseJson.trails[i].stars} / 5</p>
+                                <p class="trail-length">Trail Length: ${responseJson.trails[i].length} mi</p>
+                            
+                            </div>
+                            
+                            <p>${responseJson.trails[i].summary}</p>
+                        
+                        </li>`
+                    );
+
+                    } else if (trailPhoto !== "") { //if photo value is not empty, then add it in the results
                         
                         $(".view-trails-submit").removeClass("hide-results");
                         
@@ -278,7 +279,9 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
                                 <button class="add-trail js-add-trail">
                                     
                                     <span class="add-label">
+
                                         <i class="fas fa-plus-circle"></i> Add Trail 
+
                                     </span>
                                 
                                 </button>
@@ -311,7 +314,6 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
 };
 
 //Location IQ API https://us1.locationiq.com/v1/search.php?key=YOUR_PRIVATE_TOKEN&q=SEARCH_STRING&format=json
-
 const apiToken = "f4e25901c1a5fc";
 
 const locationIqUrl = "https://us1.locationiq.com/v1/search.php";
@@ -336,6 +338,8 @@ let latitude = null;
 let longitude = null;
 let cityName = null;
 
+//Using Location IQ to convert city names and place 
+//into latitude and longitude coordinates for the othe APIs to use in their parameters
 function getCityGeoCode(userCity) {
 
     const params = {
@@ -348,7 +352,6 @@ function getCityGeoCode(userCity) {
     const locationQueryString = formatQuery(params);
 
     const url = locationIqUrl + "?" + locationQueryString;
-    console.log(url);
     
     fetchJsonp(url, { //using fetch jsonp callback
         jsonpCallback: 'json_callback', jsonpCallbackFunction: 'callBackGeoCode' 
@@ -365,27 +368,24 @@ function getCityGeoCode(userCity) {
             longitude = responseJson[0].lon;
             cityName = responseJson[0].display_name;
 
-            cityName = formatCityName(cityName);
-
-            //console.log(latitude);
-            //console.log(longitude);
-            //console.log(cityName);
+            cityName = formatCityName(cityName); //if the place has a county name, then this will remove it
 
             $(".js-city-name").text(`Trails around ${cityName}`);
             $(".js-city-to-do").text(`${cityName}`);
             
        
-            let dateYearMonthDay = $("#date").val();
+            let dateYearMonthDay = $("#date").val(); //2019-11-18
             let maxResults= $("#max-results").val();
             let minLength = $("#min-length").val();
             let maxDistance = $("#max-length").val();
     
-            //console.log(dateYearMonthDay); 2019-11-18
             findTrails(latitude, longitude, maxResults, minLength, maxDistance);
             findSunTimes(latitude, longitude, dateYearMonthDay);
         })
         .catch(error => {
+
             return $(".js-error-message").text(`${error.message}`);
+
         });
 
 };
@@ -400,9 +400,8 @@ function formatCityName(cityName) {
         
         if (getCounty[i].includes("County")) {
 
-            let county = getCounty.splice(i, 1);
-            
-            console.log(county); //Marion County    
+            let county = getCounty.splice(i, 1); //Marion County 
+
         };
     };
 
@@ -448,8 +447,7 @@ function formatDate(date) {
 
     let year = newDate.shift();
     let day = newDate.join(" ");
-    newDate = day + ", " + year;
-    //console.log(newDate); November 18, 2019
+    newDate = day + ", " + year; //November 18, 2019
 
     $(".js-date").text(`${newDate}`);
 
@@ -460,13 +458,12 @@ function clickAddTrail() {
 
     $(".js-trail-results").on("click", ".js-add-trail", function(event) {
 
-        $(this).closest("li").find(".add-label").text(`Added!`);
+        $(this).closest("li").find(".add-label").text(`Added!`); //change text of button when Add trail clicked
 
         let trailName = $(this).closest("li").find(".trail-name").html();
-        
-        console.log(trailName);
 
         $(".activities").append(
+
             `<li class="list-item">
 
                 <div class="act-and-times">
@@ -503,10 +500,10 @@ function clickAddTrail() {
             </li>`);
 
     });
-                    
+          
 };
 
-//alow user to add new items to list and input a value as the title of the item
+//allow user to add new items to list and input a value as the title of the item
 let userActivity = null;
 
 function addActivity() {
@@ -554,7 +551,9 @@ function addActivity() {
             </li>`);
 
         $("#activity").val(""); //empty input value
+    
     });
+
 };
 
 //user can click edit button to open editing for a list item or delete button
@@ -573,6 +572,7 @@ function clickEditDeleteActivity() {
         $(this).closest("li").remove();
 
     });
+
 };
 
 //Allow user to change and save a list item's title and add notes
@@ -586,7 +586,6 @@ function updateEditActivity() {
         event.preventDefault();
 
         title = $(this).closest("li").find("#activity-title").val();
-        console.log(title);
 
         if (title !== "" || title !== title) { //if title doesn't equal an empty input or doesn't equal itself
 
@@ -596,9 +595,7 @@ function updateEditActivity() {
 
         timeOrNote = $(this).closest("li").find("#time-note").val();
 
-        console.log(timeOrNote);
-
-        if (timeOrNote !== "") { //if note is not an empty input, then let new user input be the note
+        if (timeOrNote !== "") { //if note is not an empty input, then let new user input be the new note
 
             $(this).closest("li").find(".times-notes").text(`Notes: ${timeOrNote}`);
 
@@ -610,65 +607,92 @@ function updateEditActivity() {
     
 };
 
-//open and close hamburger or bar icon for navigation menu
+//open and close hamburger or bar icon for navigation menu by click or keypress
 function toggleHamburgerIcon() {
  
     $(".hamburger-icon").click(event => {
-        $(".nav-links").toggleClass("responsive")
-        $(".nav-list").toggleClass("respond-to-hamburger")
+
+        $(".nav-links").toggleClass("responsive");
+        $(".nav-list").toggleClass("respond-to-hamburger");
+
     });
 
     $(".hamburger-icon").keypress(event => {
-        $(".nav-links").toggleClass("responsive")
-        $(".nav-list").toggleClass("respond-to-hamburger")
+
+        $(".nav-links").toggleClass("responsive");
+        $(".nav-list").toggleClass("respond-to-hamburger");
+
     });
+
 };
 
-//open and close add to list section
+//open and close add to list section by click or keypress
 function openAddToList() {
 
     $(".add-an-activity-button").click(event => {
+
         $(".adding-activity").toggleClass("hide-add-activity");
+
     });
 
     $(".close-activity-button").click(event => {
+
         $(".adding-activity").toggleClass("hide-add-activity");
+
     });
 
     $(".close-activity-button").keypress(event => {
+
         $(".adding-activity").toggleClass("hide-add-activity");
+
     });
+
 };
 
-//Open and close search section
+//Open and close search section by click or keypress
 function openSearchTrails() {
 
     $(".search-button").click(event => {
+
         $("#search").toggleClass("hide-search");
+
     });
 
     $(".close-search-button").click(event => {
+
         $("#search").toggleClass("hide-search");
+
     });
 
     $(".close-search-button").keypress(event => {
+
         $("#search").toggleClass("hide-search");
+
     });
 
     $(".search").click(event => {
+
         $("#search").toggleClass("hide-search");
+
     });
+
 };
 
-//open and close seach filter section in search section
+//open and close seach filter section in search section by click or keypress on legend
 function refineSearch() {
+
     $("legend").click(event => {
+
         $(".refine-search").toggleClass("hide-refine-search")
+
     });
 
     $("legend").keypress(event => {
+
         $(".refine-search").toggleClass("hide-refine-search")
+
     });
+
 };
 
 //listen when user submits a search and get the input values for city/place and date
