@@ -289,7 +289,10 @@ button:focus {
 .intro-buttons > .search-button {
     width: 100px;
     height: 35px;
-    padding: 7px 1px 3px 2px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
     text-decoration: none;
     color: #EDFFC2;
     border: 1px solid #374024;
@@ -323,6 +326,7 @@ button:focus {
 
 .edit-delete-buttons {
     display: flex;
+    align-items: center;
     width: 100px;
 }
 
@@ -575,6 +579,7 @@ legend:focus {
     width: 310px;
     border-bottom: 3px solid #374024;
     line-height: 1.8em;
+    text-align: center;
 }
 
 .trail-website {
@@ -894,7 +899,7 @@ legend:focus {
     }
 
     .add-trail {
-        width: 100px;
+        width: 110px;
         font-size: 0.9em;
     }
 
@@ -1105,6 +1110,10 @@ legend:focus {
         font-size: 1.3em;
     }
 
+    .activity-item {
+        width: 70%;
+    }
+
     .add-search-buttons {
         width: 75%;
         margin-left: auto;
@@ -1113,7 +1122,7 @@ legend:focus {
 
     .add-an-activity-button, .search-button {
         height: 50px;
-        width: 150px;
+        width: 160px;
         font-size: 1.1em;
     }
 
@@ -1140,7 +1149,7 @@ legend:focus {
 
     #trails > h2 {
         font-size: 2em;
-        width: 405px;
+        width: 415px;
     }
 
     .trail-photo {
