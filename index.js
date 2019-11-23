@@ -25,7 +25,7 @@ function showPosition(position) {
 
     //console.log(latitude);
     //console.log(longitude);
-    
+
     $(".js-city-name").text(`Trails around your area`);
     $(".js-city-to-do").empty();
     findTrails(latitude, longitude);
@@ -675,14 +675,17 @@ function refineSearch() {
 function listenToSubmit() {
 
     $(".search-city-date").submit(event => {
+
         event.preventDefault();
         const userCity = $("#city").val();
         getCityGeoCode(userCity);
         const userDate = $("#date").val();
         formatDate(userDate);
+
     });
 };
 
+//liseten for events on page
 function listenForEvents() {
 
     listenToSubmit();

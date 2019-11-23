@@ -28,18 +28,6 @@ li {
     list-style: none;
 }
 
-footer {
-    background-color: #87CC87;
-    text-align: center;
-    height: 40px;
-    font-size: 1.1em;
-    padding-top: 10px;
-}
-
-footer > p {
-    margin-top: 0;
-}
-
 /*Navigation Bar*/
 
 nav {
@@ -153,7 +141,6 @@ nav {
 .intro-description > h2 {
     font-family: 'Quando', 'Times New Roman', Times, serif;
     line-height: 1.35em;
-    
     width: 289px;
     margin: 20px auto;
 }
@@ -739,13 +726,10 @@ legend:focus {
     height: 200px;
 }
 
-
 .times-or-notes {
     min-height: 20px;
     padding: 3px;
 }
-
-
 
 .refine-title:hover {
     cursor: pointer;
