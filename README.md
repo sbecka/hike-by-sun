@@ -38,3 +38,12 @@ The user can learn more about a trail on the Hiking Project website by clicking 
   <li>Javascript</li>
   <li>jQuery</li>
 </ul>
+
+## APIs Used
+
+<ul>
+  <li>HTML Geolocation API</li>
+  <li>IPGeolocation Astronomy API</li>
+  <li>Hiking Project API</li>
+  <li>Location IQ API</li>
+</ul>
