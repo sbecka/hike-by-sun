@@ -227,7 +227,7 @@ button {
     border: 1px solid #374024;
     border-radius: 3px;
     color: white;
-    background-color: #379937;
+    background-color: #2B502B;
 }
 
 button:hover {
@@ -252,7 +252,7 @@ button:focus {
     border-radius: 3px;
     cursor: pointer;
     color: white;
-    background-color: #379937;
+    background-color: #2B502B;
     font-size: 1.45em;
     width: 150px;
     height: 40px;
@@ -298,7 +298,7 @@ button:focus {
     color: white;
     border: 1px solid #374024;
     border-radius: 3px;
-    background-color: #379937;
+    background-color: #2B502B;
 }
 
 .intro-buttons > .search-button:hover {
