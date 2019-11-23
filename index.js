@@ -487,10 +487,10 @@ function clickAddTrail() {
                 <div class="edit-activity hide-edit">
 
                     <label for="activity-title">Activity Title</label>
-                    <input type="text" name="activity-title" id="activity-title">
+                    <input type="text" name="activity-title" id="activity-title" class="activity-title">
                     
                     <label for="time-note">How much time or notes for activity?</label>
-                    <input type="text" name="time-note" id="time-note" placeholder="30 min">
+                    <input type="text" name="time-note" id="time-note" class="time-note" placeholder="30 min">
 
                     <button class="save-button">Save</button>
                 
@@ -538,10 +538,10 @@ function addActivity() {
                 <div class="edit-activity hide-edit">
 
                     <label for="activity-title">Activity Title</label>
-                    <input type="text" name="activity-title" id="activity-title">
+                    <input type="text" name="activity-title" id="activity-title" class="activity-title">
                     
                     <label for="time-note">How much time or notes for activity?</label>
-                    <input type="text" name="time-note" id="time-note" placeholder="30 min">
+                    <input type="text" name="time-note" id="time-note" class="time-note" placeholder="30 min">
 
                     <button class="save-button">Save</button>
                   
@@ -584,7 +584,7 @@ function updateEditActivity() {
 
         event.preventDefault();
 
-        title = $(this).closest("li").find("#activity-title").val();
+        title = $(this).closest("li").find(".activity-title").val();
 
         if (title !== "" || title !== title) { //if title doesn't equal an empty input or doesn't equal itself
 
@@ -592,7 +592,7 @@ function updateEditActivity() {
         
         };
 
-        timeOrNote = $(this).closest("li").find("#time-note").val();
+        timeOrNote = $(this).closest("li").find(".time-note").val();
 
         if (timeOrNote !== "") { //if note is not an empty input, then let new user input be the new note
 
