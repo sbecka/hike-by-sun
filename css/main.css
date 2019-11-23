@@ -1173,6 +1173,12 @@ legend:focus {
         width: 405px;
     }
 
+    .trail-photo {
+        min-width: 250px;
+        max-width: 80vw;
+        max-height: 50vh;
+    }
+
     .search-trail > h2 {
         font-size: 2em;
     }
