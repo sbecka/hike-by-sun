@@ -287,7 +287,7 @@ button:focus {
     width: 100px;
     height: 35px;
     font-size: 1em;
-    padding: 7px 1px 3px;
+    padding: 7px 1px 3px 2px;
     text-decoration: none;
     color: #EDFFC2;
     border: 1px solid #374024;
@@ -542,8 +542,9 @@ legend:focus {
 .refine-search > div > input{
     border: 1px solid #379937;
     border-radius: 2px;
-    width: 60px;
+    width: 50px;
     text-align: center;
+    margin-left: 3px;
 }
 
 .refine-search > div {
