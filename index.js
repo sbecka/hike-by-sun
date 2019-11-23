@@ -1,5 +1,38 @@
 'use strict';
 
+///////HTML Geolocation API for getting coordinates of a user's location and return trails and sun times 
+let x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+
+    navigator.geolocation.getCurrentPosition(showPosition);
+
+  } else { 
+
+    x.innerHTML = "Geolocation is not supported by this browser.";
+
+  };
+
+};
+
+function showPosition(position) {
+    //x.innerHTML = "Latitude: " + position.coords.latitude + 
+    //"<br>Longitude: " + position.coords.longitude;
+
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+
+    //console.log(latitude);
+    //console.log(longitude);
+    
+    $(".js-city-name").text(`Trails around your area`);
+    $(".js-city-to-do").empty();
+    findTrails(latitude, longitude);
+    findTodaySun(latitude, longitude);
+};
+//////////////////
+
 //ipgeolocation Astronomy API https://api.ipgeolocation.io/astronomy offers times based on time zones with latitude and longitude
 
 const geoAstronomyAPIKey = "170fa59d1a2c41ecbd0058cee382b898";
@@ -159,8 +192,11 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
 
     fetch(url)
         .then(response => {
+
             if(response.ok) {
+
                 return response.json();
+
             }
             throw new Error(response.statusText);
         })
@@ -171,6 +207,7 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
                 $(".js-city-name").text(`No trails in ${cityName}`);
                 $(".view-trails-submit").addClass("hide-results");
                 $(".js-trail-results").empty();
+                
                 return $(".js-error-message").text(`No trails found there. Try another place or plan your day.`);
             
             } else if (responseJson.trails.length > 0) {
@@ -181,68 +218,95 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
                 for (let i = 0; i < responseJson.trails.length; i++) {
 
                     let trailPhoto = responseJson.trails[i].imgSmallMed;
-                    if (trailPhoto === "") {
+
+                    if (trailPhoto === "") { //check if a trail has a photo with it or no photo
+
                         $(".view-trails-submit").removeClass("hide-results");
+                        
                         $(".js-trail-results").append(`
+                        
                         <li class="trail js-trail">
                         <div class="trail-heading">
 
                             <a href="${responseJson.trails[i].url}" target="_blank" class="trail-website">
+                                
                                 <h4 class="trail-name">${responseJson.trails[i].name}</h4>
+                            
                             </a>
                        
                        
                             <button class="add-trail js-add-trail">
+                                
                                 <span class="add-label">
-                                <i class="fas fa-plus-circle"></i> Add Trail
+                                    <i class="fas fa-plus-circle"></i> Add Trail
                                 </span>
+                            
                             </button>
                            
                         </div>
                         
                         <p>${responseJson.trails[i].location}</p>
+                        
                         <div class="trail-details">
+                            
                             <p class="rating">Rating: ${responseJson.trails[i].stars} / 5</p>
                             <p class="trail-length">Trail Length: ${responseJson.trails[i].length} mi</p>
+                        
                         </div>
+                        
                         <p>${responseJson.trails[i].summary}</p>
-                    </li>
-                    `);
+                    
+                    </li>`);
 
                     } else if (trailPhoto !== "") {
+                        
                         $(".view-trails-submit").removeClass("hide-results");
+                        
                         $(".js-trail-results").append(`
+                        
                         <li class="trail js-trail">
+
                             <div class="trail-heading">
 
                                 <a href="${responseJson.trails[i].url}" target="_blank" class="trail-website">
+                                    
                                     <h4 class="trail-name">${responseJson.trails[i].name}</h4>
+                                
                                 </a>
                         
                             
                                 <button class="add-trail js-add-trail">
+                                    
                                     <span class="add-label">
                                         <i class="fas fa-plus-circle"></i> Add Trail 
                                     </span>
+                                
                                 </button>
                                 
                             </div>
+                            
                             <img class="trail-photo" src="${responseJson.trails[i].imgSmallMed}" alt="Photo from ${responseJson.trails[i].name}"></img>
                             <p>${responseJson.trails[i].location}</p>
+                            
                             <div class="trail-details">
+                                
                                 <p class="rating">Rating: ${responseJson.trails[i].stars} / 5</p>
                                 <p class="trail-length">Trail Length: ${responseJson.trails[i].length} mi</p>
+                            
                             </div>
+                            
                             <p>${responseJson.trails[i].summary}</p>
-                        </li>
-                    `);
+                        
+                        </li>`);
                     }
                 }
             };
             
         })
         .catch(error => {
+
             return $(".js-error-message").text(`${error.message} trail data. Server is down.`);
+        
         });
 };
 
@@ -254,6 +318,7 @@ const locationIqUrl = "https://us1.locationiq.com/v1/search.php";
 
 const jsonFormat = "json";
 
+//format query parameters for a url to make get requests to APIs
 function formatQuery(params) {
 
     const queryItems = Object.keys(params)
@@ -262,38 +327,15 @@ function formatQuery(params) {
     return queryItems.join("&");
 };
 
+//JSONP data inside function
 let call = function callbackGeoCode(data) {
     console.log(data);
 };
+
 let latitude = null;
 let longitude = null;
 let cityName = null;
 
-//////////////
-let x = document.getElementById("demo");
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-};
-
-function showPosition(position) {
-    //x.innerHTML = "Latitude: " + position.coords.latitude + 
-    //"<br>Longitude: " + position.coords.longitude;
-    latitude = position.coords.latitude;
-    longitude = position.coords.longitude;
-    //console.log(latitude);
-    //console.log(longitude);
-    $(".js-city-name").text(`Trails around your area`);
-    $(".js-city-to-do").empty();
-    findTrails(latitude, longitude);
-    findTodaySun(latitude, longitude);
-};
-//////////////////
 function getCityGeoCode(userCity) {
 
     const params = {
@@ -308,7 +350,7 @@ function getCityGeoCode(userCity) {
     const url = locationIqUrl + "?" + locationQueryString;
     console.log(url);
     
-    fetchJsonp(url, {
+    fetchJsonp(url, { //using fetch jsonp callback
         jsonpCallback: 'json_callback', jsonpCallbackFunction: 'callBackGeoCode' 
     })
         .then(response => {
@@ -318,13 +360,12 @@ function getCityGeoCode(userCity) {
             throw new Error(response.statusText);
         })
         .then(responseJson => {
+
             latitude = responseJson[0].lat;
             longitude = responseJson[0].lon;
             cityName = responseJson[0].display_name;
 
             cityName = formatCityName(cityName);
-
-
 
             //console.log(latitude);
             //console.log(longitude);
@@ -349,6 +390,7 @@ function getCityGeoCode(userCity) {
 
 };
 
+//removing county from a city's name to make city name appear shorter on page
 function formatCityName(cityName) {
 
     let getCounty = cityName.split(",");
@@ -357,6 +399,7 @@ function formatCityName(cityName) {
     for (let i = 0; i < getCounty.length; i++) {
         
         if (getCounty[i].includes("County")) {
+
             let county = getCounty.splice(i, 1);
             
             console.log(county); //Marion County    
@@ -371,6 +414,7 @@ function formatCityName(cityName) {
     
 };
 
+//changing date input format to appear on the page as a normal date with month day, year format
 function formatDate(date) {
 
     let newDate = date.split("-");
@@ -409,29 +453,39 @@ function formatDate(date) {
 
     $(".js-date").text(`${newDate}`);
 
-
 };
 
+//when use clicks add trail button, the trail's name will be added to the list
 function clickAddTrail() {
 
     $(".js-trail-results").on("click", ".js-add-trail", function(event) {
 
         $(this).closest("li").find(".add-label").text(`Added!`);
+
         let trailName = $(this).closest("li").find(".trail-name").html();
         
         console.log(trailName);
+
         $(".activities").append(
             `<li class="list-item">
+
                 <div class="act-and-times">
+
                     <span class="activity-item">${trailName}</span>
+
                     <div class="edit-delete-buttons">
+
                         <button class="edit-button"><i class="far fa-edit" aria-hidden="true"></i> Edit</button>
                         <button class="delete-button"><i class="far fa-trash-alt" aria-hidden="true"></i> Delete</button>
+                    
                     </div>  
+
                 </div>
 
                 <div class="times-or-notes">
+
                     <span class="times-notes"></span>
+
                 </div>
 
                 <div class="edit-activity hide-edit">
@@ -442,37 +496,47 @@ function clickAddTrail() {
                     <label for="time-note">How much time or notes for activity?</label>
                     <input type="text" name="time-note" id="time-note" placeholder="30 min">
 
-                    <div>
-                        <button class="save-button">Save</button>
-                    </div>
+                    <button class="save-button">Save</button>
                 
                 </div>
                 
             </li>`);
+
     });
                     
 };
 
+//alow user to add new items to list and input a value as the title of the item
 let userActivity = null;
 
 function addActivity() {
 
     $(".adding-activity").submit(event => {
+
         event.preventDefault();
         userActivity = $("#activity").val();
+
         $(".activities").append(
+
             `<li class="list-item">
+
                 <div class="act-and-times">
+                    
                     <span class="activity-item">${userActivity}</span>
 
                     <div class="edit-delete-buttons">
+                        
                         <button class="edit-button"><i class="far fa-edit" aria-hidden="true"></i> Edit</button>
                         <button class="delete-button"><i class="far fa-trash-alt" aria-hidden="true"></i> Delete</button>
+                    
                     </div>  
+                
                 </div>
     
                 <div class="times-or-notes">
+                    
                     <span class="times-notes"></span>
+                
                 </div>
 
                 <div class="edit-activity hide-edit">
@@ -483,28 +547,27 @@ function addActivity() {
                     <label for="time-note">How much time or notes for activity?</label>
                     <input type="text" name="time-note" id="time-note" placeholder="30 min">
 
-                    <div>
-                        <button class="save-button">Save</button>
-                    </div>
-                
+                    <button class="save-button">Save</button>
+                  
                 </div>
+
             </li>`);
-        $("#activity").val("");
+
+        $("#activity").val(""); //empty input value
     });
 };
 
+//user can click edit button to open editing for a list item or delete button
 function clickEditDeleteActivity() {
 
+    //edit list item
     $(".activities").on("click", ".edit-button", function(event) {
 
         $(this).closest("li").find(".edit-activity").toggleClass("hide-edit");
-        title = null;
-        $("#activity-title").val("");
-        
-        $("#time-note").val("");
     
     });
-
+    
+    //delete list item
     $(".activities").on("click", ".delete-button", function(event) {
 
         $(this).closest("li").remove();
@@ -512,18 +575,20 @@ function clickEditDeleteActivity() {
     });
 };
 
+//Allow user to change and save a list item's title and add notes
 let title = null;
 let timeOrNote = null;
 
 function updateEditActivity() {
 
-    $(".activities").on("click", ".save-button",function(event) {
+    $(".activities").on("click", ".save-button", function(event) {
+
         event.preventDefault();
 
         title = $(this).closest("li").find("#activity-title").val();
         console.log(title);
 
-        if (title !== "" || title !== title){
+        if (title !== "" || title !== title) { //if title doesn't equal an empty input or doesn't equal itself
 
             $(this).closest("li").find(".activity-item").text(`${title}`);
         
@@ -533,30 +598,19 @@ function updateEditActivity() {
 
         console.log(timeOrNote);
 
-        if (timeOrNote !== "") {
+        if (timeOrNote !== "") { //if note is not an empty input, then let new user input be the note
 
             $(this).closest("li").find(".times-notes").text(`Notes: ${timeOrNote}`);
 
         };
         
         $(this).closest("li").find(".edit-activity").toggleClass("hide-edit");
+    
     });
     
 };
 
-
-
-function listenToSubmit() {
-
-    $(".search-city-date").submit(event => {
-        event.preventDefault();
-        const userCity = $("#city").val();
-        getCityGeoCode(userCity);
-        const userDate = $("#date").val();
-        formatDate(userDate);
-    });
-};
-
+//open and close hamburger or bar icon for navigation menu
 function toggleHamburgerIcon() {
  
     $(".hamburger-icon").click(event => {
@@ -570,17 +624,8 @@ function toggleHamburgerIcon() {
     });
 };
 
-function refineSearch() {
-    $("legend").click(event => {
-        $(".refine-search").toggleClass("hide-refine-search")
-    });
-
-    $("legend").keypress(event => {
-        $(".refine-search").toggleClass("hide-refine-search")
-    });
-};
-
-function openAddAnActivity() {
+//open and close add to list section
+function openAddToList() {
 
     $(".add-an-activity-button").click(event => {
         $(".adding-activity").toggleClass("hide-add-activity");
@@ -595,6 +640,7 @@ function openAddAnActivity() {
     });
 };
 
+//Open and close search section
 function openSearchTrails() {
 
     $(".search-button").click(event => {
@@ -614,16 +660,41 @@ function openSearchTrails() {
     });
 };
 
+//open and close seach filter section in search section
+function refineSearch() {
+    $("legend").click(event => {
+        $(".refine-search").toggleClass("hide-refine-search")
+    });
+
+    $("legend").keypress(event => {
+        $(".refine-search").toggleClass("hide-refine-search")
+    });
+};
+
+//listen when user submits a search and get the input values for city/place and date
+function listenToSubmit() {
+
+    $(".search-city-date").submit(event => {
+        event.preventDefault();
+        const userCity = $("#city").val();
+        getCityGeoCode(userCity);
+        const userDate = $("#date").val();
+        formatDate(userDate);
+    });
+};
+
 function listenForEvents() {
+
     listenToSubmit();
     clickAddTrail();
     addActivity();
     clickEditDeleteActivity();
     updateEditActivity();
     toggleHamburgerIcon();
-    refineSearch();
-    openAddAnActivity();
+    openAddToList();
     openSearchTrails();
+    refineSearch();
+
 };
 
 
