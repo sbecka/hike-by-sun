@@ -449,8 +449,13 @@ button:focus {
     align-items: center;
 }
 
-.search-trail > h2 {
+.search-title {
     font-family: 'Quando', 'Times New Roman', Times, serif;
+    font-size: 1.4em;
+    font-weight: 600;
+    min-width: 250px;
+    height: 40px;
+    text-align: center;
 }
 
 fieldset {
@@ -491,7 +496,7 @@ fieldset {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 407px;
+    height: 450px;
     width: 60vw;
     margin: 0 auto;
 }
@@ -511,7 +516,7 @@ fieldset {
     font-size: 1em;
 }
 
-legend {
+.refine-title {
     border: 1px solid #379937;
     background-color: #EDFFC2;
     border-radius: 5px;
@@ -521,13 +526,13 @@ legend {
     text-align: center;
 }
 
-legend:hover {
+.refine-title:hover {
     color: #EDFFC2;
     background-color: #379937;
     transition-duration: 0.5s;
 }
 
-legend:focus {
+.refine-title:focus {
     color: #EDFFC2;
     background-color: #379937;
     transition-duration: 0.5s;
