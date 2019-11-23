@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Search trails to hike and plan your activities during the daytime.">
     <title>Hike by Sun</title>
+    <!--Normalize CSS & CSS-->
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+    <!--Google Fonts & Font Awesome Links-->
     <link href="https://fonts.googleapis.com/css?family=Muli:400,500,600,700%7CQuando&display=swap" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
     <!--Links to Favicon-->
@@ -24,8 +26,11 @@
         <nav tabindex="0">
 
             <h1>Hike by Sun</h1>
+
             <a tabindex="0" class="hamburger-icon" aria-label="Open navigation links to different sections of page">
+                
                 <i class="fas fa-bars" aria-hidden="true"></i>
+            
             </a>
 
             <ul class="nav-list">
@@ -33,19 +38,23 @@
                 <li>
                     <a tabindex="0" href="#intro-home" class="nav-links responsive">Home</a>
                 </li>
+                
                 <li>
                     <a tabindex="0" href="#to-do-list" class="to-do-list nav-links responsive">To Do List</a>
                 </li>   
+                
                 <li>
                     <a tabindex="0" href="#search" class="search nav-links responsive">Search</a>
                 </li>
+                
                 <li>
                     <a tabindex="0" href="#trails" class="trails nav-links responsive">Trails</a>
                 </li>
                 
             </ul>
-            
+
         </nav>
+
     </header>
 
     <main>
@@ -55,10 +64,13 @@
             <div class="intro">
 
                 <div class="intro-words">
+                    
                     <div class="intro-description">
+
                         <h2>Search trails to add to your day and plan while the sun is out <i class="fas fa-sun"></i></h2>
                         <p>New? See the example below to get started. <a href="#to-do-list" class="view-example">View example <i class="fas fa-arrow-down"></i></a></p>
                     </div>
+
 
                     <div class= "intro-search-local">
 
@@ -79,9 +91,11 @@
                 </div>
 
                 <a href="#trails" class="view-trails-submit hide-results">View trails below <i class="fas fa-arrow-down"></i></a>
+                
                 <p id="demo"></p>
             
             </div>
+
         </section>
 
         <section id="to-do-list">
@@ -89,20 +103,30 @@
             <h2 class="to-do-list-title">To Do List</h2>
 
             <div class="to-do-list-area">
+
                 <h3 class="city-name js-city-to-do">Sedona, Arizona</h3>
-                <h4 class="date js-date">July 13, 2019</h4>   
+                <h4 class="date js-date">July 13, 2019</h4>
+
             </div>
 
             <div class="times-and-list">
+
                 <div class="suntimes">
 
-                    <i class="fas fa-sun sunrise-icon"></i><h5 class="sunrise">Sunrise<br><span class="js-sunrise">5:23 AM</span></h5>
+                    <i class="fas fa-sun sunrise-icon"></i>
+                    
+                    <h5 class="sunrise">Sunrise<br><span class="js-sunrise">5:23 AM</span></h5>
 
-                    <i class="fas fa-sun sunrise-icon"></i><h5 class="daytime">Day Length<br><span class="js-daytime">14:19 hours</span></h5>
+                    <i class="fas fa-sun sunrise-icon"></i>
+                    
+                    <h5 class="daytime">Day Length<br><span class="js-daytime">14:19 hours</span></h5>
 
-                    <i class="fas fa-sun sunrise-icon"></i><h5 class="sunset">Sunset<br><span class="js-sunset">7:42 PM</span></h5>
+                    <i class="fas fa-sun sunrise-icon"></i>
+                    
+                    <h5 class="sunset">Sunset<br><span class="js-sunset">7:42 PM</span></h5>
                     
                     <i class="fas fa-sun sunrise-icon"></i>
+
                 </div>
 
                 
@@ -110,18 +134,29 @@
                 <div role="list" class="planning-to-do-list">
 
                     <ul class="activities">
+
                         <li class="list-item">
+
                             <div class="act-and-times">
+
                                 <span class="activity-item">Breakfast</span> 
+
                                 <div class="edit-delete-buttons">
+
                                     <button class="edit-button"><i class="far fa-edit" aria-hidden="true"></i> Edit</button>
                                     <button class="delete-button"><i class="far fa-trash-alt" aria-hidden="true"></i> Delete</button>
-                                </div>                       
+                                
+                                </div>
+
                             </div>
 
+
                             <div class="times-or-notes">
+
                                 <span class="times-notes">Notes: about 9am with family</span>
+                            
                             </div>
+
 
                             <div class="edit-activity hide-edit">
 
@@ -131,28 +166,31 @@
                                 <label for="time-note">How much time or notes for activity?</label>
                                 <input type="text" name="time-note" id="time-note" placeholder="30 min">
 
-                                <div>
-                                    <button class="save-button">Save</button>
-                                    
-                                </div>
+                                <button class="save-button">Save</button>
                             
                             </div>
 
-                            
-
                         </li>
+
                         <li class="list-item">
+
                             <div class="act-and-times">
+
                                 <span class="activity-item">West Fork Oak Creek Trail</span>
                                 
                                 <div class="edit-delete-buttons">
+
                                     <button class="edit-button"><i class="far fa-edit" aria-hidden="true"></i> Edit</button>
                                     <button class="delete-button"><i class="far fa-trash-alt" aria-hidden="true"></i> Delete</button>
-                                </div>   
+                                
+                                </div>
+
                             </div>
         
                             <div class="times-or-notes">
+                                
                                 <span class="times-notes"></span>
+                            
                             </div>
 
                             <div class="edit-activity hide-edit">
@@ -163,17 +201,16 @@
                                 <label for="time-note">How much time or notes for activity?</label>
                                 <input type="text" name="time-note" id="time-note" placeholder="30 min">
 
-                                <div>
-                                    <button class="save-button">Save</button>
-                                    
-                                </div>
+                                <button class="save-button">Save</button>
                             
                             </div>
 
                         </li>
+
                     </ul>
 
                 </div>
+
             </div>
 
             <div class="add-search-buttons">
@@ -187,60 +224,89 @@
         </section>
 
         <div class="adding-activity hide-add-activity">
+
             <p tabindex="0" class="close-activity-button">Close <i class="far fa-times-circle" aria-hidden="true"></i></p>
             
-            <form>   
+            <form>
+
                 <div class="activity-input-and-button">
+
                     <input type="text" class="activity-input" name="activity" id="activity" placeholder="Eat lunch with friends" required>
                     <button type="submit" class="add-activity-button">Add</button>
+                
                 </div>
+            
             </form>
         
         </div>
-        
 
         <section id="search" class="hide-search">
+            
             <div class="search-trail">
+                
                 <p tabindex="0" class="close-search-button">Close <i class="far fa-times-circle" aria-hidden="true"></i></p>
+                
                 <h2>Search & Add Trails</h2>
 
                 <form role="search" class="search-city-date">
+                    
                     <fieldset>
 
                         <div class="main-search">
+                            
                             <label for="city">Enter a Place</label>
                             <input type="text" name="city" id="city" placeholder="Sedona, AZ" required>
                             <label for="date">Date for Sun Times</label>
                             <input type="date" name="date" id="date" required>
+                        
                         </div>
+                    
                     </fieldset>
 
                     
                     <fieldset>
+                        
                         <legend tabindex="0" class="refine-title">Search Filters <i class="fas fa-angle-down"></i></legend>
+                        
                         <div class="refine-search">
+                            
                             <div class="filters">
+                                
                                 <label for="max-results">Max Results</label>
                                 <input type="number" name="max-results" id="max-results" min="2" max="500" value="10">
+                            
                             </div>
-                            <label class="label-miles">Trail Distance in Miles</label>
+                            
+                            <label class="label-miles">Distance in Miles</label>
+                            
                             <div class="filters">
+                                
                                 <label for="min-length">Min Length</label>
                                 <input type="number" name="min-length" id="min-length" min="0" max="200" value="0">
+                            
                             </div>
+                            
                             <div class="filters">
+                                
                                 <label for="max-length">Max Length</label>
                                 <input type="number" name="max-length" id="max-length" min="0" max="200" value="30">
+                            
                             </div>
                             
                         </div>
+
                     </fieldset>
+
                     <input class="submit-button" type="submit" name="submit" id="submit">
+                
                 </form>
 
                 <p class="error-message js-error-message"></p>
+                
                 <a href="#trails" class="view-trails-submit hide-results">View trails below <i class="fas fa-arrow-down"></i></a>
+            
             </div>
+        
         </section>
 
         <section id="trails">
@@ -248,61 +314,95 @@
             <h2>Add Trails to Your Day</h2>
             
             <div class="trails-area">
+                
                 <h3 class="city-name js-city-name">Trails around Sedona, Arizona</h3>
+                
                 <ul class="trail-results js-trail-results">
+                    
                     <li class="trail js-trail">
+                        
                         <div class="trail-heading">
+                            
                             <a href="https://www.hikingproject.com/trail/7002976/bear-mountain-trail" target="_blank" class="trail-website">
+                                
                                 <h4 class="trail-name">Bear Mountain Trail</h4>
+                            
                             </a>
                         
                             <button class="add-trail js-add-trail">
+                                
                                 <span class="add-label">
+                                    
                                     <i class="fas fa-plus-circle"></i> Add Trail
+                                
                                 </span>
+                            
                             </button>
             
                         </div>
+                        
                         <img class="trail-photo" src="https://cdn-files.apstatic.com/hike/7028361_smallMed_1554918384.jpg" alt="Photo from Bear Mountain Trail">
+                        
                         <p>West Sedona, Arizona</p>
+                        
                         <div class="trail-details">
+                            
                             <p class="rating">Rating: 4.7 / 5</p>
                             <p class="trail-length">Trail Length: 4.6 mi</p>
+                        
                         </div>
+                        
                         <p>A strenuous hike that will reward you with great views.</p>
+                    
                     </li>
+                    
                     <li class="trail js-trail">
+                        
                         <div class="trail-heading">
+                            
                             <a href="https://www.hikingproject.com/trail/7002990/west-fork-oak-creek-trail" target="_blank" class="trail-website">
+                                
                                 <h4 class="trail-name">West Fork Oak Creek Trail</h4>
+                            
                             </a>
                         
                             <button class="add-trail js-add-trail">
-                                <span class="add-label">
-                                    Added!
-                                </span>
+                                
+                                <span class="add-label">Added!</span>
+
                             </button>
                             
                         </div>
+                        
                         <img class="trail-photo" src="https://cdn-files.apstatic.com/hike/7018268_smallMed_1554830608.jpg" alt="Photo from West Fork Oak Creek Trail"> 
+                        
                         <p>Sedona, Arizona</p>
+                        
                         <div class="trail-details"> 
+                            
                             <p class="rating">Rating: 4.4 / 5</p>
                             <p class="trail-length">Trail Length: 5.4 mi</p>
+                        
                         </div>   
+                        
                         <p>The most popular trail in the Coconino National Forest.</p>
+                    
                     </li>
                 </ul>
+
             </div>
+
         </section>
 
-</main>
+    </main>
 
-<footer>
-    <p>© 2019 Sabrina Becker</p>
-</footer>
+    <footer>
 
-    
+        <p>© 2019 Sabrina Becker</p>
+
+    </footer>
+
+    <!--JavaScript, jQuery, fetchJsonp Links-->
     <script src="https://cdn.bootcss.com/fetch-jsonp/1.1.3/fetch-jsonp.js"></script>
     <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -310,4 +410,5 @@
     crossorigin="anonymous"></script>
     <script src="index.js"></script>
 </body>
+
 </html>
