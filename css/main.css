@@ -834,6 +834,11 @@ fieldset {
     margin-bottom: 20px;
 }
 
+.add-item-label {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
 .activity-item, .times-notes {
     word-wrap: break-word;
 }
@@ -981,7 +986,7 @@ fieldset {
 }
 
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 768px) {
 
     .responsive {
         display: none;
@@ -1001,37 +1006,6 @@ fieldset {
         margin-top: 0;
     }
  
-}
-
-@media screen and (min-width: 769px) {
-
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .nav-list {
-        display: flex;
-        justify-content: space-around;
-        width: 65vw;
-        font-size: 0.9em;
-        align-items: center;
-        overflow: hidden;
-    }
-
-    .nav-links:hover, .nav-links:focus {
-        font-size: 1.6em;
-    }
-
-    .nav-links {
-        color: black;
-    }
-    
-    .hamburger-icon {
-        display: none;
-    }
-
 }
 
 @media screen and (min-width: 765px) {
@@ -1145,8 +1119,26 @@ fieldset {
         font-size: 1.5em;
     }
 
+    .adding-activity > form {
+        flex-direction: row;
+        max-width: 490px;
+        max-height: 52px;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+    }
+
+    .add-item-label {
+        align-self: center;
+        font-size: 1.6em;
+        margin-bottom: 0;
+        width: 110px;
+        max-height: 30px;
+    }
+
     .activity-input-and-button {
-        width: 48vw;
+        width: 368px;
+        margin-left: 5px;
     }
 
     .activity-input, .add-activity-button {
@@ -1197,6 +1189,37 @@ fieldset {
     .trail-details {
         padding-left: 36px;
     }
+}
+
+@media screen and (min-width: 769px) {
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-list {
+        display: flex;
+        justify-content: space-around;
+        width: 65vw;
+        font-size: 0.9em;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .nav-links:hover, .nav-links:focus {
+        font-size: 1.6em;
+    }
+
+    .nav-links {
+        color: black;
+    }
+    
+    .hamburger-icon {
+        display: none;
+    }
+
 }
 
 /*iPad Screen*/
@@ -1285,12 +1308,17 @@ fieldset {
         min-height: 130px;
      }
 
+     .adding-activity > form {
+        max-width: 520px;
+     }
+
     .activity-input-and-button {
-        width: 35vw;
+        width: 390px;
+        margin-left: 5px;
     }
 
     .activity-input {
-        width: 84%;
+        width: 310px;
     }
 
     .close-search-button, .close-activity-button {
