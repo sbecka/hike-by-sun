@@ -680,13 +680,13 @@ function openSearchTrails() {
 //open and close seach filter section in search section by click or keypress on legend
 function refineSearch() {
 
-    $("legend").click(event => {
+    $(".refine-title").click(event => {
 
         $(".refine-search").toggleClass("hide-refine-search")
 
     });
 
-    $("legend").keypress(event => {
+    $(".refine-title").keypress(event => {
 
         $(".refine-search").toggleClass("hide-refine-search")
 

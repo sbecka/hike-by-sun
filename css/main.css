@@ -454,13 +454,13 @@ button:focus {
     font-size: 1.4em;
     font-weight: 600;
     min-width: 250px;
-    height: 40px;
+    padding-top: 35px;
     text-align: center;
 }
 
 fieldset {
     background-color: #EDFFC2;
-    border: 1px solid #379937;
+    border: 1px solid #EDFFC2;
     border-radius: 5px;
 }
 
@@ -539,7 +539,7 @@ fieldset {
 }
 
 .refine-search {
-    height: 160px;
+    height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -548,6 +548,7 @@ fieldset {
 .label-miles {
     border-bottom: 1.5px solid #379937;
     line-height: 2em;
+    text-align: center;
 }
 
 .refine-search > div > input{
@@ -886,11 +887,19 @@ fieldset {
     }
 
     .main-search > label {
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
 
-    .refine-search > label, legend, .filters > label {
-        font-size: 1.2em;
+    .label-miles {
+        font-size: 1.1em;
+    }
+    
+    .refine-title {
+        font-size: 1.15em;
+    }
+
+    .refine-search > label, .filters > label {
+        font-size: 1.1em;
     }
 
     .trail-photo {
