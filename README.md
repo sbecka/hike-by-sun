@@ -6,23 +6,20 @@
 
 Home Screen:
 
-![hike-by-sun-laptop-home](https://user-images.githubusercontent.com/49177472/69484848-ee11f100-0e05-11ea-8771-ab2c82dd9820.png)
+![hike-by-sun-laptop-home (1)](https://user-images.githubusercontent.com/49177472/69487953-40b4d280-0e31-11ea-95c8-a26ff86bb9a1.png)
 
-To Do List Mobile Screen:
+To Do List:
+![hike-to-do-list-laptop](https://user-images.githubusercontent.com/49177472/69487954-44485980-0e31-11ea-9565-53d65f4340d0.png)
 
-![hike-to-do-list](https://user-images.githubusercontent.com/49177472/69484853-f5d19580-0e05-11ea-9ff9-9cd8f52a06fc.png)
-
-Search Form:
-
-![hike-search-form](https://user-images.githubusercontent.com/49177472/69484952-0f271180-0e07-11ea-9fc6-18f2d5ebdb25.png)
+Search Trails Mobile Screen:
+![hike-search-form (1)](https://user-images.githubusercontent.com/49177472/69487956-48747700-0e31-11ea-879e-04e1330d7ce2.png)
 
 Trails Mobile Screen:
+![hike-trails-mobile (1)](https://user-images.githubusercontent.com/49177472/69487957-54f8cf80-0e31-11ea-95e4-4404e443d3ca.png)
 
-![hike-trail-mobile](https://user-images.githubusercontent.com/49177472/69484913-a50e6c80-0e06-11ea-9b66-2e33cf0b91ee.png)
+Trails Laptop Screen:
+![hike-by-sun-laptop-trails (1)](https://user-images.githubusercontent.com/49177472/69487958-5924ed00-0e31-11ea-9e03-42759573b601.png)
 
-Trails Larger Screen:
-
-![hike-by-sun-laptop-trails](https://user-images.githubusercontent.com/49177472/69484914-b22b5b80-0e06-11ea-8b8d-9edff65ee39f.png)
 
 ## Summary
 
