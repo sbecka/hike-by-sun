@@ -70,13 +70,8 @@ nav {
     font-family: 'Quando', 'Times New Roman', Times, serif;
 }
 
-.nav-links:hover {
+.nav-links:hover, .nav-links:focus {
     border-bottom: 1px solid #EDFFC2;
-    font-size: 1.1em;
-}
-
-.nav-links:focus {
-    border-bottom: 2px solid #EDFFC2;
     font-size: 1.1em;
 }
 
@@ -87,6 +82,7 @@ nav {
 /*Intro-Home Section*/
 
 .intro {
+    background-color: #87CC87;
     background-image: url('../images/erika-sedona-1.jpg');
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -370,6 +366,7 @@ button:focus {
     cursor: pointer;
     padding: 2px;
 }
+
 .close-search-button:hover {
     border: 1px solid #EDFFC2;
     border-radius: 3px;
@@ -475,15 +472,7 @@ fieldset {
     padding: 2px;
 }
 
-.view-trails-submit:hover {
-    background-color: #379937;
-    border: 1px solid #379937;
-    border-radius: 5px;
-    color: #EDFFC2;
-    transition-duration: 0.5s;
-}
-
-.view-trails-submit:focus {
+.view-trails-submit:hover, .view-trails-submit:focus {
     background-color: #379937;
     border: 1px solid #379937;
     border-radius: 5px;
@@ -526,13 +515,7 @@ fieldset {
     text-align: center;
 }
 
-.refine-title:hover {
-    color: #EDFFC2;
-    background-color: #379937;
-    transition-duration: 0.5s;
-}
-
-.refine-title:focus {
+.refine-title:hover, .refine-title:focus {
     color: #EDFFC2;
     background-color: #379937;
     transition-duration: 0.5s;
@@ -569,7 +552,7 @@ fieldset {
     width: 90%;
     height: 65px;
     font-size: 1.1em;
-    color: #EDFFC2;
+    color: white;
     font-weight: 600;
 }
 
@@ -703,7 +686,6 @@ fieldset {
 }
 
 .activities {
-    
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -712,7 +694,6 @@ fieldset {
     padding: 0;
     margin: 0 auto;
     min-height: 70vh;
-    
 }
 
 .act-and-times {
@@ -864,6 +845,7 @@ fieldset {
 
 /**Media Queries**/
 
+/**Medium mobile screen width**/
 @media screen and (min-width: 360px) {
 
     .intro-description > p, .local {
@@ -929,6 +911,7 @@ fieldset {
     }
 }
 
+/**Larger mobile screen**/
 @media screen and (min-width: 412px) {
 
     .intro-description > h2 {
@@ -985,28 +968,7 @@ fieldset {
     }
 }
 
-
-@media screen and (max-width: 768px) {
-
-    .responsive {
-        display: none;
-    }
-
-    .respond-to-hamburger {
-        background-color: #379937;
-        position: absolute;
-        width: 100%;
-        padding-left: 0;
-        text-align: center;
-        min-height: 180px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        top: 60px;
-        margin-top: 0;
-    }
- 
-}
+/*Prepare for tablet sceeens*/
 
 @media screen and (min-width: 765px) {
 
@@ -1191,6 +1153,30 @@ fieldset {
     }
 }
 
+/*Make sure navigation links are hidden till this width**/
+@media screen and (max-width: 768px) {
+
+    .responsive {
+        display: none;
+    }
+
+    .respond-to-hamburger {
+        background-color: #379937;
+        position: absolute;
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+        min-height: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        top: 60px;
+        margin-top: 0;
+    }
+ 
+}
+
+/*Display navigation links and hide hamburger icon*/
 @media screen and (min-width: 769px) {
 
     nav {
@@ -1208,12 +1194,12 @@ fieldset {
         overflow: hidden;
     }
 
-    .nav-links:hover, .nav-links:focus {
-        font-size: 1.6em;
-    }
-
     .nav-links {
         color: black;
+    }
+
+    .nav-links:hover, .nav-links:focus {
+        font-size: 1.6em;
     }
     
     .hamburger-icon {
@@ -1225,10 +1211,6 @@ fieldset {
 /*iPad Screen*/
 
 @media screen and (min-width: 760px) and (min-height: 1024px) {
-    .intro {
-        background-color: #87CC87;
-        background-size: cover;
-    }
 
     .intro > a {
         bottom: 30px;
@@ -1237,10 +1219,6 @@ fieldset {
 
 /*iPad Pro*/
 @media screen and (min-width: 1024px) and (min-height: 1366px) {
-    .intro {
-        background-color: #87CC87;
-        background-size: cover;
-    }
 
     .intro-description > h2 {
         margin-top: 40px;
@@ -1265,7 +1243,6 @@ fieldset {
 @media screen and (min-width: 665px) and (min-height: 650px) {
 
     .intro {
-        background-color: #87CC87;
         background-image: url('../images/thunder-mtn-sedona.jpg');
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -1277,6 +1254,7 @@ fieldset {
     }
 }
 
+/**Largest Width Screens**/
 @media screen and (min-width: 1023px) {
 
     .intro-words {
