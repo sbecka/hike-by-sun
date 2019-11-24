@@ -226,32 +226,24 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
                             
                             <div class="trail-heading">
 
-                                <a href="${responseJson.trails[i].url}" target="_blank" class="trail-website">
-                                    
-                                    <h4 class="trail-name">${responseJson.trails[i].name}</h4>
-                                
+                                <a href="${responseJson.trails[i].url}" target="_blank" class="trail-website">                     
+                                    <h4 class="trail-name">${responseJson.trails[i].name}</h4>                              
                                 </a>
                         
                         
-                                <button class="add-trail js-add-trail">
-                                    
+                                <button class="add-trail js-add-trail">                                   
                                     <span class="add-label">
-
-                                        <i class="fas fa-plus-circle"></i> Add Trail
-                                    
-                                    </span>
-                                
+                                        <i class="fas fa-plus-circle"></i> Add Trail                                  
+                                    </span>                             
                                 </button>
-                            
+
                             </div>
                             
                             <p>${responseJson.trails[i].location}</p>
                             
-                            <div class="trail-details">
-                                
+                            <div class="trail-details">                               
                                 <p class="rating">Rating: ${responseJson.trails[i].stars} / 5</p>
-                                <p class="trail-length">Trail Length: ${responseJson.trails[i].length} mi</p>
-                            
+                                <p class="trail-length">Trail Length: ${responseJson.trails[i].length} mi</p>                           
                             </div>
                             
                             <p>${responseJson.trails[i].summary}</p>
@@ -269,21 +261,14 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
 
                             <div class="trail-heading">
 
-                                <a href="${responseJson.trails[i].url}" target="_blank" class="trail-website">
-                                    
-                                    <h4 class="trail-name">${responseJson.trails[i].name}</h4>
-                                
+                                <a href="${responseJson.trails[i].url}" target="_blank" class="trail-website">                     
+                                    <h4 class="trail-name">${responseJson.trails[i].name}</h4>                               
                                 </a>
-                        
-                            
-                                <button class="add-trail js-add-trail">
-                                    
+                                                  
+                                <button class="add-trail js-add-trail">                                  
                                     <span class="add-label">
-
                                         <i class="fas fa-plus-circle"></i> Add Trail 
-
-                                    </span>
-                                
+                                    </span>                               
                                 </button>
                                 
                             </div>
@@ -291,11 +276,9 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
                             <img class="trail-photo" src="${responseJson.trails[i].imgSmallMed}" alt="Photo from ${responseJson.trails[i].name}"></img>
                             <p>${responseJson.trails[i].location}</p>
                             
-                            <div class="trail-details">
-                                
+                            <div class="trail-details">                              
                                 <p class="rating">Rating: ${responseJson.trails[i].stars} / 5</p>
-                                <p class="trail-length">Trail Length: ${responseJson.trails[i].length} mi</p>
-                            
+                                <p class="trail-length">Trail Length: ${responseJson.trails[i].length} mi</p>                         
                             </div>
                             
                             <p>${responseJson.trails[i].summary}</p>
@@ -470,18 +453,14 @@ function clickAddTrail() {
                     <span class="activity-item">${trailName}</span>
 
                     <div class="edit-delete-buttons">
-
                         <button class="edit-button" aria-label="Edit list item title or add notes to list item"><i class="far fa-edit" aria-hidden="true"></i> Edit</button>
-                        <button class="delete-button" aria-label="Delete list item from to do list"><i class="far fa-trash-alt" aria-hidden="true"></i> Delete</button>
-                    
+                        <button class="delete-button" aria-label="Delete list item from to do list"><i class="far fa-trash-alt" aria-hidden="true"></i> Delete</button>                   
                     </div>  
 
                 </div>
 
                 <div class="times-or-notes">
-
                     <span class="times-notes"></span>
-
                 </div>
 
                 <div class="edit-activity hide-edit">
@@ -520,19 +499,15 @@ function addActivity() {
                     
                     <span class="activity-item">${userActivity}</span>
 
-                    <div class="edit-delete-buttons">
-                        
+                    <div class="edit-delete-buttons">                      
                         <button class="edit-button" aria-label="Edit list item title or add notes to list item"><i class="far fa-edit" aria-hidden="true"></i> Edit</button>
-                        <button class="delete-button" aria-label="Delete list item from to do list"><i class="far fa-trash-alt" aria-hidden="true"></i> Delete</button>
-                    
+                        <button class="delete-button" aria-label="Delete list item from to do list"><i class="far fa-trash-alt" aria-hidden="true"></i> Delete</button>                   
                     </div>  
                 
                 </div>
     
-                <div class="times-or-notes">
-                    
-                    <span class="times-notes"></span>
-                
+                <div class="times-or-notes">                   
+                    <span class="times-notes"></span>               
                 </div>
 
                 <div class="edit-activity hide-edit">
