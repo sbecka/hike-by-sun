@@ -26,7 +26,7 @@ Trails Larger Screen:
 
 ## Summary
 
-Users can search for trails to hike in different cities or places around the world. When users choose a place, they also choose a date to get sunrise and sunset times for that place. The sunrise times and the daytime's length will appear on the left of the to do list section which the user can use as reference to plan out that day. 
+Users can search for trails to hike in different cities or places around the world. When users choose a place, they also choose a date to get sunrise and sunset times for that place. The sun times and the daytime's length will appear on the left of the to do list section which the user can use as reference to plan out that day. 
 
 The user can learn more about a trail on the Hiking Project website by clicking on the trail's name. If a user wants to hike any trails in the results, then they can add that trail name to their to do list. A user can also add other items to their to do list, and edit or delete the items.
 
