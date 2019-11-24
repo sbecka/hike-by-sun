@@ -338,8 +338,8 @@ let latitude = null;
 let longitude = null;
 let cityName = null;
 
-//Using Location IQ to convert city names and place 
-//into latitude and longitude coordinates for the othe APIs to use in their parameters
+//Using Location IQ to convert city names and places 
+//into latitude and longitude coordinates for the other APIs to use in their parameters
 function getCityGeoCode(userCity) {
 
     const params = {
@@ -393,19 +393,19 @@ function getCityGeoCode(userCity) {
 //removing county from a city's name to make city name appear shorter on page
 function formatCityName(cityName) {
 
-    let getCounty = cityName.split(",");
+    let getCounty = cityName.split(","); //["Salem", "Marion County", "Illinois", "USA"]
 
     
     for (let i = 0; i < getCounty.length; i++) {
         
         if (getCounty[i].includes("County")) {
 
-            let county = getCounty.splice(i, 1); //Marion County 
+            let county = getCounty.splice(i, 1); //splice out Marion County 
 
         };
     };
 
-    let removedCounty = getCounty.join(",");
+    let removedCounty = getCounty.join(","); //Salem, Illinois, USA
 
     cityName = removedCounty;
 
@@ -452,12 +452,12 @@ function formatDate(date) {
 
 };
 
-//when use clicks add trail button, the trail's name will be added to the list
+//when user clicks "add trail" button, the trail's name will be added to the list
 function clickAddTrail() {
 
     $(".js-trail-results").on("click", ".js-add-trail", function(event) {
 
-        $(this).closest("li").find(".add-label").text(`Added!`); //change text of button when Add trail clicked
+        $(this).closest("li").find(".add-label").text(`Added!`); //change text of button when Add trail is clicked
 
         let trailName = $(this).closest("li").find(".trail-name").html();
 
@@ -586,7 +586,7 @@ function updateEditActivity() {
 
         title = $(this).closest("li").find(".activity-title").val();
 
-        if (title !== "" || title !== title) { //if title doesn't equal an empty input or doesn't equal itself
+        if (title !== "" || title !== title) { //if item's title doesn't equal an empty input or doesn't equal itself, change the title
 
             $(this).closest("li").find(".activity-item").text(`${title}`);
         
@@ -677,7 +677,7 @@ function openSearchTrails() {
 
 };
 
-//open and close seach filter section in search section by click or keypress on legend
+//open and close search filter section in search section by click or keypress on legend
 function refineSearch() {
 
     $(".refine-title").click(event => {
