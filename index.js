@@ -1,8 +1,41 @@
 'use strict';
 
-//HTML Geolocation API for getting coordinates of a user's location and return trails and sun times 
+//Global Variables
+
 let x = document.getElementById("demo");
 
+//ipgeolocation Astronomy API https://api.ipgeolocation.io/astronomy offers times based on time zones with latitude and longitude
+
+const geoAstronomyAPIKey = "170fa59d1a2c41ecbd0058cee382b898";
+
+const geoLocationAstronomyUrl = "https://api.ipgeolocation.io/astronomy";
+
+//The Hiking Project https://www.hikingproject.com/data/get-trails
+
+const apiHikingKey = "200636207-5a82966238be9f41a852d676740cfcdf";
+
+const hikingProjectUrl = "https://www.hikingproject.com/data/get-trails";
+
+//Location IQ API https://us1.locationiq.com/v1/search.php?key=YOUR_PRIVATE_TOKEN&q=SEARCH_STRING&format=json
+const apiToken = "f4e25901c1a5fc";
+
+const locationIqUrl = "https://us1.locationiq.com/v1/search.php";
+
+const jsonFormat = "json";
+
+//JSONP data inside function
+let call = function callbackGeoCode(data) {
+    console.log(data);
+};
+
+let latitude = null;
+let longitude = null;
+let cityName = null;
+let userActivity = null;
+let title = null;
+let timeOrNote = null;
+
+//HTML Geolocation API for getting coordinates of a user's location and return trails and sun times 
 function getLocation() {
   if (navigator.geolocation) {
 
@@ -27,11 +60,7 @@ function showPosition(position) {
     findTodaySun(latitude, longitude);
 };
 
-//ipgeolocation Astronomy API https://api.ipgeolocation.io/astronomy offers times based on time zones with latitude and longitude
 
-const geoAstronomyAPIKey = "170fa59d1a2c41ecbd0058cee382b898";
-
-const geoLocationAstronomyUrl = "https://api.ipgeolocation.io/astronomy";
 
 //Used with HTML Geolocation API when a user wants to use their location to find trails and today's date
 function findTodaySun(latitude, longitude) {
@@ -54,6 +83,7 @@ function findTodaySun(latitude, longitude) {
             throw new Error(response.statusText);
         })
         .then(responseJson => {
+
             let sunRiseTime = responseJson.sunrise;
             let newSunTime = removeLeadingZero(sunRiseTime);
             let militaryTime = responseJson.sunset;
@@ -166,11 +196,7 @@ function militaryTimeConverter(militaryTime) {
     return normalHour;
 };
 
-//The Hiking Project https://www.hikingproject.com/data/get-trails
 
-const apiHikingKey = "200636207-5a82966238be9f41a852d676740cfcdf";
-
-const hikingProjectUrl = "https://www.hikingproject.com/data/get-trails";
 
 function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance=30) {
 
@@ -296,12 +322,7 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
         });
 };
 
-//Location IQ API https://us1.locationiq.com/v1/search.php?key=YOUR_PRIVATE_TOKEN&q=SEARCH_STRING&format=json
-const apiToken = "f4e25901c1a5fc";
 
-const locationIqUrl = "https://us1.locationiq.com/v1/search.php";
-
-const jsonFormat = "json";
 
 //format query parameters for a url to make get requests to APIs
 function formatQuery(params) {
@@ -311,15 +332,6 @@ function formatQuery(params) {
     
     return queryItems.join("&");
 };
-
-//JSONP data inside function
-let call = function callbackGeoCode(data) {
-    console.log(data);
-};
-
-let latitude = null;
-let longitude = null;
-let cityName = null;
 
 //Using Location IQ to convert city names and places 
 //into latitude and longitude coordinates for the other APIs to use in their parameters
@@ -356,7 +368,6 @@ function getCityGeoCode(userCity) {
             $(".js-city-name").text(`Trails around ${cityName}`);
             $(".js-city-to-do").text(`${cityName}`);
             
-       
             let dateYearMonthDay = $("#date").val(); //2019-11-18
             let maxResults= $("#max-results").val();
             let minLength = $("#min-length").val();
@@ -482,7 +493,7 @@ function clickAddTrail() {
 };
 
 //allow user to add new items to list and input a value as the title of the item
-let userActivity = null;
+
 
 function addActivity() {
 
@@ -550,9 +561,6 @@ function clickEditDeleteActivity() {
 };
 
 //Allow user to change and save a list item's title and add notes
-let title = null;
-let timeOrNote = null;
-
 function updateEditActivity() {
 
     $(".activities").on("click", ".save-button", function(event) {
