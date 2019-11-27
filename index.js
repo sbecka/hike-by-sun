@@ -480,7 +480,7 @@ function clickAddTrail() {
                     <input type="text" name="activity-title" id="activity-title-1" class="activity-title" placeholder="${trailName}">
                     
                     <label for="time-note-1">Add or Change Notes Here</label>
-                    <input type="text" name="time-note" id="time-note-1" class="time-note" placeholder="Notes: 30 min">
+                    <input type="text" name="time-note" id="time-note-1" class="time-note" placeholder="e.g. Notes: 30 min">
 
                     <button class="save-button">Save Changes</button>
                 
@@ -527,7 +527,7 @@ function addActivity() {
                     <input type="text" name="activity-title" id="activity-title-1" class="activity-title" placeholder="${userActivity}">
                     
                     <label for="time-note-1">Add or Change Notes Here</label>
-                    <input type="text" name="time-note" id="time-note-1" class="time-note" placeholder="Notes: 30 min">
+                    <input type="text" name="time-note" id="time-note-1" class="time-note" placeholder="e.g. Notes: 30 min">
 
                     <button class="save-button">Save Changes</button>
                   
