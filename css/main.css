@@ -343,7 +343,7 @@ button:focus {
 }
 
 .save-button {
-    width: 100px;
+    width: 160px;
     height: 35px;
     font-size: 1.1em;
 }
@@ -824,6 +824,11 @@ fieldset {
     word-wrap: break-word;
 }
 
+.times-notes {
+    font-size: 0.9em;
+}
+
+
 .activity-item {
     width: 60%;
     padding-left: 3px;
@@ -837,6 +842,12 @@ fieldset {
     height: 2rem;
     padding-left: 3px;
     font-size: 1em;
+}
+
+.edit-information {
+    text-align: center;
+    width: 75%;
+    margin: 0 auto 20px;
 }
 
 .hide-refine-search, .hide-edit, .hide-add-activity, .hide-search, .hide-results {
@@ -1046,8 +1057,18 @@ fieldset {
         height: 250px;
     }
 
+    .edit-information {
+        font-size: 1.2em;
+        margin-bottom: 50px;
+    }
+
+    .times-notes {
+        font-size: 0.95em;
+    }    
+
     .save-button {
         height: 50px;
+        width: 200px;
     }
 
     .activities {

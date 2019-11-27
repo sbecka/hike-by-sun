@@ -476,13 +476,13 @@ function clickAddTrail() {
 
                 <div class="edit-activity hide-edit">
 
-                    <label for="activity-title">Activity Title</label>
-                    <input type="text" name="activity-title" id="activity-title" class="activity-title">
+                    <label for="activity-title-1">Change Item or Trail Name</label>
+                    <input type="text" name="activity-title" id="activity-title-1" class="activity-title" placeholder="${trailName}">
                     
-                    <label for="time-note">How much time or notes for activity?</label>
-                    <input type="text" name="time-note" id="time-note" class="time-note" placeholder="30 min">
+                    <label for="time-note-1">Add or Change Notes Here</label>
+                    <input type="text" name="time-note" id="time-note-1" class="time-note" placeholder="Notes: 30 min">
 
-                    <button class="save-button">Save</button>
+                    <button class="save-button">Save Changes</button>
                 
                 </div>
                 
@@ -523,13 +523,13 @@ function addActivity() {
 
                 <div class="edit-activity hide-edit">
 
-                    <label for="activity-title">Activity Title</label>
-                    <input type="text" name="activity-title" id="activity-title" class="activity-title">
+                    <label for="activity-title-1">Change Item or Trail Name</label>
+                    <input type="text" name="activity-title" id="activity-title-1" class="activity-title" placeholder="${userActivity}">
                     
-                    <label for="time-note">How much time or notes for activity?</label>
-                    <input type="text" name="time-note" id="time-note" class="time-note" placeholder="30 min">
+                    <label for="time-note-1">Add or Change Notes Here</label>
+                    <input type="text" name="time-note" id="time-note-1" class="time-note" placeholder="Notes: 30 min">
 
-                    <button class="save-button">Save</button>
+                    <button class="save-button">Save Changes</button>
                   
                 </div>
 
