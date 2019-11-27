@@ -252,6 +252,7 @@ button:focus {
     font-size: 1.45em;
     width: 150px;
     height: 40px;
+    margin-top: 20px;
 }
 
 .submit-button:hover {
@@ -459,6 +460,10 @@ fieldset {
     background-color: #EDFFC2;
     border: 1px solid #EDFFC2;
     border-radius: 5px;
+}
+
+.fieldset-refine {
+    margin-top: 20px;
 }
 
 .view-trails-submit {
@@ -1130,8 +1135,10 @@ fieldset {
     }
 
     .error-message {
+        text-align: center;
         font-size: 1.5em;
         width: 85%;
+        margin-top: 20px;
     }
 
     .view-trails-submit {
@@ -1156,6 +1163,22 @@ fieldset {
         font-size: 1.6em;
     }
 
+    .search-title {
+        margin-bottom: 30px;
+        padding-top: 90px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #379937;
+    }
+
+    .main-search, .refine-search {
+        height: 60px;
+        width: 650px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: baseline;
+    }
+
     .label-miles {
         border: none;
         font-weight: 600;
@@ -1173,15 +1196,6 @@ fieldset {
 
     .fa-angle-down {
         margin-left: 5px;
-    }
-
-    .refine-search {
-        height: 60px;
-        width: 650px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: baseline;
     }
 
     .filters {
