@@ -2,6 +2,7 @@
 
 //Global Variables
 
+//Use in HTML Geolocation API 
 let x = document.getElementById("demo");
 
 //ipgeolocation Astronomy API https://api.ipgeolocation.io/astronomy offers times based on time zones with latitude and longitude
@@ -23,7 +24,7 @@ const locationIqUrl = "https://us1.locationiq.com/v1/search.php";
 
 const jsonFormat = "json";
 
-//JSONP data inside function
+//JSONP data inside function for Location IQ API
 let call = function callbackGeoCode(data) {
     console.log(data);
 };
@@ -97,7 +98,7 @@ function findTodaySun(latitude, longitude) {
             $(".js-sunset").text(`${newHour} PM`);
         })
         .catch(error => {
-            return $(".js-error-message").text(`${error.message}`);
+            return $(".js-error-message").text(`Cannot get sunrise or sunset times for your place. The server or connection might be down right now.`);
         });
 };
 
@@ -135,7 +136,7 @@ function findSunTimes(latitude, longitude, dateYearMonthDay) {
         })
         .catch(error => {
 
-            return $(".js-error-message").text(`${error.message}`);
+            return $(".js-error-message").text(`Cannot get sunrise or sunset times for your place. The server or connection might be down right now.`);
 
         });
 
@@ -317,7 +318,7 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
         })
         .catch(error => {
 
-            return $(".js-error-message").text(`${error.message} trail data. Server is down.`);
+            return $(".js-error-message").text(`${error.message} trail data. The server is down.`);
         
         });
 };
@@ -378,7 +379,7 @@ function getCityGeoCode(userCity) {
         })
         .catch(error => {
 
-            return $(".js-error-message").text(`${error.message}`);
+            return $(".js-error-message").text(`Cannot get latitude and longitude coordinates of your place. The server or connection might be down right now.`);
 
         });
 
@@ -684,8 +685,8 @@ function listenToSubmit() {
 
         event.preventDefault();
         const userCity = $("#city").val();
-        getCityGeoCode(userCity);
         const userDate = $("#date").val();
+        getCityGeoCode(userCity);
         formatDate(userDate);
 
     });

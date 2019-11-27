@@ -550,7 +550,7 @@ fieldset {
 .error-message {
     margin: 10px auto;
     width: 90%;
-    height: 65px;
+    height: 90px;
     font-size: 1.1em;
     color: white;
     font-weight: 600;
@@ -1060,10 +1060,11 @@ fieldset {
     .edit-information {
         font-size: 1.2em;
         margin-bottom: 50px;
+        font-weight: 600;
     }
 
     .times-notes {
-        font-size: 0.95em;
+        font-size: 0.9em;
     }    
 
     .save-button {
@@ -1155,6 +1156,38 @@ fieldset {
         font-size: 1.6em;
     }
 
+    .label-miles {
+        border: none;
+        font-weight: 600;
+    }
+
+    .refine-title {
+        font-size: 1.2em;
+        font-weight: 700;
+        height: 40px;
+        min-width: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .fa-angle-down {
+        margin-left: 5px;
+    }
+
+    .refine-search {
+        height: 60px;
+        width: 650px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: baseline;
+    }
+
+    .filters {
+        align-items: center;
+    }
+
     .trail-results > li {
         width: 75vw;
         margin: 0 auto;
@@ -1171,6 +1204,10 @@ fieldset {
 
     .trail-details {
         padding-left: 36px;
+    }
+
+    .hide-refine-search {
+        display: none;
     }
 }
 
