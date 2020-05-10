@@ -229,7 +229,8 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
             if (responseJson.trails.length == 0) {
 
                 $(".js-city-name").text(`No trails in ${cityName}`);
-                $(".view-trails-submit").addClass("hide-results");
+                $(".view-trails-link-one").addClass("hide-results");
+                $(".view-trails-link-two").addClass("hide-results");
                 $(".js-trail-results").empty();
                 
                 return $(".js-error-message").text(`No trails found there. Try another place or plan your day.`);
@@ -245,7 +246,8 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
 
                     if (trailPhoto === "") { //check if a trail has a photo, if the value is empty don't include the photo
 
-                        $(".view-trails-submit").removeClass("hide-results");
+                        $(".view-trails-link-one").removeClass("hide-results");
+                        $(".view-trails-link-two").removeClass("hide-results");
                         
                         $(".js-trail-results").append(`
                         
@@ -280,7 +282,8 @@ function findTrails(latitude, longitude, maxResults=10, minLength=0, maxDistance
 
                     } else if (trailPhoto !== "") { //if photo value is not empty, then add it in the results
                         
-                        $(".view-trails-submit").removeClass("hide-results");
+                        $(".view-trails-link-one").removeClass("hide-results");
+                        $(".view-trails-link-two").removeClass("hide-results");
                         
                         $(".js-trail-results").append(`
                         

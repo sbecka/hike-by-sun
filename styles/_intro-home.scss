@@ -1,0 +1,86 @@
+/*Intro-Home Section*/
+
+.intro {
+    background-color: $third-color;
+    background-image: url('../images/erika-sedona-1.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    @include flexAlign(column, space-between, center);
+    width: 100%;
+    min-height: calc(100vh - 60px);
+    padding: 10px;
+    position: relative;
+
+    &-words {
+        min-height: 450px;
+        @include flexAlign(column, space-between, center);
+    }
+
+}
+
+.intro-description {
+    height: 160px;
+    width: 97%;
+    @include flex(column, space-around);
+
+    h2 {
+        font-family: $secondary-font-family;
+        line-height: 1.35em;
+        width: 289px;
+        margin: 20px auto;
+    }
+
+    p {
+        background: rgba(255, 255, 255, 0.88);
+        border-radius: 5px;
+        color: $fifth-color;
+        width: 280px;
+        margin-top: 0;
+        margin: 0 auto 20px;
+        padding: 3px;
+
+    }
+}
+
+.intro-search-local {
+    background: rgba(255, 255, 255, 0.88);
+    border-radius: 5px;
+    color: $fifth-color;
+    width: 272px;
+    height: 140px;
+    padding: 5px;
+    @include flex(column, space-around);
+}
+
+.view-example {
+    text-decoration: none;
+    color: $secondary-color;
+    font-weight: 700;
+}
+
+.view-example:hover,
+.view-example:focus {
+    color: $fourth-color;
+    background-color: $fifth-color;
+}
+
+.intro-buttons {
+    padding: 3px;
+}
+
+.local {
+    border-radius: 5px;
+    padding: 3px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#demo {
+    background: rgba(255, 255, 255, 0.75);
+    color: $fifth-color;
+}

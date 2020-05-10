@@ -1,0 +1,74 @@
+@import 'variables';
+@import 'config';
+@import 'navbar';
+
+/***General Styles***/
+body {
+    font-family: $primary-font-family;
+    font-size: 1em;
+    width: 100vw;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+header {
+    height: 60px;
+    width: 100vw;
+}
+
+section {
+    border: 1px solid $secondary-color;
+    border-bottom: 2px;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    image-rendering: auto;
+}
+
+.fa-sun {
+    color: #FFFF00;
+    background-color: #6495ED;
+    border-radius: 50%;
+}
+
+@import 'intro-home';
+@import 'todolist';
+@import 'buttons';
+@import 'search-section';
+@import 'trail-results';
+
+.view-trails-link-one,
+.view-trails-link-two {
+    bottom: 8px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 5px;
+    color: $secondary-color;
+    font-size: 1.4em;
+    padding: 3px;
+    margin-bottom: 0;
+    width: 210px;
+    align-self: center;
+    text-decoration: none;
+}
+
+.view-trails-link-one {
+    position: absolute;
+}
+
+.view-trails-link-two {
+    margin-bottom: 30px;
+}
+
+.hide-refine-search, 
+.hide-edit, 
+.hide-add-activity, 
+.hide-search, 
+.hide-results {
+    display: none;
+}
+
+@import 'responsive';

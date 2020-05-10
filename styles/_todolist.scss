@@ -1,0 +1,180 @@
+/*To Do List Section*/
+
+#to-do-list{
+    background-color: $primary-color;
+}
+
+.sunrise-icon {
+    font-size: 1.75em;
+    border-radius: 50%;
+}
+
+.to-do-list-title {
+    border-bottom: 3px solid #374024;
+    line-height: 1.8em;
+    font-family: $secondary-font-family;
+    margin: 25px auto;
+    width: 50vw;
+    text-align: center;
+}
+
+/**Edit To Do List**/
+
+.edit-activity {
+    background-color: white;
+    border: 1px solid #374024;
+    border-radius: 3px;
+    height: 200px;
+    @include flexAlign(column, space-around, center);
+
+    label {
+        padding-left: 5px;
+    }
+
+    input {
+        border: 1px solid $secondary-color;
+        border-radius: 2px;
+        height: 2rem;
+        padding-left: 3px;
+        font-size: 1em;
+    }
+
+}
+
+.activities {
+    width: 70vw;
+    padding: 0;
+    margin: 0 auto;
+    min-height: 70vh;
+    @include flexAlign(column, space-around, center);
+
+    li {
+        border: 1px solid #374024;
+        border-radius: 5px;
+        width: 69.75vw;
+        min-height: 30px;
+        @include flex(column, '');
+    }
+}
+
+.act-and-times {
+    width: 100%;
+    height: 100%;
+    @include flexAlign(row, space-between, center);
+}
+
+.times-or-notes {
+    min-height: 20px;
+    padding: 3px;
+}
+
+.refine-title:hover {
+    cursor: pointer;
+}
+
+.to-do-list-area {
+    width: 100vw;
+    margin: 0 auto;
+    @include flexAlign(column, space-evenly, center);
+}
+
+.times-and-list {
+    @include flex(row, space-around);
+}
+
+.suntimes {
+    width: 30vw;
+    @include flexAlign(column, space-between, center);
+
+    h5 {
+        font-size: 0.85em;
+    }
+}
+
+.planning-to-do-list {
+    background-color: white;
+    box-shadow: 3px 5px 5px grey;
+    border-radius: 3px;
+    width: 70vw;
+    margin-right: 5px;
+    @include flexAlign(column, '', center);
+}
+
+.suntimes, 
+.planning-to-do-list {
+    min-height: 40vh;
+}
+
+.list-item {
+    background-color: $third-color;
+    font-weight: 600;
+}
+
+.city-name {
+    margin-bottom: 0;
+    margin: 20px 0;
+    font-size: 1.3em;
+    text-align: center;
+}
+
+.date {
+    font-size: 1.2em;
+}
+
+.daytime {
+    text-align: center;
+}
+
+.time-values {
+    font-size: 0.85em;
+}
+
+.adding-activity {
+    background-color: $primary-color;
+    border: 1px solid #374024;
+    margin: 0 auto;
+    width: 100%;
+    height: 150px;
+    @include flex(column, '');
+
+    form {
+        height: 200px;
+        margin-bottom: 20px;
+        @include flexAlign(column, space-around, center);
+    }
+}
+
+.add-item-label {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.activity-item, 
+.times-notes {
+    word-wrap: break-word;
+}
+
+.times-notes {
+    font-size: 0.9em;
+}
+
+.activity-item {
+    width: 60%;
+    padding-left: 3px;
+}
+
+.activity-input {
+    width: 75%;
+    height: 30px;
+    border: 1px solid $secondary-color;
+    border-radius: 2px;
+    height: 2rem;
+    padding-left: 3px;
+    font-size: 1em;
+}
+
+.edit-information {
+    text-align: center;
+    width: 75%;
+    margin: 10px auto 20px;
+}

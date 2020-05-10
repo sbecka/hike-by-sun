@@ -1,0 +1,96 @@
+/*Trail Results Section*/
+
+#trails {
+    background-color: $third-color;
+
+    h2 {
+        font-family: $secondary-font-family;
+        margin: 20px auto;
+        width: 310px;
+        border-bottom: 3px solid #374024;
+        line-height: 1.8em;
+        text-align: center;
+    }
+}
+
+.trails-area {
+    width: 100vw;
+    @include flex(column, '');
+}
+
+.trail-results {
+    padding: 0;
+}
+
+.trail {
+    background-color: $primary-color;
+    width: 100vw;
+    border-bottom: 3px solid $third-color;
+    font-weight: 600;
+    font-size: 1.05em;
+    @include flex(column, '');
+
+    p {
+        padding: 3px 8px;
+        line-height: 1.3em;
+    }
+}
+
+.trail-heading {
+    @include flexAlign(row, space-around, center);
+    padding: 5px;
+    min-height: 60px;
+}
+
+.trail-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.trail-website {
+    color: $secondary-color;
+    line-height: 1.2em;
+
+    &:hover {
+        color: $sixth-color;
+    }
+
+    &:focus {
+        border: 1px solid $sixth-color;
+        border-radius: 5px;
+        color: $sixth-color;
+    }
+
+    &:visited {
+        color: $sixth-color;
+    }
+}
+
+.trail-details {
+    display: flex;
+}
+
+.trail-photo {
+    box-shadow: 3px 5px 5px grey;
+    min-width: 50%;
+    margin: 0 auto 8px;
+    max-width: 100vw;
+    max-height: 65%;
+}
+
+.rating, 
+.trail-length {    
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.rating {
+    width: 45%;
+    padding-left: 3px;
+}
+
+.trail-length {
+    width: 55%;
+}

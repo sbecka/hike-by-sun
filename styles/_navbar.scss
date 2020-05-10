@@ -1,0 +1,50 @@
+/*Navigation Bar*/
+nav {
+    background-color: $primary-color;
+    border-bottom: 1px solid $secondary-color;
+    position: fixed;
+    height: 60px;
+    width: 100vw;
+    top: 0;
+    z-index: 1;
+    @include flexAlign(row, space-between, center);
+}
+
+h1 {
+    font-family: $secondary-font-family;
+    margin-left: 10px;
+}
+
+.fa-bars {
+    font-size: 2.1em;
+    margin-right: 20px;
+}
+
+.fa-bars:hover {
+    color: $secondary-color;
+    cursor: pointer;
+}
+
+.fa-bars:focus {
+    color: $secondary-color;
+}
+
+.nav-list {
+    display: none;
+}
+
+.nav-links {
+    color: white;
+    font-family: $secondary-font-family;
+}
+
+.nav-links:hover, 
+.nav-links:focus {
+    border-bottom: 1px solid $primary-color;
+    font-size: 1.1em;
+}
+
+.nav-links, 
+.view-trails {
+    text-decoration: none;
+}

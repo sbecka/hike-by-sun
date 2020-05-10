@@ -1,0 +1,554 @@
+/**Media Queries**/
+
+/**Medium mobile screen width**/
+@include medium-mobile-screen {
+    .intro-description > p, 
+    .local {
+        font-size: 1.15em;
+    }
+
+    .intro-search-local {
+        width: 280px;
+    }
+
+    .intro-buttons {
+        width: 100%;
+    }
+
+    .try-button, 
+    .intro-buttons > .search-button {
+        width: 110px;
+        font-size: 1.1em;
+    }
+
+    .suntimes > {
+        h5 {
+            font-size: 1em;
+        }  
+    } 
+
+    .list-item, 
+    .filters > input {
+        font-size: 1.1em;
+    }
+
+    .main-search {
+        label {
+            font-size: 1.1em;
+        }  
+    }
+
+    .label-miles {
+        font-size: 1.1em;
+    }
+    
+    .refine-title {
+        font-size: 1.15em;
+    }
+
+    .refine-search > label, 
+    .filters > label {
+        font-size: 1.1em;
+    }
+
+    .trail-photo {
+        min-width: 250px;
+        max-width: 90%;
+        max-height: 67%;
+    }
+
+    .trail-name, 
+    .trail > p, 
+    .trail-details {
+        font-size: 1.2em;
+    }
+
+    .add-trail {
+        width: 110px;
+        height: 36px;
+        font-size: 0.9em;
+    }
+
+    .trail-website {
+        width: 75%;
+        line-height: 1.5em;
+    }
+}
+
+/**Larger mobile screen**/
+@include larger-mobile-screen {
+    .intro-description {
+        h2 {
+            background: rgba(255, 255, 255, 0.75);
+            border-radius: 5px;
+            padding: 3px;
+            width: 300px;
+        }  
+    } 
+    
+    .nav-links {
+        font-size: 1.2em;
+
+        &:hover,
+        &:focus {
+            font-size: 1.3em;
+        }
+    }
+
+    .city-name, 
+    .date {
+        font-size: 1.5em;
+    }
+
+    .suntimes > h5, 
+    .list-item {
+        font-size: 1.2em;
+    }
+    .trail-heading {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .trail {
+        p {
+            padding-left: 15px;
+        } 
+    } 
+
+    .trail-details {
+        padding-left: 12px;
+    }
+
+    .activity-input {
+        font-size: 1.2em;
+        width: 78%;
+    }
+}
+
+@include largest-mobile-screen {
+    .intro-description {
+        height: 200px;
+
+        h2 {
+            font-size: 1.5em;
+            width: 310px;
+        }
+    }
+}
+
+/*Prepare for tablet sceeens*/
+
+@include tablet-screen-width {
+    .intro-words {
+        min-height: 300px;
+    }
+
+    .respond-to-hamburger {
+        height: 220px;
+    }
+
+    .nav-links {
+        font-size: 1.5em;
+
+        &:hover,
+        &:focus {
+            font-size: 1.6em;
+        }
+    }
+
+    .intro-description {
+       h2 {
+            width: 500px;
+            text-align: center;
+        } 
+    } 
+
+    .intro-search-local {
+        width: 450px;
+        height: 100px;
+    }
+
+    .intro-search-local > .local {
+        padding-top: 7px;
+    }
+
+    .view-trails-submit {
+        font-size: 1.5em;
+        width: 250px;
+        font-weight: 600;
+    }
+
+    .to-do-list-title {
+        font-size: 2em;
+        width: 30vw;
+    }
+
+    .to-do-list-area > .city-name, 
+    .date {
+        font-size: 1.9em;
+    }
+
+    .suntimes {
+        font-size: 1.1em;
+        width: 20vw;
+    }
+
+    .sunrise-icon {
+        font-size: 2.4em;
+    }
+
+    .planning-to-do-list {
+        width: 68vw;
+    }
+
+    .edit-delete-buttons {
+        width: 130px;
+        height: 55px;
+    }
+
+    .edit-button, 
+    .delete-button {
+        width: 50%;
+        height: 100%;
+    }
+
+    .edit-activity {
+        height: 250px;
+    }
+
+    .edit-information {
+        font-size: 1.2em;
+        margin-bottom: 50px;
+        font-weight: 600;
+    }
+
+    .times-notes {
+        font-size: 0.9em;
+    }    
+
+    .save-button {
+        height: 50px;
+        width: 200px;
+    }
+
+    .activities {
+        min-height: 60vh;
+        width: 68vw;
+    }
+
+    .activities {
+        li {
+            min-height: 90px;
+            width: 68vw;
+            font-size: 1.3em;
+        } 
+    } 
+
+    .activity-item {
+        width: 70%;
+    }
+
+    .add-search-buttons {
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+     }
+
+    .add-an-activity-button, 
+    .search-button {
+        height: 50px;
+        width: 160px;
+        font-size: 1.1em;
+    }
+
+    .close-search-button, 
+    .close-activity-button {
+        font-size: 1.5em;
+    }
+
+    .adding-activity > {
+      form {
+            flex-direction: row;
+            max-width: 490px;
+            max-height: 52px;
+            margin-left: auto;
+            margin-right: auto;
+            align-items: center;
+        }  
+    } 
+
+    .add-item-label {
+        align-self: center;
+        font-size: 1.6em;
+        margin-bottom: 0;
+        width: 110px;
+        max-height: 30px;
+    }
+
+    .activity-input-and-button {
+        width: 368px;
+        margin-left: 5px;
+    }
+
+    .activity-input, 
+    .add-activity-button {
+        font-size: 1.4em;
+    }
+
+    .error-message {
+        text-align: center;
+        font-size: 1.5em;
+        width: 85%;
+        margin-top: 20px;
+    }
+
+    .view-trails-submit {
+        width: 230px;
+    }
+
+    #trails > {
+        h2 {
+            font-size: 2em;
+            width: 415px;
+        }  
+    }
+
+    .trail-photo {
+        max-width: 75%;
+        max-height: 68%;
+    }
+
+    .search-trail > {
+        h2 {
+            font-size: 2em;
+        }  
+    } 
+
+    .city-name {
+        font-size: 1.6em;
+    }
+
+    .search-title {
+        margin-bottom: 30px;
+        padding-top: 90px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid $secondary-color;
+    }
+
+    .main-search, 
+    .refine-search {
+        height: 60px;
+        width: 650px;
+        @include flexAlign(row, space-around, baseline);
+    }
+
+    .label-miles {
+        border: none;
+        font-weight: 600;
+    }
+
+    .refine-title {
+        font-size: 1.2em;
+        font-weight: 700;
+        height: 40px;
+        min-width: 150px;
+        @include flexAlign(row, center, center);
+    }
+
+    .fa-angle-down {
+        margin-left: 5px;
+    }
+
+    .filters {
+        align-items: center;
+    }
+
+    .trail-results {
+        li {
+            width: 75vw;
+            margin: 0 auto;
+        }  
+    } 
+
+    .trail-heading {
+        width: 70vw;
+        padding-left: 40px;
+    }
+
+    .trail > {
+        p {
+            padding: 8px 20px 8px 40px;
+        } 
+    } 
+
+    .trail-details {
+        padding-left: 24px;
+    }
+
+    .hide-refine-search {
+        display: none;
+    }    
+}
+
+/**Switch to Landscape Image for larger screens**/
+@media screen and (min-width: 665px) and (min-height: 650px) {
+
+    .intro {
+        background-image: url('../images/thunder-mtn-sedona.jpg');
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+    }
+}
+
+/*Make sure navigation links are hidden till this width**/
+@media screen and (max-width: 768px) {
+
+    .responsive {
+        display: none;
+    }
+
+    .respond-to-hamburger {
+        background-color: $secondary-color;
+        position: absolute;
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+        min-height: 180px;
+        top: 60px;
+        margin-top: 0;
+        @include flex(column, space-around);
+    }
+ 
+}
+
+/*Display navigation links and hide hamburger icon*/
+@media screen and (min-width: 769px) {
+
+    nav {
+        @include flexAlign(row, space-between, center);
+    }
+
+    .nav-list {
+        width: 65vw;
+        font-size: 0.9em;
+        overflow: hidden;
+        @include flexAlign(row, space-around, center);
+    }
+
+    .nav-links {
+        color: $fifth-color;
+    }
+    
+    .hamburger-icon {
+        display: none;
+    }
+
+}
+
+/*iPad Screen*/
+@include tablet-screen-width-height {
+    .intro {
+        a {
+            bottom: 30px;
+        }  
+    } 
+}
+
+/*iPad Pro*/
+@include larger-tablet-screen {
+    .intro-description > {
+       h2 {
+            margin-top: 40px;
+            width: 60%;
+        }
+    } 
+
+    .intro-description {
+        p {
+            width: 40%;
+        }  
+    } 
+
+    .intro-search-local {
+        width: 50%;
+    }
+
+    .intro {
+        a {
+            bottom: 30px;
+        }  
+    } 
+
+}
+
+/**Largest Width Screens**/
+@include large-screens {
+    .intro-words {
+        min-height: 300px;
+    }
+
+    .edit-information {
+        margin-top: 20px;
+    }
+
+    .times-and-list {
+        width: 60vw;
+        margin: 0 auto;
+    }
+
+    .planning-to-do-list, 
+    .activities > li {
+        width: 40vw;
+    }
+
+    .activities {
+        width: 40vw;
+        min-height: 524px;
+    }
+
+    .add-search-buttons {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        min-height: 130px;
+     }
+
+     .adding-activity > {
+        form {
+            max-width: 520px;
+        }  
+     }
+
+    .activity-input-and-button {
+        width: 390px;
+        margin-left: 5px;
+    }
+
+    .activity-input {
+        width: 310px;
+    }
+
+    .close-search-button, 
+    .close-activity-button {
+        margin-right: 100px;
+    }
+
+    .trail-results > li {
+        width: 615px;
+    }
+
+    .trail-heading {
+        width: 600px;
+    }
+
+    .trail-name:hover, 
+    .trail-name:focus {
+        font-size: 1.25em;
+        margin-right: 3px;
+    }
+}
