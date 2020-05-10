@@ -36,6 +36,7 @@ The user can learn more about a trail on the Hiking Project website by clicking 
 <ul>
   <li>HTML</li>
   <li>CSS</li>
+  <li>Sass</li>
   <li>Javascript</li>
   <li>jQuery</li>
 </ul>
